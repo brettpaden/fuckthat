@@ -1,0 +1,27 @@
+<h1>Listing fuckers</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Password</th>
+    <th>Facebook</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @fuckers.each do |fucker| %>
+  <tr>
+    <td><%= fucker.name %></td>
+    <td><%= fucker.password %></td>
+    <td><%= fucker.facebook_id %></td>
+    <td><%= link_to 'Show', fucker %></td>
+    <td><%= link_to 'Edit', edit_fucker_path(fucker) %></td>
+    <td><%= link_to 'Destroy', fucker, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Fucker', new_fucker_path %>

@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "group:app"
+      name = "app">
+      <Group
+         location = "group:assets"
+         name = "assets">
+         <Group
+            location = "group:images"
+            name = "images">
+            <FileRef
+               location = "group:rails.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:javascripts"
+            name = "javascripts">
+            <FileRef
+               location = "group:application.js">
+            </FileRef>
+            <FileRef
+               location = "group:fuckers.js.coffee">
+            </FileRef>
+            <FileRef
+               location = "group:fucks.js.coffee">
+            </FileRef>
+            <FileRef
+               location = "group:thats.js.coffee">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:stylesheets"
+            name = "stylesheets">
+            <FileRef
+               location = "group:application.css">
+            </FileRef>
+            <FileRef
+               location = "group:fuckers.css.scss">
+            </FileRef>
+            <FileRef
+               location = "group:fucks.css.scss">
+            </FileRef>
+            <FileRef
+               location = "group:scaffolds.css.scss">
+            </FileRef>
+            <FileRef
+               location = "group:thats.css.scss">
+            </FileRef>
+         </Group>
+      </Group>
+      <Group
+         location = "group:controllers"
+         name = "controllers">
+         <FileRef
+            location = "group:application_controller.rb">
+         </FileRef>
+         <FileRef
+            location = "group:fuckers_controller.rb">
+         </FileRef>
+         <FileRef
+            location = "group:fucks_controller.rb">
+         </FileRef>
+         <FileRef
+            location = "group:thats_controller.rb">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:helpers"
+         name = "helpers">
+         <FileRef
+            location = "group:application_helper.rb">
+         </FileRef>
+         <FileRef
+            location = "group:fuckers_helper.rb">
+         </FileRef>
+         <FileRef
+            location = "group:fucks_helper.rb">
+         </FileRef>
+         <FileRef
+            location = "group:thats_helper.rb">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:mailers"
+         name = "mailers">
+      </Group>
+      <Group
+         location = "group:models"
+         name = "models">
+         <FileRef
+            location = "group:fuck.rb">
+         </FileRef>
+         <FileRef
+            location = "group:fucker.rb">
+         </FileRef>
+         <FileRef
+            location = "group:that.rb">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:views"
+         name = "views">
+         <Group
+            location = "group:fuckers"
+            name = "fuckers">
+            <FileRef
+               location = "group:_form.html.erb">
+            </FileRef>
+            <FileRef
+               location = "group:edit.html.erb">
+            </FileRef>
+            <FileRef
+               location = "group:index.html.erb">
+            </FileRef>
+            <FileRef
+               location = "group:new.html.erb">
+            </FileRef>
+            <FileRef
+               location = "group:show.html.erb">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:fucks"
+            name = "fucks">
+            <FileRef
+               location = "group:_form.html.erb">
+            </FileRef>
+            <FileRef
+               location = "group:edit.html.erb">
+            </FileRef>
+            <FileRef
+               location = "group:index.html.erb">
+            </FileRef>
+            <FileRef
+               location = "group:new.html.erb">
+            </FileRef>
+            <FileRef
+               location = "group:show.html.erb">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:layouts"
+            name = "layouts">
+            <FileRef
+               location = "group:application.html.erb">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:thats"
+            name = "thats">
+            <FileRef
+               location = "group:_form.html.erb">
+            </FileRef>
+            <FileRef
+               location = "group:edit.html.erb">
+            </FileRef>
+            <FileRef
+               location = "group:index.html.erb">
+            </FileRef>
+            <FileRef
+               location = "group:new.html.erb">
+            </FileRef>
+            <FileRef
+               location = "group:show.html.erb">
+            </FileRef>
+         </Group>
+      </Group>
+   </Group>
+   <Group
+      location = "group:config"
+      name = "config">
+      <FileRef
+         location = "group:application.rb">
+      </FileRef>
+      <FileRef
+         location = "group:boot.rb">
+      </FileRef>
+      <FileRef
+         location = "group:database.yml">
+      </FileRef>
+      <FileRef
+         location = "group:environment.rb">
+      </FileRef>
+      <Group
+         location = "group:environments"
+         name = "environments">
+         <FileRef
+            location = "group:development.rb">
+         </FileRef>
+         <FileRef
+            location = "group:production.rb">
+         </FileRef>
+         <FileRef
+            location = "group:test.rb">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:initializers"
+         name = "initializers">
+         <FileRef
+            location = "group:backtrace_silencers.rb">
+         </FileRef>
+         <FileRef
+            location = "group:inflections.rb">
+         </FileRef>
+         <FileRef
+            location = "group:mime_types.rb">
+         </FileRef>
+         <FileRef
+            location = "group:secret_token.rb">
+         </FileRef>
+         <FileRef
+            location = "group:session_store.rb">
+         </FileRef>
+         <FileRef
+            location = "group:wrap_parameters.rb">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:locales"
+         name = "locales">
+         <FileRef
+            location = "group:en.yml">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:routes.rb">
+      </FileRef>
+   </Group>
+   <FileRef
+      location = "group:config.ru">
+   </FileRef>
+   <Group
+      location = "group:db"
+      name = "db">
+      <FileRef
+         location = "group:development.sqlite3">
+      </FileRef>
+      <Group
+         location = "group:migrate"
+         name = "migrate">
+         <FileRef
+            location = "group:20120319232740_create_thats.rb">
+         </FileRef>
+         <FileRef
+            location = "group:20120319232823_create_fuckers.rb">
+         </FileRef>
+         <FileRef
+            location = "group:20120319232842_create_fucks.rb">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:seeds.rb">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:doc"
+      name = "doc">
+      <FileRef
+         location = "group:README_FOR_APP">
+      </FileRef>
+   </Group>
+   <FileRef
+      location = "group:Gemfile">
+   </FileRef>
+   <FileRef
+      location = "group:Gemfile.lock">
+   </FileRef>
+   <Group
+      location = "group:lib"
+      name = "lib">
+      <Group
+         location = "group:assets"
+         name = "assets">
+      </Group>
+      <Group
+         location = "group:tasks"
+         name = "tasks">
+      </Group>
+   </Group>
+   <Group
+      location = "group:log"
+      name = "log">
+      <FileRef
+         location = "group:development.log">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:public"
+      name = "public">
+      <FileRef
+         location = "group:404.html">
+      </FileRef>
+      <FileRef
+         location = "group:422.html">
+      </FileRef>
+      <FileRef
+         location = "group:500.html">
+      </FileRef>
+      <FileRef
+         location = "group:favicon.ico">
+      </FileRef>
+      <FileRef
+         location = "group:index.html">
+      </FileRef>
+      <FileRef
+         location = "group:robots.txt">
+      </FileRef>
+   </Group>
+   <FileRef
+      location = "group:Rakefile">
+   </FileRef>
+   <FileRef
+      location = "group:README">
+   </FileRef>
+   <FileRef
+      location = "group:README.rdoc">
+   </FileRef>
+   <Group
+      location = "group:script"
+      name = "script">
+      <FileRef
+         location = "group:rails">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:test"
+      name = "test">
+      <Group
+         location = "group:fixtures"
+         name = "fixtures">
+         <FileRef
+            location = "group:fuckers.yml">
+         </FileRef>
+         <FileRef
+            location = "group:fucks.yml">
+         </FileRef>
+         <FileRef
+            location = "group:thats.yml">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:functional"
+         name = "functional">
+         <FileRef
+            location = "group:fuckers_controller_test.rb">
+         </FileRef>
+         <FileRef
+            location = "group:fucks_controller_test.rb">
+         </FileRef>
+         <FileRef
+            location = "group:thats_controller_test.rb">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:integration"
+         name = "integration">
+      </Group>
+      <Group
+         location = "group:performance"
+         name = "performance">
+         <FileRef
+            location = "group:browsing_test.rb">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:test_helper.rb">
+      </FileRef>
+      <Group
+         location = "group:unit"
+         name = "unit">
+         <FileRef
+            location = "group:fuck_test.rb">
+         </FileRef>
+         <FileRef
+            location = "group:fucker_test.rb">
+         </FileRef>
+         <Group
+            location = "group:helpers"
+            name = "helpers">
+            <FileRef
+               location = "group:fuckers_helper_test.rb">
+            </FileRef>
+            <FileRef
+               location = "group:fucks_helper_test.rb">
+            </FileRef>
+            <FileRef
+               location = "group:thats_helper_test.rb">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:that_test.rb">
+         </FileRef>
+      </Group>
+   </Group>
+   <Group
+      location = "group:tmp"
+      name = "tmp">
+      <Group
+         location = "group:cache"
+         name = "cache">
+         <Group
+            location = "group:assets"
+            name = "assets">
+            <Group
+               location = "group:CF0"
+               name = "CF0">
+               <Group
+                  location = "group:DA0"
+                  name = "DA0">
+                  <FileRef
+                     location = "group:sprockets%2Fd7d5b37686831d37c4dd75e645f5e016">
+                  </FileRef>
+               </Group>
+            </Group>
+            <Group
+               location = "group:E25"
+               name = "E25">
+               <Group
+                  location = "group:4C0"
+                  name = "4C0">
+                  <FileRef
+                     location = "group:sprockets%2Fde2fd9fd11c04a582cdbbe3d84a35ae6">
+                  </FileRef>
+               </Group>
+            </Group>
+         </Group>
+      </Group>
+      <Group
+         location = "group:pids"
+         name = "pids">
+         <FileRef
+            location = "group:server.pid">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:sessions"
+         name = "sessions">
+      </Group>
+      <Group
+         location = "group:sockets"
+         name = "sockets">
+      </Group>
+   </Group>
+   <Group
+      location = "group:vendor"
+      name = "vendor">
+      <Group
+         location = "group:assets"
+         name = "assets">
+         <Group
+            location = "group:javascripts"
+            name = "javascripts">
+         </Group>
+         <Group
+            location = "group:stylesheets"
+            name = "stylesheets">
+         </Group>
+      </Group>
+      <Group
+         location = "group:plugins"
+         name = "plugins">
+      </Group>
+   </Group>
+</Workspace>
