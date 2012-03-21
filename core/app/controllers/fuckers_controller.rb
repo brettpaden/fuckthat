@@ -74,7 +74,6 @@ class FuckersController < ApplicationController
   # POST /fuckers.json
   def create
     @fucker = Fucker.new(params[:fucker])
-
     respond_to do |format|
       if @fucker.save
         format.html { redirect_to @fucker, notice: 'Fucker was successfully created.' }
@@ -118,4 +117,43 @@ class FuckersController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  # POST /fuckers/authenticate
+  def authenticate
+    respond_to do |format|
+      if Fucker.authenticate params[:fucker]['name'], params[:fucker]['password']
+        format.html { redirect_to fucks_path }
+        format.json { head :ok }
+      else
+        @fucker = Fucker.new(params[:fucker])
+        @fucker.errors.add :password, "is incorrect or fucker is invalid"
+        format.html {render action: 'login' }
+        format.json {render json: @fucker.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # logout
+  def logout
+    do_logout
+    respond_to do |format|
+      format.html { redirect_to fucks_path, notice: 'user logged out.' }
+      format.json { head :ok }
+    end
+  end
+  
+  # do logout
+  def do_logout
+    session[:user] = nil
+  end
+  
+  # login
+  def login
+    @fucker = Fucker.new(params[:user])
+    respond_to do |format|
+      format.html # login.html.erb
+      format.json { render json: @fucker }
+    end
+  end
 end
+  

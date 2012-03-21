@@ -1,9 +1,14 @@
 Core::Application.routes.draw do
-  resources :fucks
 
-  resources :fuckers, :thats, :fucks
-
-
+  resources :thats, :fucks
+  
+  resources :fuckers do
+    collection do
+      post 'authenticate'
+      get 'login'
+    end
+  end
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
