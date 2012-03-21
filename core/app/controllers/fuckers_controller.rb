@@ -2,12 +2,45 @@ class FuckersController < ApplicationController
   # GET /fuckers
   # GET /fuckers.json
   def index
-    @fuckers = Fucker.all
+    # Collect, with exception protection 
+    # Note that this is "lazy" collection, the query itself will be performed upon render
+    begin
+      @fuckers = Fucker.
+        where(params[:name] ? {:name => params[:name]} : nil).
+        order(params[:sort]).
+        offset(params[:start]).
+        limit(params[:limit])
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @fuckers }
+      # This is eager loading, and apparently will be deprecated in Rails 3.2...?
+#      @fuckers = Fucker.all( 
+#        :conditions => params[:name] ? {:name => params[:name]} : nil,
+#        :order => params[:sort] || nil, 
+#        :offset => params[:start] || nil, 
+#        :limit => params[:limit] || nil)
+    rescue => err
+      $log.warn(err)
     end
+    
+    # Respond HTML or JSON, with exception protection    
+    begin
+      respond_to do |format|
+        if err
+          # Result of eager loading
+          format.html { redirect_to fuckers_path, notice: "Error collecting fuckers: #{err}" }
+          format.json { render json: err, status: :unprocessable_entity }
+        else
+          format.html # index.html.erb
+          format.json { render json: @fuckers }
+        end
+      end
+    rescue => err
+      # Result of lazy loading
+      $log.warn(err)
+      respond_to do |format|
+        format.html { redirect_to fuckers_path, notice: "Error collecting fuckers: #{err}" }
+        format.json { render json: err, status: :unprocessable_entity }
+      end
+    end 
   end
 
   # GET /fuckers/1
@@ -73,6 +106,11 @@ class FuckersController < ApplicationController
   # DELETE /fuckers/1.json
   def destroy
     @fucker = Fucker.find(params[:id])
+    # Decrement each of this fucker's fuck count ... IS THIS REALLY WHAT WE WANT TO DO???
+    @fucker.fucks.each do |f|
+      f.that.fuck_count -= 1
+      f.that.save
+    end
     @fucker.destroy
 
     respond_to do |format|

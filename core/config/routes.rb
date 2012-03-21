@@ -1,5 +1,7 @@
 Core::Application.routes.draw do
-  resources :fucks, :fuckers, :thats
+  resources :fucks
+
+  resources :fuckers, :thats, :fucks
 
 
   # The priority is based upon order of creation:

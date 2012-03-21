@@ -3,8 +3,7 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Password</th>
-    <th>Facebook</th>
+    <th>Facebook ID</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,7 +12,6 @@
 <% @fuckers.each do |fucker| %>
   <tr>
     <td><%= fucker.name %></td>
-    <td><%= fucker.password %></td>
     <td><%= fucker.facebook_id %></td>
     <td><%= link_to 'Show', fucker %></td>
     <td><%= link_to 'Edit', edit_fucker_path(fucker) %></td>
