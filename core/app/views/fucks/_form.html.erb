@@ -1,0 +1,25 @@
+<%= form_for(@fuck) do |f| %>
+  <% if @fuck.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@fuck.errors.count, "error") %> prohibited this fuck from being saved:</h2>
+
+      <ul>
+      <% @fuck.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :fucker %><br />
+    <%= f.select(:fucker_id, options_for_select(Fucker.all.collect {|f| [f.name, f.id]})) %>
+  </div>
+  <div class="field">
+    <%= f.label :that %><br />
+    <%= f.select(:that_id, options_for_select(That.all.collect {|t| [t.url, t.id]})) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

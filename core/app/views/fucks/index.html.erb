@@ -1,0 +1,28 @@
+<h1>Listing fucks</h1>
+
+<% if @fuck_count then %>
+  <p><%= @fuck_count %></p>
+<% else %>
+  <table>
+    <tr>
+      <th>Fucker</th>
+      <th>That</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <% @fucks.each do |fuck| %>
+      <tr>
+        <td><%= fuck.fucker.name %></td>
+        <td><%= fuck.that.url %></td>
+        <td><%= link_to 'Show', fuck %></td>
+        <td><%= link_to 'Edit', edit_fuck_path(fuck) %></td>
+        <td><%= link_to 'Destroy', fuck, confirm: 'Are you sure?', method: :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+
+<br />
+
+<%= link_to 'New Fuck', new_fuck_path %>

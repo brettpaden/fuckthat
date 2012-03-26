@@ -1,0 +1,32 @@
+<%= form_for(@fucker, :url => (authenticate_fuckers_path if login)) do |f| %>
+  <% if @fucker.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@fucker.errors.count, "error") %> prohibited this fucker from being saved:</h2>
+
+      <ul>
+      <% @fucker.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </div>
+  <% if !login %>
+    <div class="field">
+      <%= f.label :facebook_id %><br />
+      <%= f.number_field :facebook_id %>
+    </div>
+  <% end %>
+  <div class="actions">
+    <%= f.submit button_text %>
+  </div>
+<% end %>
+

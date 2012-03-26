@@ -1,0 +1,102 @@
+
+REALLY quick and dirty API for FuckThat core
+
+
+Fuckers:
+  Schema:
+    id          : integer, primary key
+    name        : string,
+    password    : string,
+    facebook_id : integer
+    
+  Rails API:
+    GET /fuckers.json
+      Return array of fuckers, the following query parameters are optional:
+        sort=<sort_string>    : <sort_string> is an SQL ORDER BY string (eg. ?sort=name DESC)
+        start=<start_rec>     : <start_rec> is a number for LIMIT clause (eg. ?start=5)
+        limit=<limit_rec>     : <limit_rec> is a number for LIMIT clause (eg. ?limit=10)
+        name=<name>           : <name> is the name of a fucker (eg. ?name=colin)
+        
+    GET /fuckers/:id.json
+      Return the fucker associated with :id
+      
+    POST /fuckers.json
+      Create a new fucker, expects a fucker object (name, password, facebook_id)
+      Uniqueness of name is enforced
+      
+    PUT /fuckers/:id.json (name, password, facebook_id)
+      Update a fucker, expects a fucker object
+      Uniqueness of name is enforced
+      
+    DELETE /fuckers/:id
+      Destroy a fucker, and all associated "fucks" (is that what it should do?)
+      Side effect is to decrement all the that fuck_counts for this fucker (is this what it should do?)
+      
+    POST fuckers/authenticate
+      Authenticate a fucker, expects a fucker object (name, password, facebook_id)
+      
+Thats:
+  Schema:
+    id          : integer, primary key
+    url         : URL
+    fuck_count  : integer
+   
+  Rails API:
+    GET thats.json
+      Return array of thats, the following query parameters are optional:
+        sort=<sort_string>    : <sort_string> is an SQL ORDER BY string (eg. ?sort=url DESC)
+        start=<start_rec>     : <start_rec> is a number for LIMIT clause (eg. ?start=5)
+        limit=<limit_rec>     : <limit_rec> is a number for LIMIT clause (eg. ?limit=10)
+        url=<url>             : <url> is the url for a that (eg. ?url=http://www.facebook.com)
+
+    GET /thats/:id.json
+      Return the that associated with :id
+      
+    POST /thats.json
+      Create a new that, expects a that object (url, fuck_count)
+      Uniqueness of url is enforced
+      fuck_count set to 0 (incoming 'fuck_count' is ignored)
+      
+    PUT /thats/:id.json
+      Returns an error, update of that not allowed (i.e. if the url is updated, it's a new that)
+      
+    DELETE /fuckers/:id
+      Destroy a fucker, and all associated "fucks" (is that what it should do?)
+      Side effect is to decrement all the 'that' fuck_counts for this fucker (is this what it should do?)
+
+Fucks:
+  Schema:
+    id          : integer, primary key
+    that_id     : Foreign_key to that table
+    fucker_id   : Foreign_key to fucker table
+    
+  Rails API:
+    GET fucks.json
+      Return array of fucks, the following query parameters are optional:
+        sort=<sort_string>    : <sort_string> is an SQL ORDER BY string (eg. ?sort=name DESC)
+            Note that 'name' and 'url' are valid fields for sorting, through joins on the associations
+        start=<start_rec>     : <start_rec> is a number for LIMIT clause (eg. ?start=5)
+        limit=<limit_rec>     : <limit_rec> is a number for LIMIT clause (eg. ?limit=10)
+        fucker_id=<id>        : <id> is the id of a fucker (eg. ?fucker_id=1)
+        name=<name>           : <name> is the name of a fucker (eg. ?name=colin)
+        fucker=<fucker>       : <fucker> same as <name>
+        that_id=<id>          : <id> is the id of a that (eg. ?that_id=1)
+        url=<url>             : <url> is the url of a that (eg. ?url=http://www.facebook.com)
+        that=<that>           : <that> same as <url> 
+        count=                : returns the count of items, instead of an array (eg. ?url=http://www.facebook.com&count=)
+        
+    GET /fucks/:id.json
+      Return the fuck associated with :id
+      
+    POST /fucks.json
+      Create a new fuck, expects a fuck object (fucker_id, that_id)
+      Error returned if a fuck with the same fucker and that already exists
+      Side effect is to increment the fuck_count for the associated 'that'
+      
+    PUT /fucks/:id.json
+      Returns an error, update of fuck not allowed (no reason to for now)
+      
+    DELETE /fucks/:id
+      Destroy a fuck
+      Side effect is to decrement the fuck_count for the associated 'that'
+

@@ -1,0 +1,2559 @@
+# Logfile created on 2012-03-20 12:46:37 -0700 by logger.rb/31641
+hello
+hello
+hello
+trying...
+err=nil
+@fuckers=[#<Fucker id: 1, name: "colin", password: "test", facebook_id: 123, created_at: "2012-03-20 18:56:17", updated_at: "2012-03-20 18:56:17">, #<Fucker id: 2, name: "pez", password: "test", facebook_id: nil, created_at: "2012-03-20 18:56:30", updated_at: "2012-03-20 18:56:30">, #<Fucker id: 3, name: "brett", password: "test", facebook_id: 124, created_at: "2012-03-20 18:56:48", updated_at: "2012-03-20 18:56:48">, #<Fucker id: 4, name: "=", password: "test", facebook_id: nil, created_at: "2012-03-20 18:58:44", updated_at: "2012-03-20 18:58:44">]
+hello
+trying...
+rescuing...
+err=#<ActiveRecord::StatementInvalid: SQLite3::SQLException: no such column: efij: SELECT "fuckers".* FROM "fuckers"  ORDER BY efij>
+@fuckers=nil
+hello
+trying...
+err=nil
+@fuckers=[#<Fucker id: 1, name: "colin", password: "test", facebook_id: 123, created_at: "2012-03-20 18:56:17", updated_at: "2012-03-20 18:56:17">, #<Fucker id: 2, name: "pez", password: "test", facebook_id: nil, created_at: "2012-03-20 18:56:30", updated_at: "2012-03-20 18:56:30">, #<Fucker id: 3, name: "brett", password: "test", facebook_id: 124, created_at: "2012-03-20 18:56:48", updated_at: "2012-03-20 18:56:48">, #<Fucker id: 4, name: "=", password: "test", facebook_id: nil, created_at: "2012-03-20 18:58:44", updated_at: "2012-03-20 18:58:44">]
+hello
+trying...
+rescuing...
+err=#<ActiveRecord::StatementInvalid: SQLite3::SQLException: no such column: ewfiow: SELECT "fuckers".* FROM "fuckers"  ORDER BY ewfiow>
+@fuckers=nil
+hello
+trying...
+err=nil
+@fuckers=[#<Fucker id: 1, name: "colin", password: "test", facebook_id: 123, created_at: "2012-03-20 18:56:17", updated_at: "2012-03-20 18:56:17">, #<Fucker id: 2, name: "pez", password: "test", facebook_id: nil, created_at: "2012-03-20 18:56:30", updated_at: "2012-03-20 18:56:30">, #<Fucker id: 3, name: "brett", password: "test", facebook_id: 124, created_at: "2012-03-20 18:56:48", updated_at: "2012-03-20 18:56:48">, #<Fucker id: 4, name: "=", password: "test", facebook_id: nil, created_at: "2012-03-20 18:58:44", updated_at: "2012-03-20 18:58:44">]
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+#<ActiveRecord::StatementInvalid: Could not find table 'fucks'>
+hello
+#<ActiveRecord::StatementInvalid: Could not find table 'fucks'>
+hello
+#<ActiveRecord::StatementInvalid: Could not find table 'fucks'>
+hello
+#<ActiveRecord::StatementInvalid: Could not find table 'fucks'>
+hello
+#<ActiveRecord::StatementInvalid: Could not find table 'fucks'>
+hello
+#<ActiveRecord::StatementInvalid: Could not find table 'fucks'>
+hello
+#<ActiveRecord::StatementInvalid: Could not find table 'fucks'>
+hello
+#<ActiveRecord::StatementInvalid: Could not find table 'fucks'>
+hello
+#<ActiveRecord::StatementInvalid: Could not find table 'fucks'>
+hello
+#<ActiveRecord::StatementInvalid: Could not find table 'fucks'>
+hello
+#<ActiveRecord::StatementInvalid: Could not find table 'fucks'>
+hello
+#<ActiveRecord::StatementInvalid: Could not find table 'fucks'>
+hello
+#<ActiveRecord::StatementInvalid: Could not find table 'fucks'>
+hello
+#<ActiveRecord::StatementInvalid: Could not find table 'fucks'>
+hello
+#<ActiveRecord::StatementInvalid: Could not find table 'fucks'>
+hello
+#<ActiveRecord::StatementInvalid: Could not find table 'fucks'>
+hello
+#<ActiveRecord::StatementInvalid: Could not find table 'fucks'>
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+err=Unknown key: includes
+hello
+err=Unknown key: includes
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+rendering html
+rendering json
+rendered it all
+hello
+rendering html
+rendering json
+rendered it all
+rescuing
+hello
+rendering html
+rendering json
+rendered it all
+hello
+rendering html
+rendering json
+rendered it all
+rescuing
+hello
+rendering html
+rendering json
+rendered it all
+hello
+rendering html
+rendering json
+rendered it all
+hello
+rendering html
+rendering json
+rendered it all
+rescuing
+hello
+rendering html
+rendering json
+rendered it all
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+#<NameError: undefined local variable or method `that' for #<ThatsController:0x007fbc2eaf89c0>>
+hello
+#<NameError: undefined local variable or method `that' for #<ThatsController:0x007fbc2c27b3f8>>
+hello
+#<NameError: undefined local variable or method `that' for #<ThatsController:0x007fbc2eaa1fd0>>
+hello
+#<NameError: undefined local variable or method `that' for #<ThatsController:0x007fbc2bf03860>>
+hello
+#<NameError: undefined local variable or method `that' for #<ThatsController:0x007fbc2eaa7318>>
+hello
+#<NameError: undefined local variable or method `that' for #<ThatsController:0x007fbc2beffd78>>
+hello
+#<NameError: undefined local variable or method `that' for #<ThatsController:0x007fbc2eaa1940>>
+hello
+#<NameError: undefined local variable or method `that' for #<ThatsController:0x007fbc2ec3a888>>
+hello
+#<NameError: undefined local variable or method `that' for #<ThatsController:0x007fbc2c46ea98>>
+hello
+#<NameError: undefined local variable or method `that' for #<ThatsController:0x007fbc2bbcc318>>
+hello
+#<NameError: undefined local variable or method `that' for #<ThatsController:0x007fbc2d1ac250>>
+hello
+#<NameError: undefined local variable or method `that' for #<ThatsController:0x007fbc2eaa7610>>
+hello
+#<NameError: undefined local variable or method `that' for #<ThatsController:0x007fbc2c293520>>
+hello
+#<NameError: undefined local variable or method `that' for #<ThatsController:0x007fbc2eeabfb8>>
+hello
+#<NameError: undefined local variable or method `that' for #<ThatsController:0x007fbc2c150690>>
+hello
+#<NameError: undefined local variable or method `that' for #<ThatsController:0x007fbc2c4a3478>>
+hello
+#<NameError: undefined local variable or method `that' for #<ThatsController:0x007fbc2eaa77a0>>
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2c33ca30>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2ece9b80>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2c6a47e0>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2c6904e8>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2c42bae0>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2c6b4d70>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2ee5aed8>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2c61cf48>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2c608c28>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2e9cd8c0>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2e952e40>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2c5dc4c0>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2c655550>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2c630bb0>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2c28a038>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2c3873c8>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2c2737e8>>
+hello
+#<ActionView::Template::Error: Association named 'thats' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'thats' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'thats' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'thats' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'thats' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'thats' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'thats' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'thats' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'thats' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'thats' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'thats' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'thats' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'thats' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'thats' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'thats' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'thats' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'thats' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+#<NameError: undefined local variable or method `include' for #<FucksController:0x007fbc2c28b4b0>>
+hello
+#<NameError: undefined local variable or method `include' for #<FucksController:0x007fbc2bdecda0>>
+hello
+#<NameError: undefined local variable or method `include' for #<FucksController:0x007fbc2c3d3200>>
+hello
+#<NameError: undefined local variable or method `include' for #<FucksController:0x007fbc2c0ee350>>
+hello
+#<NameError: undefined local variable or method `include' for #<FucksController:0x007fbc2c2a5f68>>
+hello
+#<NameError: undefined local variable or method `include' for #<FucksController:0x007fbc2bc6f928>>
+hello
+#<NameError: undefined local variable or method `include' for #<FucksController:0x007fbc2eaff568>>
+hello
+#<NameError: undefined local variable or method `include' for #<FucksController:0x007fbc2ed61360>>
+hello
+#<NameError: undefined local variable or method `include' for #<FucksController:0x007fbc2c2a6170>>
+hello
+#<NameError: undefined local variable or method `include' for #<FucksController:0x007fbc2beff850>>
+hello
+#<NameError: undefined local variable or method `include' for #<FucksController:0x007fbc2ebd20d0>>
+hello
+#<NameError: undefined local variable or method `include' for #<FucksController:0x007fbc2c3d2f58>>
+hello
+#<NameError: undefined local variable or method `include' for #<FucksController:0x007fbc2ecc1090>>
+hello
+#<NameError: undefined local variable or method `include' for #<FucksController:0x007fbc2bca4970>>
+hello
+#<NameError: undefined local variable or method `include' for #<FucksController:0x007fbc2c2aba80>>
+hello
+#<NameError: undefined local variable or method `include' for #<FucksController:0x007fbc2c660f68>>
+hello
+#<NameError: undefined local variable or method `include' for #<FucksController:0x007fbc2d403850>>
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'that' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'Fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'Fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'Fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'Fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'Fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'Fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'Fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'Fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'Fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'Fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'Fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'Fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'Fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'Fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'Fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'Fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'Fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker_id' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker_id' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker_id' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker_id' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker_id' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker_id' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker_id' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker_id' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker_id' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker_id' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker_id' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker_id' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker_id' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker_id' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker_id' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker_id' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker_id' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: near "that": syntax error: SELECT "thats".* FROM "thats" fucker that>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: near "that": syntax error: SELECT "thats".* FROM "thats" fucker that>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: near "that": syntax error: SELECT "thats".* FROM "thats" fucker that>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: near "that": syntax error: SELECT "thats".* FROM "thats" fucker that>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: near "that": syntax error: SELECT "thats".* FROM "thats" fucker that>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: near "that": syntax error: SELECT "thats".* FROM "thats" fucker that>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: near "that": syntax error: SELECT "thats".* FROM "thats" fucker that>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: near "that": syntax error: SELECT "thats".* FROM "thats" fucker that>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: near "that": syntax error: SELECT "thats".* FROM "thats" fucker that>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: near "that": syntax error: SELECT "thats".* FROM "thats" fucker that>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: near "that": syntax error: SELECT "thats".* FROM "thats" fucker that>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: near "that": syntax error: SELECT "thats".* FROM "thats" fucker that>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: near "that": syntax error: SELECT "thats".* FROM "thats" fucker that>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: near "that": syntax error: SELECT "thats".* FROM "thats" fucker that>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: near "that": syntax error: SELECT "thats".* FROM "thats" fucker that>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: near "that": syntax error: SELECT "thats".* FROM "thats" fucker that>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: near "that": syntax error: SELECT "thats".* FROM "thats" fucker that>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2c67e748>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2e9ee4a8>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2e835080>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2c5edb80>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2c666ad0>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2c643260>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2c3f13b8>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2c2a28e0>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2c1af0c8>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2c4c2788>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2be38228>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2e895c78>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2bc64550>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2ea2dfb8>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2eaa4f78>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2c3dde58>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2eeb1eb8>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2ee4a100>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2c26f0d0>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2ebd8de0>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2d0c1688>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2d4030f8>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2d1c11c8>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2bee5d60>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2e9ad890>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2c324390>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2ecefda0>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2c6a9e70>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2eb0acd8>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2c434c30>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2e8836b8>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2ee5caf8>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2c6207b0>>
+hello
+#<ActionView::Template::Error: undefined method `fucker' for #<That:0x007fbc2c60b270>>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+#<ActionView::Template::Error: Association named 'fucker' was not found; perhaps you misspelled it?>
+hello
+hello
+hello
+hello
+#<NameError: undefined local variable or method `fucker' for #<FucksController:0x007fbc2c630110>>
+hello
+#<NameError: undefined local variable or method `fucker' for #<FucksController:0x007fbc2efbf5a8>>
+hello
+#<NameError: undefined local variable or method `fucker' for #<FucksController:0x007fbc2eab99f0>>
+hello
+#<NameError: undefined local variable or method `fucker' for #<FucksController:0x007fbc2bc43b48>>
+hello
+#<NameError: undefined local variable or method `fucker' for #<FucksController:0x007fbc2c2837d8>>
+hello
+#<NameError: undefined local variable or method `fucker' for #<FucksController:0x007fbc2c669438>>
+hello
+#<NameError: undefined local variable or method `fucker' for #<FucksController:0x007fbc2bf04ff8>>
+hello
+#<NameError: undefined local variable or method `fucker' for #<FucksController:0x007fbc2eb71d20>>
+hello
+#<NameError: undefined local variable or method `fucker' for #<FucksController:0x007fbc2efacef8>>
+hello
+#<NameError: undefined local variable or method `fucker' for #<FucksController:0x007fbc2c1f7058>>
+hello
+#<NameError: undefined local variable or method `fucker' for #<FucksController:0x007fbc2ecc74e0>>
+hello
+#<NameError: undefined local variable or method `fucker' for #<FucksController:0x007fbc2bc43b98>>
+hello
+#<NameError: undefined local variable or method `fucker' for #<FucksController:0x007fbc2c285998>>
+hello
+#<NameError: undefined local variable or method `fucker' for #<FucksController:0x007fbc2c62ab20>>
+hello
+#<NameError: undefined local variable or method `fucker' for #<FucksController:0x007fbc2c5eb998>>
+hello
+#<NameError: undefined local variable or method `fucker' for #<FucksController:0x007fbc2bfa2348>>
+hello
+#<NameError: undefined local variable or method `fucker' for #<FucksController:0x007fbc2ea8ab78>>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucker"."name" = 'colin'>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucker"."name" = 'colin'>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucker"."name" = 'colin'>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucker"."name" = 'colin'>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucker"."name" = 'colin'>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucker"."name" = 'colin'>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucker"."name" = 'colin'>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucker"."name" = 'colin'>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucker"."name" = 'colin'>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucker"."name" = 'colin'>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucker"."name" = 'colin'>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucker"."name" = 'colin'>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucker"."name" = 'colin'>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucker"."name" = 'colin'>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucker"."name" = 'colin'>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucker"."name" = 'colin'>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucker"."name" = 'colin'>
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."that_id" = 2 ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<TypeError: can't convert Hash into String>
+hello
+#<TypeError: can't convert Hash into String>
+hello
+#<TypeError: can't convert Hash into String>
+hello
+#<TypeError: can't convert Hash into String>
+hello
+#<TypeError: can't convert Hash into String>
+hello
+#<TypeError: can't convert Hash into String>
+hello
+#<TypeError: can't convert Hash into String>
+hello
+#<TypeError: can't convert Hash into String>
+hello
+#<TypeError: can't convert Hash into String>
+hello
+#<TypeError: can't convert Hash into String>
+hello
+#<TypeError: can't convert Hash into String>
+hello
+#<TypeError: can't convert Hash into String>
+hello
+#<TypeError: can't convert Hash into String>
+hello
+#<TypeError: can't convert Hash into String>
+hello
+#<TypeError: can't convert Hash into String>
+hello
+#<TypeError: can't convert Hash into String>
+hello
+#<TypeError: can't convert Hash into String>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.fucker: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."fucker" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.fucker: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."fucker" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.fucker: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."fucker" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.fucker: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."fucker" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.fucker: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."fucker" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.fucker: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."fucker" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.fucker: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."fucker" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.fucker: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."fucker" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.fucker: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."fucker" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.fucker: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."fucker" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.fucker: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."fucker" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.fucker: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."fucker" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.fucker: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."fucker" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.fucker: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."fucker" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.fucker: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."fucker" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.fucker: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."fucker" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.fucker: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."fucker" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fuckers"."name" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fuckers"."name" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fuckers"."name" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fuckers"."name" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fuckers"."name" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fuckers"."name" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fuckers"."name" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fuckers"."name" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fuckers"."name" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fuckers"."name" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fuckers"."name" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fuckers"."name" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fuckers"."name" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fuckers"."name" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fuckers"."name" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fuckers"."name" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fuckers"."name" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: "fuckers"."name": SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE """fuckers"""."""name""" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: "fuckers"."name": SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE """fuckers"""."""name""" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: "fuckers"."name": SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE """fuckers"""."""name""" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: "fuckers"."name": SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE """fuckers"""."""name""" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: "fuckers"."name": SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE """fuckers"""."""name""" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: "fuckers"."name": SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE """fuckers"""."""name""" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: "fuckers"."name": SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE """fuckers"""."""name""" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: "fuckers"."name": SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE """fuckers"""."""name""" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: "fuckers"."name": SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE """fuckers"""."""name""" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: "fuckers"."name": SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE """fuckers"""."""name""" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: "fuckers"."name": SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE """fuckers"""."""name""" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: "fuckers"."name": SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE """fuckers"""."""name""" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: "fuckers"."name": SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE """fuckers"""."""name""" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: "fuckers"."name": SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE """fuckers"""."""name""" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: "fuckers"."name": SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE """fuckers"""."""name""" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: "fuckers"."name": SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE """fuckers"""."""name""" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: "fuckers"."name": SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE """fuckers"""."""name""" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.t1_r1: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."t1_r1" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.t1_r1: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."t1_r1" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.t1_r1: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."t1_r1" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.t1_r1: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."t1_r1" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.t1_r1: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."t1_r1" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.t1_r1: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."t1_r1" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.t1_r1: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."t1_r1" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.t1_r1: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."t1_r1" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.t1_r1: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."t1_r1" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.t1_r1: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."t1_r1" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.t1_r1: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."t1_r1" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.t1_r1: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."t1_r1" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.t1_r1: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."t1_r1" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.t1_r1: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."t1_r1" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.t1_r1: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."t1_r1" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.t1_r1: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."t1_r1" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.t1_r1: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."t1_r1" = 'colin' ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks"."id" AS t0_r0, "fucks"."fucker_id" AS t0_r1, "fucks"."that_id" AS t0_r2, "fucks"."created_at" AS t0_r3, "fucks"."updated_at" AS t0_r4, "fuckers"."id" AS t1_r0, "fuckers"."name" AS t1_r1, "fuckers"."password" AS t1_r2, "fuckers"."facebook_id" AS t1_r3, "fuckers"."created_at" AS t1_r4, "fuckers"."updated_at" AS t1_r5, "thats"."id" AS t2_r0, "thats"."url" AS t2_r1, "thats"."fuck_count" AS t2_r2, "thats"."created_at" AS t2_r3, "thats"."updated_at" AS t2_r4 FROM "fucks" LEFT OUTER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" LEFT OUTER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<NoMethodError: undefined method `joines' for #<Class:0x007fbc2c5fd328>>
+hello
+#<NoMethodError: undefined method `joines' for #<Class:0x007fbc2c5fd328>>
+hello
+#<NoMethodError: undefined method `joines' for #<Class:0x007fbc2c5fd328>>
+hello
+#<NoMethodError: undefined method `joines' for #<Class:0x007fbc2c5fd328>>
+hello
+#<NoMethodError: undefined method `joines' for #<Class:0x007fbc2c5fd328>>
+hello
+#<NoMethodError: undefined method `joines' for #<Class:0x007fbc2c5fd328>>
+hello
+#<NoMethodError: undefined method `joines' for #<Class:0x007fbc2c5fd328>>
+hello
+#<NoMethodError: undefined method `joines' for #<Class:0x007fbc2c5fd328>>
+hello
+#<NoMethodError: undefined method `joines' for #<Class:0x007fbc2c5fd328>>
+hello
+#<NoMethodError: undefined method `joines' for #<Class:0x007fbc2c5fd328>>
+hello
+#<NoMethodError: undefined method `joines' for #<Class:0x007fbc2c5fd328>>
+hello
+#<NoMethodError: undefined method `joines' for #<Class:0x007fbc2c5fd328>>
+hello
+#<NoMethodError: undefined method `joines' for #<Class:0x007fbc2c5fd328>>
+hello
+#<NoMethodError: undefined method `joines' for #<Class:0x007fbc2c5fd328>>
+hello
+#<NoMethodError: undefined method `joines' for #<Class:0x007fbc2c5fd328>>
+hello
+#<NoMethodError: undefined method `joines' for #<Class:0x007fbc2c5fd328>>
+hello
+#<NoMethodError: undefined method `joines' for #<Class:0x007fbc2c5fd328>>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker.name>
+hello
+hello
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fucker.name = "colin")>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fucker.name = "colin")>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fucker.name = "colin")>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fucker.name = "colin")>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fucker.name = "colin")>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fucker.name = "colin")>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fucker.name = "colin")>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fucker.name = "colin")>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fucker.name = "colin")>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fucker.name = "colin")>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fucker.name = "colin")>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fucker.name = "colin")>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fucker.name = "colin")>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fucker.name = "colin")>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fucker.name = "colin")>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fucker.name = "colin")>
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fucker.name = "colin")>
+hello
+hello
+hello
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: thats.x: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE (fuckers.name = "colin") ORDER BY thats.x>
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."name" = 'colin'>
+hello
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."name" = 'colin'>
+hello
+hello
+hello
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker>
+hello
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucks.name: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" WHERE "fucks"."name" = 'colin'>
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+#<ActiveRecord::StatementInvalid: SQLite3::SQLException: near "that": syntax error: SELECT "fucks".* FROM "fucks" fucker that>
+hello
+#<ActiveRecord::StatementInvalid: SQLite3::SQLException: near "that": syntax error: SELECT "fucks".* FROM "fucks" fucker that>
+hello
+#<ActiveRecord::StatementInvalid: SQLite3::SQLException: near "that": syntax error: SELECT "fucks".* FROM "fucks" fucker that>
+hello
+#<ActiveRecord::StatementInvalid: SQLite3::SQLException: near "that": syntax error: SELECT "fucks".* FROM "fucks" fucker that>
+hello
+#<ActiveRecord::StatementInvalid: SQLite3::SQLException: near "that": syntax error: SELECT "fucks".* FROM "fucks" fucker that>
+hello
+#<ActiveRecord::StatementInvalid: SQLite3::SQLException: near "that": syntax error: SELECT "fucks".* FROM "fucks" fucker that>
+hello
+#<ActiveRecord::StatementInvalid: SQLite3::SQLException: near "that": syntax error: SELECT "fucks".* FROM "fucks" fucker that>
+hello
+#<ActiveRecord::StatementInvalid: SQLite3::SQLException: near "that": syntax error: SELECT "fucks".* FROM "fucks" fucker that>
+hello
+#<ActiveRecord::StatementInvalid: SQLite3::SQLException: near "that": syntax error: SELECT "fucks".* FROM "fucks" fucker that>
+hello
+#<ActiveRecord::StatementInvalid: SQLite3::SQLException: near "that": syntax error: SELECT "fucks".* FROM "fucks" fucker that>
+hello
+#<ActiveRecord::StatementInvalid: SQLite3::SQLException: near "that": syntax error: SELECT "fucks".* FROM "fucks" fucker that>
+hello
+#<ActiveRecord::StatementInvalid: SQLite3::SQLException: near "that": syntax error: SELECT "fucks".* FROM "fucks" fucker that>
+hello
+#<ActiveRecord::StatementInvalid: SQLite3::SQLException: near "that": syntax error: SELECT "fucks".* FROM "fucks" fucker that>
+hello
+#<ActiveRecord::StatementInvalid: SQLite3::SQLException: near "that": syntax error: SELECT "fucks".* FROM "fucks" fucker that>
+hello
+#<ActiveRecord::StatementInvalid: SQLite3::SQLException: near "that": syntax error: SELECT "fucks".* FROM "fucks" fucker that>
+hello
+#<ActiveRecord::StatementInvalid: SQLite3::SQLException: near "that": syntax error: SELECT "fucks".* FROM "fucks" fucker that>
+hello
+#<ActiveRecord::StatementInvalid: SQLite3::SQLException: near "that": syntax error: SELECT "fucks".* FROM "fucks" fucker that>
+hello
+#<ArgumentError: Unknown key: includes>
+hello
+#<ArgumentError: Unknown key: includes>
+hello
+#<ArgumentError: Unknown key: includes>
+hello
+#<ArgumentError: Unknown key: includes>
+hello
+#<ArgumentError: Unknown key: includes>
+hello
+#<ArgumentError: Unknown key: includes>
+hello
+#<ArgumentError: Unknown key: includes>
+hello
+#<ArgumentError: Unknown key: includes>
+hello
+#<ArgumentError: Unknown key: includes>
+hello
+#<ArgumentError: Unknown key: includes>
+hello
+#<ArgumentError: Unknown key: includes>
+hello
+#<ArgumentError: Unknown key: includes>
+hello
+#<ArgumentError: Unknown key: includes>
+hello
+#<ArgumentError: Unknown key: includes>
+hello
+#<ArgumentError: Unknown key: includes>
+hello
+#<ArgumentError: Unknown key: includes>
+hello
+#<ArgumentError: Unknown key: includes>
+hello
+hello
+hello
+#<ActiveRecord::StatementInvalid: SQLite3::SQLException: no such column: name: SELECT "fucks".* FROM "fucks"  ORDER BY name>
+hello
+hello
+hello
+hello
+#<NoMethodError: undefined method `offset' for #<FuckersController:0x007fbc2bf5aae8>>
+hello
+#<NoMethodError: undefined method `offset' for #<FuckersController:0x007fbc2eb90748>>
+hello
+#<NoMethodError: undefined method `offset' for #<FuckersController:0x007fbc2eee57b8>>
+hello
+#<NoMethodError: undefined method `offset' for #<FuckersController:0x007fbc2eaa7638>>
+hello
+#<NoMethodError: undefined method `offset' for #<FuckersController:0x007fbc2edab578>>
+hello
+#<NoMethodError: undefined method `offset' for #<FuckersController:0x007fbc2e95aca8>>
+hello
+#<NoMethodError: undefined method `offset' for #<FuckersController:0x007fbc2c3f5148>>
+hello
+#<NoMethodError: undefined method `offset' for #<FuckersController:0x007fbc2c644e58>>
+hello
+#<NoMethodError: undefined method `offset' for #<FuckersController:0x007fbc2e98cb18>>
+hello
+#<NoMethodError: undefined method `offset' for #<FuckersController:0x007fbc2bc6e2f8>>
+hello
+#<NoMethodError: undefined method `offset' for #<FuckersController:0x007fbc2bc57738>>
+hello
+#<NoMethodError: undefined method `offset' for #<FuckersController:0x007fbc2efad628>>
+hello
+#<NoMethodError: undefined method `offset' for #<FuckersController:0x007fbc2eaa7d40>>
+hello
+#<NoMethodError: undefined method `offset' for #<FuckersController:0x007fbc2eaa1ff8>>
+hello
+#<NoMethodError: undefined method `offset' for #<FuckersController:0x007fbc2ef10cb0>>
+hello
+#<NoMethodError: undefined method `offset' for #<FuckersController:0x007fbc2edab690>>
+hello
+#<NoMethodError: undefined method `offset' for #<FuckersController:0x007fbc2c244060>>
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: namxe: SELECT  "fuckers".* FROM "fuckers"  ORDER BY namxe DESC LIMIT 2 OFFSET '1'>
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: uewih: SELECT "thats".* FROM "thats"  ORDER BY uewih>
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+#<NoMethodError: undefined method `offset' for #<FucksController:0x007fbc2efe3250>>
+hello
+#<NoMethodError: undefined method `offset' for #<FucksController:0x007fbc2bc40970>>
+hello
+#<NoMethodError: undefined method `offset' for #<FucksController:0x007fbc2c43b328>>
+hello
+#<NoMethodError: undefined method `offset' for #<FucksController:0x007fbc2ecbb870>>
+hello
+#<NoMethodError: undefined method `offset' for #<FucksController:0x007fbc2ef54be0>>
+hello
+#<NoMethodError: undefined method `offset' for #<FucksController:0x007fbc2c698530>>
+hello
+#<NoMethodError: undefined method `offset' for #<FucksController:0x007fbc2bc41398>>
+hello
+#<NoMethodError: undefined method `offset' for #<FucksController:0x007fbc2c3274f0>>
+hello
+#<NoMethodError: undefined method `offset' for #<FucksController:0x007fbc2c3f9180>>
+hello
+#<NoMethodError: undefined method `offset' for #<FucksController:0x007fbc2bf5caf0>>
+hello
+#<NoMethodError: undefined method `offset' for #<FucksController:0x007fbc2c28b370>>
+hello
+#<NoMethodError: undefined method `offset' for #<FucksController:0x007fbc2ef782c0>>
+hello
+#<NoMethodError: undefined method `offset' for #<FucksController:0x007fbc2c381e50>>
+hello
+#<NoMethodError: undefined method `offset' for #<FucksController:0x007fbc2c32e908>>
+hello
+#<NoMethodError: undefined method `offset' for #<FucksController:0x007fbc2be2ab28>>
+hello
+#<NoMethodError: undefined method `offset' for #<FucksController:0x007fbc2c316bf0>>
+hello
+#<NoMethodError: undefined method `offset' for #<FucksController:0x007fbc2bca1e78>>
+hello
+hello
+hello
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: fucker: SELECT "fucks".* FROM "fucks" INNER JOIN "fuckers" ON "fuckers"."id" = "fucks"."fucker_id" INNER JOIN "thats" ON "thats"."id" = "fucks"."that_id" ORDER BY fucker DESC>
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2c5f2e28>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2c642928>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2c2989a8>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2c29f4d8>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2c27ddb0>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2c4bfb00>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2c154c68>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2bb9d9f0>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2c0f4200>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2ef1a850>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2c12d7a8>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2eafdc18>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2c256198>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2edcdf60>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2ebbd388>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2d222130>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2d56f360>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2c690088>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2c6b4f00>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2ee59538>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2c61a270>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2c601860>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2ebc2478>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2c5f2428>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2c665bd0>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2c63ec38>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2c295c30>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2c29d6d8>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2c27c9d8>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2efe4448>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2c1532f0>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2bb9bec0>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2c0f3030>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2ef19ec8>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2d222dd8>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2bfbb3e8>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2ef81708>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2c32dbe8>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2ed863e0>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2c2fdb78>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2eb0e798>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2c437f48>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2c6b81a0>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2c68b970>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2e9e0e98>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2c611328>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2ed955e8>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2e9546c8>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2c5dcba0>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2c653a98>>
+hello
+#<ActionView::Template::Error: undefined method `name' for #<Fuck:0x007fbc2c62cb28>>
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+#<ActiveRecord::StatementInvalid: SQLite3::SQLException: no such column: brett: SELECT "fuckers".* FROM "fuckers"  ORDER BY facebook_id,name=brett>
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+#<ActiveRecord::StatementInvalid: SQLite3::SQLException: near ")": syntax error: SELECT "thats".* FROM "thats"  WHERE (fuck_count=)>
+hello
+hello
+hello
+#<ActiveRecord::StatementInvalid: SQLite3::SQLException: near "<=": syntax error: SELECT "thats".* FROM "thats"  WHERE (fuck_count=<=1)>
+hello
+hello
+hello
+hello
+#<ActionView::Template::Error: SQLite3::SQLException: no such column: colin: SELECT "fuckers".* FROM "fuckers"  WHERE (name=colin)>
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+#<ActiveRecord::StatementInvalid: SQLite3::SQLException: no such column: name: SELECT "fucks".* FROM "fucks"  ORDER BY name>
+hello
+hello
+#<ActiveRecord::StatementInvalid: SQLite3::SQLException: no such column: fuckers.name: SELECT "thats".* FROM "thats"  ORDER BY fuckers.name>
+hello
+hello
+hello
+hello
+#<ActiveRecord::StatementInvalid: SQLite3::SQLException: no such column: name: SELECT "fucks".* FROM "fucks"  ORDER BY name>
+hello
+hello
+hello
+hello
+hello
+#<ActiveRecord::StatementInvalid: SQLite3::SQLException: no such column: fucker: SELECT "fucks".* FROM "fucks"  ORDER BY fucker>
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+#<ActionView::Template::Error: bcrypt-ruby is not part of the bundle. Add it to Gemfile.>
+hello
+#<ActionView::Template::Error: bcrypt-ruby is not part of the bundle. Add it to Gemfile.>
+hello
+#<ActionView::Template::Error: bcrypt-ruby is not part of the bundle. Add it to Gemfile.>
+hello
+#<ActionView::Template::Error: bcrypt-ruby is not part of the bundle. Add it to Gemfile.>
+hello
+#<ActionView::Template::Error: bcrypt-ruby is not part of the bundle. Add it to Gemfile.>
+hello
+#<ActionView::Template::Error: bcrypt-ruby is not part of the bundle. Add it to Gemfile.>
+hello
+#<ActionView::Template::Error: bcrypt-ruby is not part of the bundle. Add it to Gemfile.>
+hello
+#<ActionView::Template::Error: bcrypt-ruby is not part of the bundle. Add it to Gemfile.>
+hello
+#<ActionView::Template::Error: bcrypt-ruby is not part of the bundle. Add it to Gemfile.>
+hello
+#<ActionView::Template::Error: bcrypt-ruby is not part of the bundle. Add it to Gemfile.>
+hello
+#<ActionView::Template::Error: bcrypt-ruby is not part of the bundle. Add it to Gemfile.>
+hello
+#<ActionView::Template::Error: bcrypt-ruby is not part of the bundle. Add it to Gemfile.>
+hello
+#<ActionView::Template::Error: bcrypt-ruby is not part of the bundle. Add it to Gemfile.>
+hello
+#<ActionView::Template::Error: bcrypt-ruby is not part of the bundle. Add it to Gemfile.>
+hello
+#<ActionView::Template::Error: bcrypt-ruby is not part of the bundle. Add it to Gemfile.>
+hello
+#<ActionView::Template::Error: bcrypt-ruby is not part of the bundle. Add it to Gemfile.>
+hello
+#<ActionView::Template::Error: bcrypt-ruby is not part of the bundle. Add it to Gemfile.>
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+#<Fuck id: nil, fucker_id: 1, that_id: 1, created_at: nil, updated_at: nil>
+hello
+hello
+hello
+hello
+hello
+#<Fuck id: nil, fucker_id: 1, that_id: 1, created_at: nil, updated_at: nil>
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+#<Fuck id: nil, fucker_id: 2, that_id: 1, created_at: nil, updated_at: nil>
+hello
+hello
+hello
+#<Fuck id: nil, fucker_id: 1, that_id: 1, created_at: nil, updated_at: nil>
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+#<Fuck id: nil, fucker_id: 2, that_id: 2, created_at: nil, updated_at: nil>
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+#<Fuck id: nil, fucker_id: 3, that_id: 2, created_at: nil, updated_at: nil>
+hello
+hello
+hello
+hello
+#<Fuck id: nil, fucker_id: 4, that_id: 2, created_at: nil, updated_at: nil>
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+Attempt to update that 2 failed
+hello
+hello
+hello
+Attempt to update that 2 failed
+hello
+hello
+hello
+Attempt to update that 3 failed
+hello
+hello
+hello
+hello
+Attempt to update fuck 3 failed
+hello
+hello
+hello
+Attempt to update fuck 3 failed
+hello
+hello
+#<ActionView::Template::Error: undefined method `each' for 1:Fixnum>
+hello
+#<ActionView::Template::Error: undefined method `each' for 1:Fixnum>
+hello
+#<ActionView::Template::Error: undefined method `each' for 1:Fixnum>
+hello
+#<ActionView::Template::Error: undefined method `each' for 1:Fixnum>
+hello
+#<ActionView::Template::Error: undefined method `each' for 1:Fixnum>
+hello
+#<ActionView::Template::Error: undefined method `each' for 1:Fixnum>
+hello
+#<ActionView::Template::Error: undefined method `each' for 1:Fixnum>
+hello
+#<ActionView::Template::Error: undefined method `each' for 1:Fixnum>
+hello
+#<ActionView::Template::Error: undefined method `each' for 1:Fixnum>
+hello
+#<ActionView::Template::Error: undefined method `each' for 1:Fixnum>
+hello
+#<ActionView::Template::Error: undefined method `each' for 1:Fixnum>
+hello
+#<ActionView::Template::Error: undefined method `each' for 1:Fixnum>
+hello
+#<ActionView::Template::Error: undefined method `each' for 1:Fixnum>
+hello
+#<ActionView::Template::Error: undefined method `each' for 1:Fixnum>
+hello
+#<ActionView::Template::Error: undefined method `each' for 1:Fixnum>
+hello
+#<ActionView::Template::Error: undefined method `each' for 1:Fixnum>
+hello
+#<ActionView::Template::Error: undefined method `each' for 1:Fixnum>
+hello
+hello
+#<ActionView::Template::Error: undefined method `each' for nil:NilClass>
+hello
+#<ActionView::Template::Error: undefined method `each' for nil:NilClass>
+hello
+#<ActionView::Template::Error: undefined method `each' for nil:NilClass>
+hello
+#<ActionView::Template::Error: undefined method `each' for nil:NilClass>
+hello
+#<ActionView::Template::Error: undefined method `each' for nil:NilClass>
+hello
+#<ActionView::Template::Error: undefined method `each' for nil:NilClass>
+hello
+#<ActionView::Template::Error: undefined method `each' for nil:NilClass>
+hello
+#<ActionView::Template::Error: undefined method `each' for nil:NilClass>
+hello
+#<ActionView::Template::Error: undefined method `each' for nil:NilClass>
+hello
+#<ActionView::Template::Error: undefined method `each' for nil:NilClass>
+hello
+#<ActionView::Template::Error: undefined method `each' for nil:NilClass>
+hello
+#<ActionView::Template::Error: undefined method `each' for nil:NilClass>
+hello
+#<ActionView::Template::Error: undefined method `each' for nil:NilClass>
+hello
+#<ActionView::Template::Error: undefined method `each' for nil:NilClass>
+hello
+#<ActionView::Template::Error: undefined method `each' for nil:NilClass>
+hello
+#<ActionView::Template::Error: undefined method `each' for nil:NilClass>
+hello
+#<ActionView::Template::Error: undefined method `each' for nil:NilClass>
+hello
+hello
+hello
+COUNT=
+hello
+COUNT=nil
+hello
+PC=nil
+COUNT=nil
+hello
+PC="1"
+COUNT=1
+hello
+PC="1"
+COUNT=1
+hello
+PC="1"
+COUNT=1
+hello
+PC="1"
+COUNT=1
+#<ActionView::Template::Error: /Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:29: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:31: syntax error, unexpected $end, expecting keyword_end>
+hello
+PC=nil
+COUNT=nil
+#<ActionView::Template::Error: /Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:29: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:31: syntax error, unexpected $end, expecting keyword_end>
+hello
+PC=nil
+COUNT=nil
+#<ActionView::Template::Error: /Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:29: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:31: syntax error, unexpected $end, expecting keyword_end>
+hello
+PC=nil
+COUNT=nil
+#<ActionView::Template::Error: /Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:29: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:31: syntax error, unexpected $end, expecting keyword_end>
+hello
+PC=nil
+COUNT=nil
+#<ActionView::Template::Error: /Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:29: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:31: syntax error, unexpected $end, expecting keyword_end>
+hello
+PC=nil
+COUNT=nil
+#<ActionView::Template::Error: /Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:29: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:31: syntax error, unexpected $end, expecting keyword_end>
+hello
+PC=nil
+COUNT=nil
+#<ActionView::Template::Error: /Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:29: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:31: syntax error, unexpected $end, expecting keyword_end>
+hello
+PC=nil
+COUNT=nil
+#<ActionView::Template::Error: /Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:29: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:31: syntax error, unexpected $end, expecting keyword_end>
+hello
+PC=nil
+COUNT=nil
+#<ActionView::Template::Error: /Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:29: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:31: syntax error, unexpected $end, expecting keyword_end>
+hello
+PC=nil
+COUNT=nil
+#<ActionView::Template::Error: /Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:29: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:31: syntax error, unexpected $end, expecting keyword_end>
+hello
+PC=nil
+COUNT=nil
+#<ActionView::Template::Error: /Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:29: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:31: syntax error, unexpected $end, expecting keyword_end>
+hello
+PC=nil
+COUNT=nil
+#<ActionView::Template::Error: /Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:29: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:31: syntax error, unexpected $end, expecting keyword_end>
+hello
+PC=nil
+COUNT=nil
+#<ActionView::Template::Error: /Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:29: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:31: syntax error, unexpected $end, expecting keyword_end>
+hello
+PC=nil
+COUNT=nil
+#<ActionView::Template::Error: /Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:29: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:31: syntax error, unexpected $end, expecting keyword_end>
+hello
+PC=nil
+COUNT=nil
+#<ActionView::Template::Error: /Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:29: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:31: syntax error, unexpected $end, expecting keyword_end>
+hello
+PC=nil
+COUNT=nil
+#<ActionView::Template::Error: /Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:29: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:31: syntax error, unexpected $end, expecting keyword_end>
+hello
+PC=nil
+COUNT=nil
+#<ActionView::Template::Error: /Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:29: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/cstryker/pkt3/fuckthat/core/app/views/fucks/index.html.erb:31: syntax error, unexpected $end, expecting keyword_end>
+hello
+PC=nil
+COUNT=nil
+hello
+PC=nil
+COUNT=nil
+hello
+PC="1"
+COUNT=1
+hello
+PC="0"
+COUNT=1
+hello
+PC=""
+COUNT=1
+hello
+PC=nil
+COUNT=nil
+hello
+PC=""
+COUNT=1
+hello
+PC=""
+COUNT=1
+hello
+PC="1"
+COUNT=1
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+Attempt to update fuck 3 failed
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
