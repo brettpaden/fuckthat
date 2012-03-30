@@ -16,6 +16,6 @@
    },
    "name":        "__MSG_appName__",
    "permissions": [ "http://*/*" ],
-   "update_url":  "http://clients2.google.com/service/update2/crx",
-   "version":     "0.0.17"
+   "update_url":  "file:///Users/paden/fuckthat/chrome",
+   "version":     "0.0.29"
 }
