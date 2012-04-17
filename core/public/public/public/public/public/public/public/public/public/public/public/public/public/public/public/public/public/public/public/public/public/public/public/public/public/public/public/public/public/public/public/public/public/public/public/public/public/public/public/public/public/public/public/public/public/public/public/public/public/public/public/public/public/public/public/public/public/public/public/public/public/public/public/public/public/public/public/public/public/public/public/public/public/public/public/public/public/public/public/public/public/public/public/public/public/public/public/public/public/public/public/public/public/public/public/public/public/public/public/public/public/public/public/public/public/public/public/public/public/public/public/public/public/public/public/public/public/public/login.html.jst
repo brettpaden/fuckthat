@@ -1,0 +1,26 @@
+<div class="indented" width="250" height="250">
+  <h1>Log on in, joker!</h1>
+  <form accept-charset="UTF-8" action="/#/users/do_login" class="new_user" id="new_user" method="post"> 
+    <div class="field">
+      <label for="user_name">Name</label>
+      <br>
+      <input class="user_field" id="user_name" name="user[name]" size="30" type="test">
+    </div>
+    <div class="field">
+      <label for="user_password">Password</label>
+      <br>
+      <input class="user_field" id="user_password" name="user[password]" size="30" type="password">
+    </div>
+    <% if (need_confirm) { %>
+      <div class="field">
+        <label for="confirm">Confirm password</label>
+        <br>
+        <input class="user_field" id="confirm" name="user[confirm]" size="30" type="password">
+      </div>
+    <% } %>
+    <div class="actions">
+      <input class="action_button" name="commit" type="submit" value="<%= button_text %>">
+    </div>
+  </form>
+</div>
+

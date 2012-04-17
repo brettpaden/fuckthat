@@ -1,11 +1,15 @@
 Core::Application.routes.draw do
 
-  resources :thats, :fucks
+  get 'data', :controller => 'thats', :action => 'data'
+  get 'mine', :controller => 'thats', :action => 'mine'
+  get 'top', :controller => 'thats', :action => 'top'
   
+  resources :thats, :fucks, :events
+
   resources :fuckers do
     collection do
       post 'authenticate'
-      get 'login'
+      post 'logout'
     end
   end
   
@@ -58,7 +62,7 @@ Core::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'thats#index'
+  root :to => 'thats#main'
 
   # See how all your routes lay out with "rake routes"
 

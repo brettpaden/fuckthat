@@ -1,3 +1,351 @@
 // Place all the styles related to the Thats controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "color_theme";
+
+.loading {
+  color: $dark_gray;
+  text-align: center;
+  font-size: 18px;
+}
+
+.my_body {
+  background: $white;
+  margin: 0; 
+  border: 0;
+  padding: 0;
+  border-stye: none;
+  frameBorder: 0;
+}
+
+.thats_div {
+  overflow: auto;
+  left: 0px;
+  top: 50px;
+  width: 775px;
+  height: 500px;
+  position: absolute;
+  overflow: auto;
+}
+
+.normal_link {
+  font-family: verdana, helvetica, arial, sans-serif;
+  font-size: 13px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.normal_link:link {
+  &:link { color: $medium-gray; }
+}
+
+.normal_link:visited {
+  &:visited { color: $medium-gray; }
+}
+
+.normal_link:hover {
+  &:hover { 
+    color: $dark_gray;
+    background-color: transparent;
+    text-decoration: underline; 
+    cursor: hand;
+  }
+}
+
+.normal_link:active {
+  &:active { color: black; }
+}
+
+.selected_link {
+  color: $dark_gray;
+  font-weight: bold;
+}
+
+.that {
+  color: $dark_blue;
+  font-size: 14px;
+  background-color: transparent;
+  border: none;
+  text-decoration: none; 
+}
+
+.that:visited {
+   &:visited {
+     color: $dark_blue;
+     background-color: transparent;
+     text-decoration: none; 
+   }
+}
+ 
+.that:hover {
+   &:hover {
+     color: $dark_blue;
+     background-color: transparent;
+     text-decoration: underline; 
+   }
+}
+
+.that_fuck {
+  border-right: {
+    color: $light_gray;
+    width: 1px;
+    style: dotted;
+  }
+  padding-right: 5px;
+  width: 110px;
+}
+    
+.action_button {
+  color: $lighter_blue;
+  background-color: $dark_blue;
+  text-shadow: #000 1px 1px 0px;
+  font-size: 16px;
+  cursor:pointer;
+  cursor:hand;
+  border-radius: 8px;
+}
+
+.action_button:hover {
+  &:hover {
+    color: $white;
+    cursor: hand;
+  }
+}
+
+.indented {
+  padding: 20px;
+}
+
+.hint {
+  color: gray;
+}
+
+.that_div {
+  border-bottom: {
+    style: solid;
+    color: $light-gray;
+    width: 1px;
+  }
+}
+
+.tabbedPanels {
+}
+
+.tabs {
+  margin: 0;
+  padding: 0;
+}
+
+.tabs li {
+  float: left;
+  list-style: none;
+  margin-left: 2px;
+}
+
+.tabs li.leftmost {
+  margin-left: 0px;
+}
+
+.tabs a {
+  display: block;
+  text-decoration: none;
+  padding: 3px 5px;
+  border: {
+    style: solid;
+    color: $dark_red;
+    width: 1px;
+    top: {
+      left-radius: 4px;
+      right-radius: 4px;
+    }
+  }
+  margin-bottom: -1px;
+    
+}
+
+@mixin tab_text {
+  background-color: $dark_red;
+  color: $light_pink;
+  font-family: verdana, helvetica, arial, sans-serif;
+  text-shadow: #000 1px 1px 0px;
+}
+
+.tabs a:link {
+  &:link {
+    @include tab_text;
+  }
+}
+
+.tabs a:visited {
+  &:visited {
+    @include tab_text;
+  }
+}
+
+.tabs a:hover {
+  &:hover {
+   color: $white;
+   cursor:hand;
+   text-decoration: underline;
+  }
+}
+
+.tabs a.active {
+  color: $dark_blue;
+  background-color: white;
+  border-bottom: {
+    color: $white;
+  }
+}
+
+@mixin active_tab_text {
+  color: $dark_blue;
+  background-color: $white;
+  text-shadow: none;
+  font-weight: bold;
+}
+
+.tabs a.active:link {
+  &:link {
+    @include active_tab_text;
+  }
+}
+
+.tabs a.active:visited {
+  &:visited {
+    @include active_tab_text;
+  }
+}
+
+.panelContainer {
+  clear: left;
+  border: {
+    style:solid;
+    color: $medium_gray;
+    width: 1px;
+  }
+}
+
+@mixin light_border {
+  style:solid;
+  color: $light_gray;
+  width: 1px;
+}
+
+.hidden_item {
+  font-size: 24px;
+}
+
+.master_popup {
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+@mixin pacifying {
+  color: $dark_gray;
+  background-color: $light_yellow;
+  text-align: center;
+}
+
+.pacifier_popup {
+  @include pacifying;
+  border: {
+    style: solid;
+    width: 1px;
+    radius: 5px;
+  }
+  padding: 5px;
+}
+
+.submitting {
+  @include pacifying;
+}
+
+.no_thats {
+  color: $dark-red;
+  font-weight: bold;
+  margin: 5px;
+}
+
+.no_space {
+  margin: 0px;
+  padding: 0px;
+  border-width: 0px;
+}
+
+.top_fucks_menu {
+  background: $lighter_blue;
+  border: {
+    style: solid;
+    width: 1px;
+  }
+  margin: 0px;
+  padding: 0px;
+}
+
+.top_fucks_menu_item {
+  background: $lighter_blue;
+  margin: 0px;
+  padding: 0px;
+  border: {
+    top: {
+      style: solid;
+      width: 1px;
+      color: $lighter_blue;
+    }
+    bottom: {
+      style: solid;
+      width: 1px;
+      color: $lighter_blue;
+    }
+  }
+}
+
+.top_fucks_selected_menu_item {
+  background: $light_blue;
+  margin: 0px;
+  padding: 0px;
+  border: {
+    top: {
+      style: solid;
+      width: 1px;
+      color: $light_gray;
+    }
+    bottom: {
+      style: solid;
+      width: 1px;
+      color: $light_gray;
+    }
+  }
+}
+
+.top_fucks_menu_link:link {
+  &:link {
+    text-decoration: none;
+    color: black;  
+    margin-left: 5px;
+  }
+}
+
+.top_fucks_menu_link:visited {
+  &:visited {
+    text-decoration: none;
+    color: black;  
+    margin-left: 5px;
+  }
+}
+
+.top_fucks_menu_link:hover {
+  &:hover {
+    text-decoration: none;
+    color: black;
+    background: $light_blue;
+    cursor:hand;
+    margin-left: 5px;
+  }
+}
+

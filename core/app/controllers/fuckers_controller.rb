@@ -75,12 +75,17 @@ class FuckersController < ApplicationController
   def create
     @fucker = Fucker.new(params[:fucker])
     respond_to do |format|
-      if @fucker.save
-        format.html { redirect_to @fucker, notice: 'Fucker was successfully created.' }
-        format.json { render json: @fucker, status: :created, location: @fucker }
+      if @fucker.password != params[:confirm] then
+        @fucker.errors.add :password, ' confirmation doesn\'t match'
+        format.html { render action: "new" }
+        format.json { render json: @fucker.errors }
+      elsif @fucker.save
+        format.html { redirect_to ''}
+        format.json { render json: @fucker }
+        session[:fucker] = @fucker
       else
         format.html { render action: "new" }
-        format.json { render json: @fucker.errors, status: :unprocessable_entity }
+        format.json { render json: @fucker.errors }
       end
     end
   end
@@ -121,14 +126,16 @@ class FuckersController < ApplicationController
   # POST /fuckers/authenticate
   def authenticate
     respond_to do |format|
-      if Fucker.authenticate params[:fucker]['name'], params[:fucker]['password']
+      @fucker = Fucker.authenticate params[:fucker]['name'], params[:fucker]['password']
+      if @fucker
+        session[:fucker] = @fucker
         format.html { redirect_to fucks_path }
-        format.json { head :ok }
+        format.json { render json: @fucker }
       else
         @fucker = Fucker.new(params[:fucker])
         @fucker.errors.add :password, "is incorrect or fucker is invalid"
         format.html {render action: 'login' }
-        format.json {render json: @fucker.errors, status: :unprocessable_entity }
+        format.json {render json: @fucker.errors }
       end
     end
   end
@@ -138,13 +145,13 @@ class FuckersController < ApplicationController
     do_logout
     respond_to do |format|
       format.html { redirect_to fucks_path, notice: 'user logged out.' }
-      format.json { head :ok }
+      format.json { render json: 1 }
     end
   end
   
   # do logout
   def do_logout
-    session[:user] = nil
+    session[:fucker] = nil
   end
   
   # login

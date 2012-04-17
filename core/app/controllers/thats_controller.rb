@@ -123,4 +123,71 @@ class ThatsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  # GET /thats/data
+  def data
+    # Build a single JSON object representing all data that a client will be
+    # interested in for displaying a single screen
+    # This consists of: 
+    #  - current session id
+    #  - current fucker id
+    #  - top 25 thats of all time
+    #  - top 25 thats this month
+    #  - top 25 thats this week
+    #  - top 25 thats today
+    #  - hash of fuck_counts for each set of top thats
+    #  - the current fucker's fucks
+    #  - all thats associated with current fucker's fucks
+    #  - the time all this info was collected, in milliseconds since epoch
+    info = {:thats => [], :fuckers => [], :fucks => [], 
+      :month_fuck_counts => {}, :week_fuck_counts => {}, :day_fuck_counts => {}}
+    
+    # Get current session id
+    info[:session_id] = request.session[:session_id]
+
+    # Get current fucker, put in fucker_id, and add to fuckers array
+    info[:fucker_id] = session[:fucker] ? session[:fucker].id : nil;
+    info[:fuckers] << session[:fucker] unless !session[:fucker];
+    
+    # Get all relevant thats
+    limit = 25
+    info[:time] = Time.now.gmtime
+    info[:thats] = That.top_thats(limit, info[:thats])
+    info[:month_fuck_counts] = That.top_thats_since(info[:time]-60*60*24*30, limit, info[:thats])
+    info[:week_fuck_counts] = That.top_thats_since(info[:time]-60*60*24*7, limit, info[:thats])
+    info[:day_fuck_counts] = That.top_thats_since(info[:time]-60*60*24, limit, info[:thats])
+
+    # Get current fucker's fucks
+    info[:fucks] = Fuck.fucks_by_fucker(info[:fucker_id]) if info[:fucker_id]
+    
+    # Get associated thats
+    info[:fucks].each do |fuck|
+      that = info[:thats].find {|t| t.id == fuck.that_id}
+      info[:thats] << fuck.that unless that
+    end
+    respond_to do | format|
+      format.html
+      format.json { render json: info }
+    end
+  end 
+  
+  # GET /thats/top
+  def top
+    @thats = That.thats_by_what('top', session[:fucker] ? session[:fucker].id : nil)
+
+    respond_to do |format|
+      format.html { redirect_to thats_path }
+      format.json { render json: @thats }
+    end
+  end
+  
+  # GET /thats/mine
+  def mine
+    @thats = That.thats_by_what('mine', session[:fucker] ? session[:fucker].id : nil)
+
+    respond_to do |format|
+      format.html { redirect_to thats_path }
+      format.json { render json: @thats }
+    end
+  end
 end

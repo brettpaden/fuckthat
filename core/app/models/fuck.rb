@@ -10,4 +10,14 @@ class Fuck < ActiveRecord::Base
   # Associations
   belongs_to :that, :autosave => true
   belongs_to :fucker
+
+  # Get fucks for a particular 'fucker'  
+  def self.fucks_by_fucker(fid)
+    find(:all, :conditions => "fucker_id = #{fid}")
+  end  
+  
+  # Get fucks created since given time
+  def self.fucks_since_time(time, order)
+    find(:all, :conditions => "created_at >= #{time}", :order => order)
+  end
 end

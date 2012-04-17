@@ -1,4 +1,3 @@
-#require 'bcrypt-ruby' # For password hashing
 
 class Fucker < ActiveRecord::Base
   # Secure password

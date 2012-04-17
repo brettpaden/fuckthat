@@ -107,6 +107,7 @@ class FucksController < ApplicationController
     @fuck = Fuck.new(params[:fuck])
     # Ensure a fuck for this url and fucker does not already exist
     if Fuck.first(:conditions => {:fucker_id => params['fuck']['fucker_id'], :that_id => params['fuck']['that_id']}) then
+      $log.warn('fucker has already fucked that')
       @fuck.errors.add :fucker_id, 'has already fucked that.'
     else
       @fuck.that.fuck_count += 1  # Increment the 'that's fuck count
@@ -115,6 +116,16 @@ class FucksController < ApplicationController
     respond_to do |format|
       # Note, associated 'that' is automatically saved through the :autosave property of Fuck.that
       if @fuck.errors.empty? && @fuck.save 
+        # Create new event for this new fuck
+        @event = Event.new(
+          :fuck_id => @fuck.id, 
+          :fucker_id => session[:fucker] ? session[:fucker].id : nil,
+          :that_id => @fuck.that_id,
+          :withdraw => false,
+          :fuck_created_at => nil,
+          :session_id => request.session[:session_id]
+        )
+        @event.save
         format.html { redirect_to @fuck, notice: 'Fuck was successfully created.' }
         format.json { render json: @fuck, status: :created, location: @fuck }
       else
@@ -156,7 +167,17 @@ class FucksController < ApplicationController
     @fuck.that.fuck_count -= 1  # Decrement the 'that's' fuck count
     @fuck.that.save
     @fuck.destroy
-
+    # Create new event for the fuck withdrawal
+    @event = Event.new(
+      :fuck_id => @fuck.id, 
+      :fucker_id => session[:fucker] ? session[:fucker].id : nil,
+      :that_id => @fuck.that_id,
+      :withdraw => true,
+      :fuck_created_at => @fuck.created_at,
+      :session_id => request.session[:session_id]
+    )
+    @event.save
+    
     respond_to do |format|
       format.html { redirect_to fucks_url }
       format.json { head :no_content }

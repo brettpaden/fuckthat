@@ -1,0 +1,26 @@
+<div class="indented" width="250" height="250">
+  <h1><%= header_text %></h1>
+  <form accept-charset="UTF-8" action="/#/fuckers/do_login" class="new_fucker" id="new_fucker" method="post"> 
+    <div class="field">
+      <label for="fucker_name">Name</label>
+      <br>
+      <input class="fucker_field" id="fucker_name" name="fucker[name]" size="30" type="test">
+    </div>
+    <div class="field">
+      <label for="fucker_password">Password</label>
+      <br>
+      <input class="fucker_field" id="fucker_password" name="fucker[password]" size="30" type="password">
+    </div>
+    <% if (need_confirm) { %>
+      <div class="field">
+        <label for="confirm">Confirm password</label>
+        <br>
+        <input class="fucker_field" id="confirm" name="fucker[confirm]" size="30" type="password">
+      </div>
+    <% } %>
+    <div class="actions">
+      <input class="action_button" name="commit" type="submit" value="<%= button_text %>">
+    </div>
+  </form>
+</div>
+

@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120320204909) do
+ActiveRecord::Schema.define(:version => 20120416200332) do
+
+  create_table "events", :force => true do |t|
+    t.integer  "fuck_id"
+    t.integer  "that_id"
+    t.integer  "fucker_id"
+    t.boolean  "withdraw"
+    t.datetime "fuck_created_at"
+    t.string   "session_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "events", ["fuck_id"], :name => "index_events_on_fuck_id"
+  add_index "events", ["fucker_id"], :name => "index_events_on_fucker_id"
+  add_index "events", ["that_id"], :name => "index_events_on_that_id"
 
   create_table "fuckers", :force => true do |t|
     t.string   "name"
@@ -28,7 +43,6 @@ ActiveRecord::Schema.define(:version => 20120320204909) do
     t.datetime "updated_at", :null => false
   end
 
-  add_index "fucks", ["fucker_id"], :name => "index_fucks_on_fucker_id"
   add_index "fucks", ["that_id"], :name => "index_fucks_on_that_id"
 
   create_table "thats", :force => true do |t|

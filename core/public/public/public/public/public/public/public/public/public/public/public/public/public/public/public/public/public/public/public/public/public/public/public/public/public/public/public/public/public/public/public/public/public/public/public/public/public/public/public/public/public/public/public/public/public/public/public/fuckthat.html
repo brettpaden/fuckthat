@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" id="facebook" class="no_js">
+<head><meta charset="utf-8" />
+<title>FuckThat</title>
+<style>
+body {
+    font-size: 11px;
+    font-family:tahoma,verdana,arial,sans-serif;
+    color:#333;
+    margin:0;
+    padding:0;
+    text-align:left;
+    direction:ltr;
+    unicode-bidi:embed
+}
+.fbutton {
+    border: 1px solid #fd5d00;
+    background-color: #E9A072;
+    height:18px;
+    width:70px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    font-color: #1e1b1b;
+    font-size: 11px;
+    font-weight: 'bold';
+    cursor: pointer;
+}
+</style>
+<script>
+function fuckthat() {
+    var fucktxt = document.getElementById("fucktxt");
+    if (fucktxt) {
+        fucktxt.innerHTML = '<b>fuck</b>ed';
+    } 
+}
+</script>
+<body>
+<div>
+<div class=fbutton onclick=fuckthat()>
+<img src=/finger-16.png height=16 width=16 style=float:left><div style=float:left;padding-top:2px;padding-left:2px id=fucktxt><b>fuck</b>that!</div>
+</div>
+</body>
+</html>
