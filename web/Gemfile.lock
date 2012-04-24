@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/oleander/ruby-yui-compressor.git
+  revision: 644218d2bb7a80295317c26b54f071f5090de6b1
+  specs:
+    yui-compressor (0.9.3)
+
 GEM
   remote: https://gems.gemfury.com/8n1rdTK8pezvcsyVmmgJ/
   remote: https://rubygems.org/
@@ -31,6 +37,7 @@ GEM
       multi_json (~> 1.0)
     archive-tar-minitar (0.5.2)
     arel (3.0.2)
+    bcrypt-ruby (3.0.1)
     builder (3.0.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -45,6 +52,8 @@ GEM
       multi_json (~> 1.0)
     hike (1.2.1)
     i18n (0.6.0)
+    jammit (0.6.5)
+      yui-compressor (>= 0.9.3)
     journey (1.0.3)
     jquery-rails (2.0.1)
       railties (>= 3.2.0, < 5.0)
@@ -58,6 +67,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.17.2)
     multi_json (1.1.0)
+    mysql2 (0.3.11)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -118,12 +128,16 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt-ruby (~> 3.0.0)
   coffee-rails (~> 3.2.1)
+  jammit
   jquery-rails
   linecache19 (>= 0.5.13)
+  mysql2
   rails (= 3.2.2)
   ruby-debug-base19 (>= 0.11.26)
   ruby-debug19
   sass-rails (~> 3.2.3)
   sqlite3
   uglifier (>= 1.0.3)
+  yui-compressor!
