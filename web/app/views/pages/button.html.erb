@@ -1,0 +1,134 @@
+<h1>Fuck that Button Code</h1>
+<h2>Step 1 - Get the Fuck That Code</h2>
+<div class=section>
+  <dl>
+    <dt>
+      <label for=url>Url</label>
+      <a data-hover=tooltip href=# tip="the URL that the 'Fuck That' Button corresponds to. The default is the current page.">(?)</a>
+    </dt>
+    <dd>
+      <input type=text name=url>
+    </dd>
+    <dt>
+      <label for=layout>Layout Style</label>
+      <a data-hover=tooltip href=# tip="determines the amount of social context next to the button">(?)</a>
+    </dt>
+    <dd>
+    <select name=layout data='standard,button_count,box_count'></select>
+    </dd>
+    <dt>
+      <label for=width>Width</label>
+      <a data-hover=tooltip href=# tip="the width of the plugin, in pixels">(?)</a>
+    </dt>
+    <dd>
+      <input type=text name=width value=450>
+    </dd>
+    <dt>
+      <label for=color>Color Scheme</label>
+      <a data-hover=tooltip href=# tip="the color scheme of the plugin">(?)</a>
+    </dt>
+    <dd>
+      <select name=color data='light,dark'></select>
+    </dd>
+    <dt>
+      <label for=font>Font</label>
+      <a data-hover=tooltip href=# tip="the font of the plugin">(?)</a>
+    </dt>
+    <dd>
+      <select name=font data='arial,lucida_grande,segoe_ui,tahoma,trebuchet_ms,verdana'></select>
+    </dd>
+  </dl>
+  <div>
+    <a class=button href=# id=get_code>Get Code</a>
+  </div>
+</div>
+<h3>Or</h3>
+<h2>Use your facebook Like codes</h2>
+<div class=section>
+  <input type='radio' name='html5_or_xfbml' id='html5' checked />
+  <label for=html5>HTML5</label>
+  <input type='radio' name='html5_or_xfbml' id='xfbml' />
+  <label for=xfbml>XFBML</label>
+  <div id='like-code-html5'>
+    <dl>
+      <dt>
+	<label for=like-html5>Place the code from step 2 under HTML5 of the facebook like button generator</label>
+      </dt>
+      <dd>
+	<textarea name=like-html5></textarea>
+      </dd>
+    </dl>
+  </div>
+  <div id='like-code-xfbml'>
+    <dl>
+      <dt>
+	<label for=like-xfbml>Place the code from step 3 under XFBML of the facebook like button generator</label>
+      </dt>
+      <dd>
+	<textarea name=like-xfbml></textarea>
+      </dd>
+    </dl>
+  </div>
+  <div>
+    <a class=button href=# id=get_code2>Get Code</a>
+  </div>
+</div>
+<h2>Step 2 - Get the Open Graph Tags</h2>
+<div class=section>
+  <dl>
+    <dt>
+      <label for=og_title>Title</label>
+      <a data-hover=tooltip href=# tip="the title of the entity">(?)</a>
+    </dt>
+    <dd>
+      <input type=text name=og_title>
+    </dd>
+    <dt>
+      <label for=og_type>Type</label>
+      <a data-hover=tooltip href=# tip="the type of entity">(?)</a>
+    </dt>
+    <dd>
+      <select name=og_type data='xx|Choose a type,activity,actor,album,article,athlete,author,band,bar,blog,book,cafe,cause,city,company,country,director,drink,food,game,government,hotel,landmark,movie,musician,non_profit,politician,product,public_figure,restaurant,school,song,sport,sports_league,sports_team,state_province,tv_show,university,website'></select>
+    </dd>
+    <dt>
+      <label for=og_url>URL</label>
+      <a data-hover=tooltip href=# tip="the canonical, permanent URL of the page representing the entity">(?)</a>
+    </dt>
+    <dd>
+      <input type=text name=og_url>
+    </dd>
+    <dt>
+      <label for=og_image>Image</label>
+      <a data-hover=tooltip href=# tip="the URL to an image the represents the entity"/>(?)</a>
+    </dt>
+    <dd>
+      <input type=text name=og_image>
+    </dd>
+    <dt>
+      <label for=og_site_name>Site name</label>
+      <a data-hover=tooltip href=# tip="a human-readable name for your site"/>(?)</a>
+    </dt>
+    <dd>
+      <input type=text name=og_site_name>
+    </dd>
+    <dt>
+      <label for=og_admin>Admin (optional)</label>
+      <a data-hover=tooltip href=# tip="a comma-separated list of either the Facebook IDs of the page administrators or a Facebook Platform application ID"/>(?)</a>
+    </dt>
+    <dd>
+      <input type=text name=og_admin>
+    </dd>
+  </dl>
+  <div>
+    <a class=button href=# id=get_tags>Get Tags</a>
+  </div>
+</div>
+<span id=tip style='display: none;'></span>
+<div id=popupbackground style='display: none;'></div>
+<div id=popup style='display: none;'></div>
+<script>
+  $(function() {
+    init();
+    init_buttons();
+  });
+</script>

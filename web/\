@@ -70,7 +70,7 @@ function init() {
     if (label) {
       var name = el.attr('name');
       var html = '';
-      if (!$('input[type=hidden][name=' + name + ']').size()) {
+      if (!$('input[type=hidden][name=' + name + ']')) {
 	html += "<input type='hidden' name='" + name + "' />";
       }
       html += "<span class='radio' value='" + val + "' group='" + name + "'>" + label.html() + "</span>";
@@ -79,10 +79,6 @@ function init() {
 	set_radio(name, val);
       }
       el.remove();
-      $('span[group=' + name + '][value=' + val + ']').mousedown(function() {
-	var span = $(this);
-	set_radio(span.attr('group'), span.attr('value'));
-      });
     }
   });
 }

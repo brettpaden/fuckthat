@@ -1,0 +1,16 @@
+package_assets: always
+compress_assets: off
+template_function: _.template
+javascripts:
+  app:
+    - app/assets/javascripts/jquery-1.4.4.min.js
+    - app/assets/javascripts/json2.js
+    - app/assets/javascripts/underscore.js
+    - app/assets/javascripts/backbone.js
+    - app/assets/javascripts/jquery.dotimeout.js
+    - app/assets/javascripts/application.js
+    - app/assets/javascripts/button.js
+
+stylesheets:
+  all:
+    - app/assets/stylesheets/button.css
