@@ -94,7 +94,7 @@ function set_radio(name, val) {
     current_span.removeClass('selected');
   }
   span.addClass('selected');
-  hid_el.attr('value',val);
+  hid_el.val(val).trigger('change');
 }
 function set_selected(name) {
   var selected = $('input[name=' + name + ']').attr('value');

@@ -42,11 +42,13 @@ a {
   margin-top: -1px;
   padding-top: 4px;
   padding-bottom: 4px;
+  max-height: 200px;
 }
 .option {
   padding: 3px;
   cursor: pointer;
   border-top: 1px solid white;
+  white-space: nowrap;
 }
 .option:hover {
   background-color: #666;
