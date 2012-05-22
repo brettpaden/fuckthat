@@ -1,0 +1,2 @@
+class FuckthatsController < ApplicationController
+end

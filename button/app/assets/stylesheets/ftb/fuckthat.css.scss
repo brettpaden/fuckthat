@@ -1,0 +1,94 @@
+// Place all the styles related to the Fucks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$fuckthat_color: #551155;
+$fucked_color: #666666;
+$fuckthat_bgcolor: #e9a072;
+$fuckthat_bordercolor: #fd5d00;
+$body_color: #333;
+
+body {
+    font-size: 11px;
+    font-family:tahoma,verdana,arial,sans-serif;
+    color:$body_color;
+    margin:0;
+    padding:0;
+    text-align:left;
+    direction:ltr;
+    unicode-bidi:embed
+}
+
+.fbutton {
+    border: 1px solid $fuckthat_bordercolor;
+    background-color: $fuckthat_bgcolor;
+    height:18px;
+    width:70px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    font-color: $fuckthat_color;
+    font-size: 11px;
+    font-weight: 'bold';
+}
+
+.fbutton_fucked {
+    color: $fucked_color;
+}
+
+.fuckthat_link:link {
+  &:link {
+    color: $fuckthat_color;
+    text-decoration: none;
+  }
+}
+
+.fuckthat_link:hover {
+  &:hover {
+    color: $fuckthat_color;
+    text-decoration: underline;
+    cursor:hand;
+  }
+}
+
+.fuckthat_link:visited {
+  &:visited {
+    color: $fuckthat_color;
+    text-decoration: none;
+  }
+}
+
+.fuckthat_link:active {
+  &:active {
+    color: $fuckthat_color;
+    text-decoration: none;
+  }
+}
+
+.fbutton_fucked:link {
+  &:link {
+    color: $fucked_color;
+    text-decoration: none;
+  }
+}
+
+.fbutton_fucked:hover {
+  &:hover {
+    color: $fucked_color;
+    text-decoration: underline;
+    cursor:hand;
+  }
+}
+
+.fbutton_fucked:visited {
+  &:visited {
+    color: $fucked_color;
+    text-decoration: none;
+  }
+}
+
+.fbutton_fucked:active {
+  &:active {
+    color: $fucked_color;
+    text-decoration: none;
+  }
+}

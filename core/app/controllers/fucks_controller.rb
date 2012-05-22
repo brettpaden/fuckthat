@@ -48,15 +48,13 @@ class FucksController < ApplicationController
       $log.warn(err)
     end
     
-    # Respond HTML or JSON, with exception protection    
+    # Respond JSON only, with exception protection    
     begin
       respond_to do |format|
         if err 
           # Result of eager loading
-          format.html { redirect_to fucks_path, notice: "Error collecting fucks: #{err}" }
-          format.json { render json: err, status: :unprocessable_entity }
+          format.json { render json: err, status: :internal_server_error }
         else
-          format.html # index.html.erb
           if @fuck_count
             format.json {render json: @fuck_count }
           else
@@ -68,8 +66,7 @@ class FucksController < ApplicationController
       # Result of lazy loading
       $log.warn(err)    
       respond_to do |format|
-        format.html { redirect_to fucks_path, notice: "Error collecting fucks: #{err}" }
-        format.json { render json: err, status: :unprocessable_entity }
+        format.json { render json: err, status: :internal_server_error }
       end
     end
   end
@@ -77,75 +74,80 @@ class FucksController < ApplicationController
   # GET /fucks/1
   # GET /fucks/1.json
   def show
-    @fuck = Fuck.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @fuck }
+    begin
+      @fuck = Fuck.find(params[:id])
+      respond_to do |format|
+        format.json { render json: @fuck }
+      end
+    rescue => err
+      $log.warn(err)
+      respond_to do |format|
+        format.json { render json: err, status: :internal_server_error }
+      end
     end
   end
 
-  # GET /fucks/new
-  # GET /fucks/new.json
-  def new
-    @fuck = Fuck.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @fuck }
+  # Helper fuck-creation routine
+  def create_fuck
+    begin
+      # Ensure a fuck for this url and fucker does not already exist
+      if Fuck.first(:conditions => {:fucker_id => @fuck.fucker_id, :that_id => @fuck.that_id}) 
+        err = 'Fucker has already fucked that.'
+        status = :forbidden
+        $log.warn(err)
+      else
+        @fuck.that.fuck_count += 1  # Increment the 'that's fuck count
+      end
+      
+      respond_to do |format|
+        # Note, associated 'that' is automatically saved through the :autosave property of Fuck.that
+        if !err
+          if @fuck.save 
+            # Create new event for this new fuck
+            @event = Event.new(
+              :fuck_id => @fuck.id, 
+              :fucker_id => session[:fucker] ? session[:fucker].id : nil,
+              :that_id => @fuck.that_id,
+              :withdraw => false,
+              :fuck_created_at => nil,
+              :session_id => session[:session_id]
+            )
+            @event.save
+            format.json { render json: @fuck, status: :created, location: @fuck }
+          else
+            err = "Unable to save fuck: #{@fuck.errors.full_messages[0]}"
+            $log.warn(err)
+            format.json { render json: err, status: :unprocessable_entity }
+          end
+        else
+          format.json { render json: err, status: status }
+        end
+      end
+    rescue => err 
+      $log.warn(err)
+      respond_to do |format|
+        format.json { render json: err, status: :internal_server_error }
+      end
     end
   end
-
-  # GET /fucks/1/edit
-  def edit
-    @fuck = Fuck.find(params[:id])
-  end
-
+  
   # POST /fucks
   # POST /fucks.json
   def create
     @fuck = Fuck.new(params[:fuck])
-    # Ensure a fuck for this url and fucker does not already exist
-    if Fuck.first(:conditions => {:fucker_id => params['fuck']['fucker_id'], :that_id => params['fuck']['that_id']}) then
-      $log.warn('fucker has already fucked that')
-      @fuck.errors.add :fucker_id, 'has already fucked that.'
-    else
-      @fuck.that.fuck_count += 1  # Increment the 'that's fuck count
-    end
-    
-    respond_to do |format|
-      # Note, associated 'that' is automatically saved through the :autosave property of Fuck.that
-      if @fuck.errors.empty? && @fuck.save 
-        # Create new event for this new fuck
-        @event = Event.new(
-          :fuck_id => @fuck.id, 
-          :fucker_id => session[:fucker] ? session[:fucker].id : nil,
-          :that_id => @fuck.that_id,
-          :withdraw => false,
-          :fuck_created_at => nil,
-          :session_id => request.session[:session_id]
-        )
-        @event.save
-        format.html { redirect_to @fuck, notice: 'Fuck was successfully created.' }
-        format.json { render json: @fuck, status: :created, location: @fuck }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @fuck.errors, status: :unprocessable_entity }
-      end
-    end
+    create_fuck 
   end
 
   # PUT /fucks/1
   # PUT /fucks/1.json
   def update
-    @fuck = Fuck.find(params[:id])
+#    @fuck = Fuck.find(params[:id])
     
     # Error, can't update a fuck, at least for now...
-    $log.warn "Attempt to update fuck #{@fuck.id} failed"
+    err = "Attempt to update fuck #{params[:id]} failed"
+    $log.warn(err)
     respond_to do |format|
-      @fuck.errors.add :url, notice: "can't be updated."
-      format.html { redirect_to fucks_path, notice: "Fuck can't be updated."}
-      format.json { render json: @fuck.errors, status: :unprocessable_entity }
+      format.json { render json: err, status: :forbidden }
     end
     
     # Original generated code    
@@ -160,27 +162,160 @@ class FucksController < ApplicationController
 #    end
   end
 
+  # Helper fuck deletion routine
+  def delete_fuck
+    @fuck.that.fuck_count -= 1  # Decrement the 'that's' fuck count
+    begin
+      Fuck.transaction do
+        @fuck.that.save!
+        @fuck.destroy
+      end
+    rescue => err
+      err = "Unable to destroy fuck: #{err}"
+      $log.warn(err)
+    end
+    if !err
+      # Create new event for the fuck withdrawal
+      @event = Event.new(
+        :fuck_id => @fuck.id, 
+        :fucker_id => session[:fucker] ? session[:fucker].id : nil,
+        :that_id => @fuck.that_id,
+        :withdraw => true,
+        :fuck_created_at => @fuck.created_at,
+        :session_id => session[:session_id]
+      )
+      @event.save
+    
+      respond_to do |format|
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.json { render json: err, status: :unprocessable_entity }
+      end
+    end      
+  end
+  
   # DELETE /fucks/1
   # DELETE /fucks/1.json
   def destroy
     @fuck = Fuck.find(params[:id])
-    @fuck.that.fuck_count -= 1  # Decrement the 'that's' fuck count
-    @fuck.that.save
-    @fuck.destroy
-    # Create new event for the fuck withdrawal
-    @event = Event.new(
-      :fuck_id => @fuck.id, 
-      :fucker_id => session[:fucker] ? session[:fucker].id : nil,
-      :that_id => @fuck.that_id,
-      :withdraw => true,
-      :fuck_created_at => @fuck.created_at,
-      :session_id => request.session[:session_id]
-    )
-    @event.save
-    
+    delete_fuck
+  end
+  
+  # POST /fucks/fuckthat
+  # A fuckthat from the web, with url and facebook id passed in
+  def fuckthat
+    # Make sure we have a fucker_id and url
+    if !params[:fucker_id] || params[:fucker_id].length == 0
+      err = "No fucker"
+      status = :forbidden
+    elsif !params[:url] || params[:url].length == 0
+      err = "No URL"
+      status = :forbidden
+    end
+    if !err  
+      # Get fucker
+      fucker = Fucker.find_by_id(params[:fucker_id])
+      if !fucker
+        err = "Invalid fucker"
+        status = :forbidden
+     else
+        # Does the that already exist?
+        that = That.first(:conditions => {:url => params[:url]})
+        if !that
+          # No, create it
+          that = That.new({:url => params[:url]})
+          if !that.save
+            # Uh oh
+            err = "Attempt to save new that ('#{params[:url]}') failed"
+            status = :unprocessable_entity
+            that = nil
+          end
+        end
+        if that
+          # Create the fuck
+          @fuck = Fuck.new({:fucker_id => fucker.id, :that_id => that.id})
+          create_fuck
+          return # create_fuck renders on its own
+        end
+      end
+    end
+      
+    # Only get here on error
     respond_to do |format|
-      format.html { redirect_to fucks_url }
-      format.json { head :no_content }
+      $log.warn(err)
+      format.json { render json: err, status: status }
+    end
+  end
+
+  # DELETE /fucks/fuckthat
+  # Delete a fuck from the web, with url and facebook id passed in
+  def unfuckthat
+    # Make sure we have a facebook_id and url
+    if !params[:fucker_id] || params[:fucker_id].length == 0
+      err = "No fucker"
+      status = :forbidden
+    elsif !params[:url] || params[:url].length == 0
+      err = "No URL"
+      status = :forbidden
+    end
+    if !err  
+      # Get fucker
+      fucker = Fucker.find_by_id(params[:fucker_id])
+      if !fucker
+        err = "Invalid fucker"
+        status = :forbidden
+      else
+        # Get that
+        that = That.first(:conditions => {:url => params[:url]})
+        if !that
+          err = "Unknown URL: #{params[:url]}"
+          status = :forbidden
+        else
+          # Get the fuck
+          @fuck = Fuck.first(:conditions => {:fucker_id => fucker.id, :that_id => that.id})
+          if !@fuck
+            err = "Fucker hasn't fucked that"
+            status = :unprocessable_entity
+          else
+            delete_fuck # delete_fuck renders on its own
+            return
+          end
+        end
+      end
+    end
+    
+    # Only get here on error
+    respond_to do |format|
+      $log.warn(err)
+      format.json { render json: err, status: status }
+    end
+  end
+  
+  # GET /fucks/fuckthat
+  # Get a fuck based on facebook id and content
+  def get_fuckthat
+    # Valid fucker id?
+    fucker = Fucker.find_by_id(params[:fucker_id])
+    if fucker
+      # Valid url?
+      that = That.first(:conditions => {:url => params[:url]})
+      if that
+        # Have a fuck?
+        fuck = Fuck.first(:conditions => {:fucker_id => fucker.id, :that_id => that.id})
+        if (fuck)
+          respond_to do |format|
+            format.json { render json: fuck }
+          end
+        end
+      end
+    end
+    if !fuck
+      # Not found
+      respond_to do |format|
+        format.json { head :no_content }
+      end
     end
   end
 end

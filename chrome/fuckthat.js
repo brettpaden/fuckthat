@@ -1,9 +1,13 @@
 var max_repeat = 10;
 var current_find_iteration = 0;
-var button_url = 'http://d1.pkt3.com:10010/fuckthat';
+var button_url = 'http://localhost:3001'
+var button_route = '/fuckthat_button';
 var found_iframes = new Object;
 
-find_facebook_like_frames();
+window.onload = function ()
+{
+  find_facebook_like_frames();
+}
 
 function find_facebook_like_frames() {
     for (var i=0; i < document.getElementsByTagName('iframe').length; i++) {
@@ -21,19 +25,20 @@ function find_facebook_like_frames() {
 }
 
 function fuck_that_parent(iframe) {
-    var fucker = document.createElement('iframe');
+  var fucker = document.createElement('iframe');
 	for (i in iframe) {
 		fucker.style[i] = iframe.style[i];
 	}
+  fucker.float = true;
 	fucker.frameBorder = 0;
 	fucker.scrolling = 'no';
 	fucker.align = iframe.align;
 	fucker.marginHeight = iframe.marginHeight;
 	fucker.marginWidth = iframe.marginWidth;
-    var query = iframe.src.match(/\?.*/);
-    fucker.src = button_url + query[0];
+  var query = iframe.src.match(/\?.*/) || iframe.src.match(/\#\ .*/);
+  fucker.src = button_url + button_route + '?content='+encodeURIComponent(query[0]);
 	//console.log("------------------------------------------------------------------------");
     //console.log(fucker.src);
 	//console.log("------------------------------------------------------------------------");
-    iframe.parentNode.insertBefore(fucker, iframe.nextSibling);
+  iframe.parentNode.insertBefore(fucker, iframe.nextSibling);
 }

@@ -1,15 +1,29 @@
 Core::Application.routes.draw do
 
-  get 'data', :controller => 'thats', :action => 'data'
-  get 'mine', :controller => 'thats', :action => 'mine'
-  get 'top', :controller => 'thats', :action => 'top'
-  
-  resources :thats, :fucks, :events
+  resources :events, :except => [:new, :edit]
 
-  resources :fuckers do
+  resources :thats, :except => [:new, :edit] do
+    collection do
+      get 'data'
+    end
+  end
+
+  resources :fucks, :except => [:new, :edit] do
+    collection do
+      post 'fuckthat'
+      delete 'unfuckthat'
+      get 'get_fuckthat'
+    end
+  end
+  
+  resources :fuckers, :except => [:new, :edit] do
     collection do
       post 'authenticate'
+      post 'fb_authenticate'
       post 'logout'
+      get 'login'
+      get 'join'
+      get 'fb'
     end
   end
   

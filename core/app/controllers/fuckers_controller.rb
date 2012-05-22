@@ -1,3 +1,4 @@
+
 class FuckersController < ApplicationController
   # GET /fuckers
   # GET /fuckers.json
@@ -21,15 +22,13 @@ class FuckersController < ApplicationController
       $log.warn(err)
     end
     
-    # Respond HTML or JSON, with exception protection    
+    # Respond JSON only, with exception protection    
     begin
       respond_to do |format|
         if err
           # Result of eager loading
-          format.html { redirect_to fuckers_path, notice: "Error collecting fuckers: #{err}" }
-          format.json { render json: err, status: :unprocessable_entity }
+          format.json { render json: err, status: :internal_server_error }
         else
-          format.html # index.html.erb
           format.json { render json: @fuckers }
         end
       end
@@ -37,8 +36,7 @@ class FuckersController < ApplicationController
       # Result of lazy loading
       $log.warn(err)
       respond_to do |format|
-        format.html { redirect_to fuckers_path, notice: "Error collecting fuckers: #{err}" }
-        format.json { render json: err, status: :unprocessable_entity }
+        format.json { render json: err, status: :internal_server_error }
       end
     end 
   end
@@ -46,28 +44,17 @@ class FuckersController < ApplicationController
   # GET /fuckers/1
   # GET /fuckers/1.json
   def show
-    @fucker = Fucker.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @fucker }
+    begin
+      @fucker = Fucker.find(params[:id])
+      respond_to do |format|
+        format.json { render json: @fucker }
+      end
+    rescue => err
+      $log.warn(err)
+      respond_to do |format|
+        format.json { render json: err, status: :internal_server_error }
+      end
     end
-  end
-
-  # GET /fuckers/new
-  # GET /fuckers/new.json
-  def new
-    @fucker = Fucker.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @fucker }
-    end
-  end
-
-  # GET /fuckers/1/edit
-  def edit
-    @fucker = Fucker.find(params[:id])
   end
 
   # POST /fuckers
@@ -77,14 +64,13 @@ class FuckersController < ApplicationController
     respond_to do |format|
       if @fucker.password != params[:confirm] then
         @fucker.errors.add :password, ' confirmation doesn\'t match'
-        format.html { render action: "new" }
         format.json { render json: @fucker.errors }
       elsif @fucker.save
-        format.html { redirect_to ''}
         format.json { render json: @fucker }
+        reset_session
         session[:fucker] = @fucker
+        cookies[:fucker_id] = { :value => @fucker.id, :expires => Time.now + 24*3600 }
       else
-        format.html { render action: "new" }
         format.json { render json: @fucker.errors }
       end
     end
@@ -97,11 +83,9 @@ class FuckersController < ApplicationController
 
     respond_to do |format|
       if @fucker.update_attributes(params[:fucker])
-        format.html { redirect_to @fucker, notice: 'Fucker was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @fucker.errors, status: :unprocessable_entity }
+        format.json { render json: @fucker.errors, status: :internal_server_error }
       end
     end
   end
@@ -110,16 +94,26 @@ class FuckersController < ApplicationController
   # DELETE /fuckers/1.json
   def destroy
     @fucker = Fucker.find(params[:id])
-    # Decrement each of this fucker's fuck count ... IS THIS REALLY WHAT WE WANT TO DO???
-    @fucker.fucks.each do |f|
-      f.that.fuck_count -= 1
-      f.that.save
+    begin
+      Fucker.transaction do
+        # Decrement each of this fucker's fuck count 
+        @fucker.fucks.each do |f|
+          f.that.fuck_count -= 1
+          f.that.save
+        end
+        @fucker.destroy
+      end
+    rescue => err
+      err = "Unable to destroy fucker: #{err}"
+      $log.warn(err)
     end
-    @fucker.destroy
-
+    
     respond_to do |format|
-      format.html { redirect_to fuckers_url }
-      format.json { head :no_content }
+      if err
+        format.json { render json: err, status: :internal_server_error }
+      else
+        format.json { head :no_content }
+      end
     end
   end
   
@@ -128,15 +122,35 @@ class FuckersController < ApplicationController
     respond_to do |format|
       @fucker = Fucker.authenticate params[:fucker]['name'], params[:fucker]['password']
       if @fucker
+        reset_session
         session[:fucker] = @fucker
-        format.html { redirect_to fucks_path }
+        cookies[:fucker_id] = { :value => @fucker.id, :expires => Time.now + 24*3600 }
+        $log.debug("Set fucker to #{session[:fucker].inspect}")
         format.json { render json: @fucker }
       else
         @fucker = Fucker.new(params[:fucker])
         @fucker.errors.add :password, "is incorrect or fucker is invalid"
-        format.html {render action: 'login' }
+        cookies.delete :fucker_id
         format.json {render json: @fucker.errors }
       end
+    end
+  end
+
+  # POST /fuckers/fb_authenticate
+  # Attempt to 
+  def fb_authenticate
+    
+    
+    
+ rg = RestGraph.new(:access_token => params[:access_token],
+                    :graph_server => 'https://graph.facebook.com/',
+                    :app_id       => '293971130693272'  ,
+                    :secret       => '00f4e01d27a9474ce9feb4580eaba650')
+ me = rg.get('me')
+$log.debug(me.inspect)
+   
+    respond_to do |format|
+      format.json { render json: me }
     end
   end
 
@@ -144,21 +158,29 @@ class FuckersController < ApplicationController
   def logout
     do_logout
     respond_to do |format|
-      format.html { redirect_to fucks_path, notice: 'user logged out.' }
       format.json { render json: 1 }
     end
   end
   
   # do logout
   def do_logout
+    reset_session
     session[:fucker] = nil
+    cookies.delete :fucker_id
   end
   
   # login
   def login
     @fucker = Fucker.new(params[:user])
     respond_to do |format|
-      format.html # login.html.erb
+      format.json { render json: @fucker }
+    end
+  end
+  
+  # join
+  def join
+    @fucker = Fucker.new(params[:user])
+    respond_to do |format|
       format.json { render json: @fucker }
     end
   end
