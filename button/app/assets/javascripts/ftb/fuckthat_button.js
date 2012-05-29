@@ -1,10 +1,17 @@
 
-var Fucker = null;
+var Fucker = null;              // Current fucker
 var AppID = "293971130693272";  // Facebook-assigned App ID for fthat-dev
-var FBGraphAPI = "https://graph.facebook.com/";
+var Inited = false;             // Whether facebook login is initialized
+var InstanceID = null;          // Instance ID
 
 $(function() {
   
+  // Set up FuckThat click event
+  $('#fuckthat_link').click(function() {
+    fuckthat(false);
+    return false;
+  });
+
   // Load facebook Javascript SDK asynchronously,
   // per http://developers.facebook.com/docs/authentication/client-side/
   $('body').prepend("<div id='fb-root'></div><script src='//connect.facebook.net/en_US/all.js' async=true></script>")
@@ -12,131 +19,72 @@ $(function() {
   // Init the SDK upon load
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : AppID,
-      channelUrl : '//'+window.location.hostname+'/fb_channel.html', 
+      appId      : AppID, // Our APP Id
+      channelUrl : '//'+window.location.hostname+'/fb_channel.html', // Channel file
       status     : true, // check login status
       cookie     : true, // enable cookies to allow the server to access the session
       xfbml      : true  // parse XFBML
     });
 
-    // listen for and handle auth.statusChange events
+    // Listen for and handle auth.statusChange events
     FB.Event.subscribe('auth.statusChange', function(response) {
       if (response.authResponse) {
-        // user has auth'd your app and is logged into Facebook
-        // Authenticate through server 
-        FB.api('/me', function(me){
-          if (me.name) {
-            alert(me.name);
-          }
-        })
-      } else {
-        // user has not auth'd your app, or is not logged into Facebook
+        // User has auth'd the app and is logged into Facebook
+        // Now we have an access token, we authenticate this through the server
+        loginServer(response, false);
       }
     });
-
-    // respond to clicks on the login and logout links
-//    document.getElementById('auth-loginlink').addEventListener('click', function(){
-//      FB.login();
-//    });
-//    document.getElementById('auth-logoutlink').addEventListener('click', function(){
-//      FB.logout();
-//    }); 
+    Inited = true;
+  };
   
-  // Get hash parameters
-  var hParams = hashParams();
-  
-  // Check if we are responding to a facebook login
-  if (hParams['access_token']) {
-    alert('got '+hParams['access_token']);
-    respondFacebookLogin(hParams['access_token'], hParams['expires_in']);
-    return;
-  }
-  
-  // Check for a facebook access token
-//  var fb_token = $.cookie('fb_access_token');
-//  if (fb_token) {
-//    $.post('/api/fuckers/fb_authenticate', { 'access_token': fb_token }, function(data) {
-//      alert('ok: '+data.id);
-//    }).error(function(data) {
-//      alert(data.responseText);
-//    });
-    // Use this to get current fucker
-    //fuckerFromFacebook($.cookie['fb_access_token']);
-  }
-      
-  // Get current fucker
-  Fucker = null;
-  var fucker_id = $.cookie('fucker_id');
-  if (fucker_id) {
-    $.getJSON('/api/fuckers/'+fucker_id, function(data) {
-      if (data && data.id) {
-        Fucker = data;
-        // Determine if we've already fucked this
-        var fucked = false;
-        var content = $('#fuckthat_content').text();
-        if (content) {
-          // Check with the server
-          $.getJSON('/api/fucks/get_fuckthat', {'url': content, 'fucker_id': fucker_id}, function(data) {
-            if (data) {
-              // Got it, change to "fucked"
-              set_fucked();
-            } else {
-              set_unfucked();
-            }
-          }).error(function(data) {
-            // Assume unfucked
-            set_unfucked();
-          });
-        }
-      }
-    });
-  }
-  
-  // Set up FuckThat click event
-  $('#fuckthat_link').click(function() {
-    fuckthat();
-    return false;
-  });
+  // Reset button based on current fucker
+  resetButton();
 });
 
-// Get fucker info from facebook access token
-function fuckerFromFacebook(fb_token) {
-  // Get facebook id
-  $.getJSON(FBGraphAPI + 'me', {'access_token': fb_token}, function(data) {
-    var fb_id = data.id;
+// Precipitate a login at the fuckthat server, now that we have a logged in facebook user
+function loginServer(response, do_fuckthat) {
+  Fucker = null; // By default, unless we specifically authenticate
+  var token = (response.status == 'connected') ? response.authResponse.accessToken : '';
+  var data = (token || !do_fuckthat)  ? {'access_token': token} : null; 
+  $.post('/api/fuckers/fb_authenticate', data, function(data) {
+    // Set instance id and current fucker
+    InstanceID = data.instance_id;
+    Fucker = data.fucker;
+    resetButton();
+    // Do fuckthat action if we were waiting for the login
+    if (do_fuckthat) {
+      fuckthat(true);
+    }
   }).error(function(data) {
-  }); 
+    resetButton();
+  });
 }
 
-// Break hash parameters into array
-function hashParams() {
-  var params = {};
-  var hashStr = window.location.hash, hashArray, keyVal
-  var hashStr = hashStr.substring(1, hashStr.length);
-  var hashArray = hashStr.split('&');
-
-  for(var i = 0; i < hashArray.length; i++) {
-    var keyVal = hashArray[i].split('=');
-    params[unescape(keyVal[0])] = (typeof keyVal[1] != "undefined") ? unescape(keyVal[1]) : keyVal[1];
+// Reset button based on current fucker and whether has fucked that
+function resetButton() {
+  // If we have a fucker, determine if we've already fucked this
+  var content = $('#fuckthat_content').text();
+  if (Fucker && content) {
+    // Check with the server
+    $.getJSON('/api/fucks/get_fuckthat', {url: content}, function(data) {
+      if (data) {
+        // Got it, change to "fucked"
+        set_fucked();
+      } else {
+        set_unfucked();
+      }
+    }).error(function(data) {
+      set_unfucked();
+    });
+  } else {
+    set_unfucked();
   }
-  return params;
-}
-
-// Respond to facebook login
-function respondFacebookLogin(access_token, expires_in) {
-  // Store access token as cookie
-  var today = new Date().valueOf();
-  var expires = today + parseInt(expires_in);
-  var expires_at = new Date(expires);
-  $.cookie('fb_access_token', access_token);
-//, {'expires': new Date(new Date().valueOf() + parseInt(expires_in))});
-  alert($.cookie('fb_access_token'));
 }
 
 // Set button to "fucked"
 function set_fucked() {
   $('#fuckthat_link').addClass('fbutton_fucked').removeClass('fuckthat_link');
-  $('#fucktxt').html('<b>fuck</b>ed');
+  $('#fucktxt').html('un<b>fuck</b>');
 }
 
 // Set button to unfucked ("fuckthat")
@@ -145,57 +93,73 @@ function set_unfucked() {
   $('#fucktxt').html('<b>fuck</b>that');
 }
 
-// Handle facebook login in a popup
+// Do facebook login
 function doFacebookLogin() {
-  // Display login window, per http://developers.facebook.com/docs/authentication/client-side/#no-jssdk
-  var windowW = 1000;
-  var windowH = 600;
-  var left = screen.width/2-windowW/2;
-  var top = screen.height/2-windowH/2;
-  var url = "https://www.facebook.com/dialog/oauth?" + 
-    "client_id=" + AppID +  
-    "&redirect_uri=" + encodeURIComponent("https://www.facebook.com/connect/login_success.html") + 
-//    "&scope=COMMA_SEPARATED_LIST_OF_PERMISSION_NAMES" + 
-    "&response_type=token";
-  var popup = window.open(url, "Facebook Login", "top="+top+",left="+left+",height="+windowH+",width="+windowW+",resizable='no'");
+  FB.login(function(response) {
+    if (response.authResponse) {
+      // Login to fuckthat server and attempt the fuckthat again
+      loginServer(response, true);
+    }
+  });
 }
-                      
+
 // Handle fuckthat button press
-function fuckthat() {
-  // Get facebook access token
-  var fb_token = $.cookie('fb_access_token');
-  if (!fb_token) {
-    doFacebookLogin();
-    return;
-  } else {
-    alert('token is ' + fb_token);
+function fuckthat(fromLogin) {
+  // Can't do anything until we're done with our initialization
+  if (!Inited) {
+    alert('FuckThat button is not yet initialized, please try again');
+    return false;
   }
-  return false;
+  
+  // If no current fucker, do facebook login
+  if (!Fucker) {
+    doFacebookLogin();
+    return false;
+  }
 
   // Fucking or unfucking?
   var content = $('#fuckthat_content').text();
+  var title = $('#fuckthat_title').text();
   var text = $('#fucktxt').text();
   if (text == 'fuckthat') {
-    // POST the fuckthat   
-    $.post('/api/fucks/fuckthat', {'url': content, 'facebook_id': fb_id}, function(data) {
-      // Cool
-      set_fucked();
-    }).error(function(data) {
-      alert(data.responseText);
-    });
-  } else {
-    // DELETE the fuck
-    $.ajax('/api/fucks/unfuckthat', { 
-      'data': {'url': content, 'facebook_id': fb_id}, 
-      'type': 'DELETE',
+    // POST the fuckthat
+    $.ajax('/api/fucks/fuckthat', {
+      data: {url: content, title: title, instance_id: InstanceID},
+      type: 'POST',
+      dataType: 'json',
+      headers: {'X-CSRF-Token': $.cookie('CSRF-Token')}, 
       success: function(data) {
-        // Cool
-        set_unfucked();
+        set_fucked();
       },
       error: function(data) {
-        alert(data.responseText);
+        alert('Something went wrong, please try again.\n\n'+data.responseText);
+        if (data.responseText.search('has already fucked that') != -1) {
+          set_fucked();
+        }
       },
     });
+  } else {
+    // If we are getting this after a forced facebook login, that means the user hit "fuckthat" when
+    // they have already fucked that, we don't want to misinterpret this as an unfuck, so don't do anything
+    if (!fromLogin) {
+      // DELETE the fuck
+      $.ajax('/api/fucks/unfuckthat', { 
+        data: {'url': content, instance_id: InstanceID}, 
+        type: 'DELETE',
+        dataType: 'json',
+        headers: {'X-CSRF-Token': $.cookie('CSRF-Token')}, 
+        success: function(data) {
+          // Cool
+          set_unfucked();
+        },
+        error: function(data) {
+          alert('Something went wrong, please try again.\n\n'+data.responseText);
+          if (data.responseText.search('hasn\'t fucked that') != -1) {
+            set_unfucked();
+          }
+        },
+      });
+    }
   }
   
   return false;

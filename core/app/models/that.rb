@@ -1,6 +1,6 @@
 class That < ActiveRecord::Base
   # Whitelist these attributes
-  attr_accessible :url, :fuck_count
+  attr_accessible :url, :title, :fuck_count
   
   # Validations
   validates :url, :uniqueness => true, :length => { :minimum => 1 }
@@ -14,6 +14,11 @@ class That < ActiveRecord::Base
     arr |= find(:all, :order => 'fuck_count DESC, created_at DESC', :limit => limit)
   end
   
+  # Get fuck count for period of time specified
+  def fuck_count_since(time)
+    Fuck.where("created_at >= '#{time}' and that_id = #{id}").count
+  end
+      
   # Get top n thats for period of time specified, merge with existing array, and add
   # the requested fields to the elements of the array indicating fuck_count for that period
   def self.top_thats_since(time, limit, arr)

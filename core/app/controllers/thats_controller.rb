@@ -122,17 +122,8 @@ class ThatsController < ApplicationController
     info = {:thats => [], :fuckers => [], :fucks => [], :events => [],
       :month_fuck_counts => {}, :week_fuck_counts => {}, :day_fuck_counts => {}}
     
-    # Get current session id
-    info[:session_id] = session[:session_id]
-
-    # Check for fucker_id cookie
-    # TODO: This should really be encrypted???
-    session[:fucker] = (cookies[:fucker_id] && Fucker.find_by_id(cookies[:fucker_id])) || nil
-    $log.debug("Set fucker to: #{session[:fucker].inspect}")
-
     # Get current fucker, put in fucker_id, and add to fuckers array
     info[:fucker_id] = session[:fucker] ? session[:fucker].id : nil;
-$log.debug("fucker_id=#{info[:fucker_id]}")
     info[:fuckers] << session[:fucker] unless !session[:fucker];
     
     # Get all relevant thats
@@ -148,8 +139,7 @@ $log.debug("fucker_id=#{info[:fucker_id]}")
     
     # Get associated thats
     info[:fucks].each do |fuck|
-      that = info[:thats].find {|t| t.id == fuck.that_id}
-      info[:thats] << fuck.that unless that
+      info[:thats] << fuck.that unless info[:thats].find {|t| t.id == fuck.that_id}
     end
     
     # Get very last event by id

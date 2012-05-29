@@ -6,7 +6,7 @@ class CreateEvents < ActiveRecord::Migration
       t.references :fucker
       t.boolean :withdraw
       t.timestamp :fuck_created_at
-      t.string :session_id
+      t.string :instance_id
       
       t.timestamps
     end

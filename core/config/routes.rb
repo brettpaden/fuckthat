@@ -23,7 +23,6 @@ Core::Application.routes.draw do
       post 'logout'
       get 'login'
       get 'join'
-      get 'fb'
     end
   end
   

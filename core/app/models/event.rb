@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Base
   # Whitelist these attributes
-  attr_accessible :fuck_id, :that_id, :fucker_id, :withdraw, :fuck_created_at, :session_id
+  attr_accessible :fuck_id, :that_id, :fucker_id, :withdraw, :fuck_created_at, :instance_id
 
   # Validations
   validates_associated :fuck

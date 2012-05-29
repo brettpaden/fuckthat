@@ -1,7 +1,5 @@
 Button::Application.routes.draw do
 
-  get 'fuckthat_button', :controller => 'fuckthat', :action => 'fuckthat_button'
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -52,6 +50,7 @@ Button::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
+  root :to => 'fuckthat#fuckthat_button'
 
   # See how all your routes lay out with "rake routes"
 
