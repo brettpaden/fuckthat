@@ -1,0 +1,58 @@
+// Place all the styles related to the Fucks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "color_theme";
+
+.fuck_button {
+  color: $fuck_button_color;
+  background-color: $fuck_button_bgcolor;
+  text-shadow: #000 1px 1px 0px;
+  font-size: 12px;
+  cursor: pointer;
+  cursor: hand;
+  width:120px;
+  font: {
+    size: 12px;
+    family: "comic sans ms", verdana, helvetica, arial, sans-serif;
+  }
+  border-radius: 15px;
+}
+
+.fuck_button:hover {
+  &:hover {
+    color: $hover_color;
+    cursor: hand;
+    text-decoration: none;
+  }
+}
+
+.fuck_msg {
+  color: $fuck_msg_color;
+  margin: 5px;
+}
+  
+.fuck_count {
+  color: $fuck_count_color;
+  font-weight: bold;
+}
+
+.fuck_count_text {
+}
+
+.my_fuck {
+  border-bottom: {
+    color: $my_fuck_border_color;
+    width: 1px;
+    style: dotted;
+  }
+}
+
+.already_fucked {
+  color: black;
+}
+
+.havent_fucked {
+  color: $havent_fucked_color;
+}
+

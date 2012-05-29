@@ -1,0 +1,43 @@
+<div class="header_bar" id="header_bar">
+  <% if (for_login) { %>
+    <div id="for_login" "style='display:none'"></div>
+  <% } else if (for_join) { %>
+    <div id="for_join" "style='display:none'"></div>
+  <% } %>
+  <table>
+    <tr>
+      <td class="my_name"><img class="my_icon" src="finger-16.png">Fuck That!</td>
+      <td class="header_center">
+        <% if (session_fucker) { %>
+          <%= "Hi, "+session_fucker.get('name').capitalize() %>
+        <% } %>
+      </td>
+      <td class="header_right">
+        <% if (session_fucker) { %>
+          <span id="logout">
+            <a href="#/logout" id="header_logout" class="header_link">Logout</a>
+          </span>
+        <% } else { %>
+          <% if (!for_login) { %>
+            <span id="login">
+              <a href="#/login" id="header_login" class="header_link">Login</a>
+            </span>
+          <% } %>
+          <% if (!for_login && !for_join) { %>
+            <span class="header_sep_text">| </span>
+          <% } %>
+          <% if (!for_join) { %>
+            <span id="join">
+              <a href="#/join" id="header_join" class="header_link">Join</a>
+            </span>
+          <% } %>
+        <% } %>
+      </td>
+    </tr>
+  </table>
+</div>
+<% if (!for_login && !for_join) { %>
+  <div class="get_the_button_div" id="get_the_button_div">
+    <button class="get_the_button" name="commit" type="submit"><img src="finger-16.png">&nbsp;Get the FT! button</button>
+  </div>
+<% } %>
