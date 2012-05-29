@@ -682,6 +682,6 @@ function main() {
   
   // Set up window resize event
   $(window).resize (function() {
-    App.renderAll();
+    App && App.renderAll();
   });
 }
