@@ -1,4 +1,11 @@
+
 class FuckersController < ApplicationController
+
+  # Facebook app constants
+  FBGraphServer = 'https://graph.facebook.com/'
+  FBAppID =  '293971130693272' 
+  FBAppSecret = '00f4e01d27a9474ce9feb4580eaba650'
+
   # GET /fuckers
   # GET /fuckers.json
   def index
@@ -21,15 +28,13 @@ class FuckersController < ApplicationController
       $log.warn(err)
     end
     
-    # Respond HTML or JSON, with exception protection    
+    # Respond JSON only, with exception protection    
     begin
       respond_to do |format|
         if err
           # Result of eager loading
-          format.html { redirect_to fuckers_path, notice: "Error collecting fuckers: #{err}" }
-          format.json { render json: err, status: :unprocessable_entity }
+          format.json { render json: err, status: :internal_server_error }
         else
-          format.html # index.html.erb
           format.json { render json: @fuckers }
         end
       end
@@ -37,8 +42,7 @@ class FuckersController < ApplicationController
       # Result of lazy loading
       $log.warn(err)
       respond_to do |format|
-        format.html { redirect_to fuckers_path, notice: "Error collecting fuckers: #{err}" }
-        format.json { render json: err, status: :unprocessable_entity }
+        format.json { render json: err, status: :internal_server_error }
       end
     end 
   end
@@ -46,28 +50,17 @@ class FuckersController < ApplicationController
   # GET /fuckers/1
   # GET /fuckers/1.json
   def show
-    @fucker = Fucker.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @fucker }
+    begin
+      @fucker = Fucker.find(params[:id])
+      respond_to do |format|
+        format.json { render json: @fucker }
+      end
+    rescue => err
+      $log.warn(err)
+      respond_to do |format|
+        format.json { render json: err, status: :internal_server_error }
+      end
     end
-  end
-
-  # GET /fuckers/new
-  # GET /fuckers/new.json
-  def new
-    @fucker = Fucker.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @fucker }
-    end
-  end
-
-  # GET /fuckers/1/edit
-  def edit
-    @fucker = Fucker.find(params[:id])
   end
 
   # POST /fuckers
@@ -75,12 +68,16 @@ class FuckersController < ApplicationController
   def create
     @fucker = Fucker.new(params[:fucker])
     respond_to do |format|
-      if @fucker.save
-        format.html { redirect_to @fucker, notice: 'Fucker was successfully created.' }
-        format.json { render json: @fucker, status: :created, location: @fucker }
+      if @fucker.password != params[:confirm] then
+        @fucker.errors.add :password, ' confirmation doesn\'t match'
+        format.json { render json: @fucker.errors }
+      elsif @fucker.save
+        format.json { render json: @fucker }
+        reset_session
+        session[:fucker] = @fucker
+        cookies[:fucker_id] = { :value => @fucker.id, :expires => Time.now + 24*3600 }
       else
-        format.html { render action: "new" }
-        format.json { render json: @fucker.errors, status: :unprocessable_entity }
+        format.json { render json: @fucker.errors }
       end
     end
   end
@@ -92,11 +89,9 @@ class FuckersController < ApplicationController
 
     respond_to do |format|
       if @fucker.update_attributes(params[:fucker])
-        format.html { redirect_to @fucker, notice: 'Fucker was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @fucker.errors, status: :unprocessable_entity }
+        format.json { render json: @fucker.errors, status: :internal_server_error }
       end
     end
   end
@@ -105,31 +100,88 @@ class FuckersController < ApplicationController
   # DELETE /fuckers/1.json
   def destroy
     @fucker = Fucker.find(params[:id])
-    # Decrement each of this fucker's fuck count ... IS THIS REALLY WHAT WE WANT TO DO???
-    @fucker.fucks.each do |f|
-      f.that.fuck_count -= 1
-      f.that.save
+    begin
+      Fucker.transaction do
+        # Decrement each of this fucker's fuck count 
+        @fucker.fucks.each do |f|
+          f.that.fuck_count -= 1
+          f.that.save
+        end
+        @fucker.destroy
+      end
+    rescue => err
+      err = "Unable to destroy fucker: #{err}"
+      $log.warn(err)
     end
-    @fucker.destroy
-
+    
     respond_to do |format|
-      format.html { redirect_to fuckers_url }
-      format.json { head :no_content }
+      if err
+        format.json { render json: err, status: :internal_server_error }
+      else
+        format.json { head :no_content }
+      end
     end
   end
   
   # POST /fuckers/authenticate
   def authenticate
     respond_to do |format|
-      if Fucker.authenticate params[:fucker]['name'], params[:fucker]['password']
-        format.html { redirect_to fucks_path }
-        format.json { head :ok }
+      @fucker = Fucker.authenticate params[:fucker]['name'], params[:fucker]['password']
+      if @fucker
+        reset_session
+        session[:fucker] = @fucker
+        cookies[:fucker_id] = { :value => @fucker.id, :expires => Time.now + 24*3600 }
+        format.json { render json: @fucker }
       else
         @fucker = Fucker.new(params[:fucker])
         @fucker.errors.add :password, "is incorrect or fucker is invalid"
-        format.html {render action: 'login' }
-        format.json {render json: @fucker.errors, status: :unprocessable_entity }
+        cookies.delete :fucker_id
+        format.json {render json: @fucker.errors }
       end
+    end
+  end
+
+  # POST /fuckers/fb_authenticate
+  # Attempt to authenticate passed facebook access token, get or create new fucker
+  def fb_authenticate  
+    # If we have a new access token, validate it by attempting to get 'me',
+    # the logged in facebook user
+    if params[:access_token]
+      begin
+        rg = RestGraph.new(:access_token => params[:access_token],
+          :graph_server => FBGraphServer,
+          :app_id       => FBAppID,
+          :secret       => FBAppSecret)
+        me = rg.get('me')
+      rescue => err
+        # Unable to get me, this is not a valid acces token
+      end
+    end
+
+    # Find the fucker associated with the facebook id
+    if me
+      session[:fucker] = Fucker.first(:conditions => {:facebook_id => me['id']})
+      if !session[:fucker]
+        session[:fucker] = Fucker.new({:name => me['name'], :facebook_id => me['id']})
+        if !session[:fucker].save
+          session[:fucker] = nil
+        end
+      end
+    elsif !params.has_key? :access_token && !session[:fucker]
+      # No facebook user and no active active session, reset session
+      reset_session
+    end
+ 
+    # Explicitly provide CSRF token in a cookie, since a new one will be generated 
+    # and we will need it to do non-idempotent actions
+    cookies['CSRF-Token'] = session[:fucker] ? form_authenticity_token : nil
+    
+    # Create a random instance id
+    instance_id = (rand * 0xffffffff).to_i;
+
+    # Return the fucker
+    respond_to do |format|
+      format.json { render json: {:instance_id => instance_id, :fucker => session[:fucker]}}
     end
   end
 
@@ -137,21 +189,29 @@ class FuckersController < ApplicationController
   def logout
     do_logout
     respond_to do |format|
-      format.html { redirect_to fucks_path, notice: 'user logged out.' }
-      format.json { head :ok }
+      format.json { render json: 1 }
     end
   end
   
   # do logout
   def do_logout
-    session[:user] = nil
+    reset_session
+    session[:fucker] = nil
+    cookies.delete :fucker_id
   end
   
   # login
   def login
     @fucker = Fucker.new(params[:user])
     respond_to do |format|
-      format.html # login.html.erb
+      format.json { render json: @fucker }
+    end
+  end
+  
+  # join
+  def join
+    @fucker = Fucker.new(params[:user])
+    respond_to do |format|
       format.json { render json: @fucker }
     end
   end

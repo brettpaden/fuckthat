@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20120416200332) do
     t.integer  "fucker_id"
     t.boolean  "withdraw"
     t.datetime "fuck_created_at"
-    t.string   "session_id"
+    t.string   "instance_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20120416200332) do
 
   create_table "thats", :force => true do |t|
     t.string   "url"
+    t.string   "title"
     t.integer  "fuck_count", :default => 0
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false

@@ -5,6 +5,11 @@
   <%= include_stylesheets :all %>
   <%= include_javascripts :app %>
   <%= csrf_meta_tags %>
+  <script>
+    $(function(){
+      main();
+    });
+  </script>
 </head>
 <body>
   <div id=main>

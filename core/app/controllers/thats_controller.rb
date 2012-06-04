@@ -26,10 +26,8 @@ class ThatsController < ApplicationController
       respond_to do |format|
         if err 
           # Result of eager loading
-          format.html { redirect_to thats_path, notice: "Error collecting thats: #{err}" }
-          format.json { render json: err, status: :unprocessable_entity }
+          format.json { render json: err, status: :internal_server_error }
         else 
-          format.html # index.html.erb
           format.json { render json: @thats }
         end
       end
@@ -37,8 +35,7 @@ class ThatsController < ApplicationController
       # Result of lazy loading
       $log.warn(err)
       respond_to do |format|
-        format.html { redirect_to thats_path, notice: "Error collecting thats: #{err}" }
-        format.json { render json: err, status: :unprocessable_entity }
+        format.json { render json: err, status: :internal_server_error }
       end
     end    
   end
@@ -46,28 +43,17 @@ class ThatsController < ApplicationController
   # GET /thats/1
   # GET /thats/1.json
   def show
-    @that = That.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @that }
+    begin
+      @that = That.find(params[:id])
+      respond_to do |format|
+        format.json { render json: @that }
+      end
+    rescue => err
+      $log.warn(err)
+      respond_to do |format|
+        format.json { render json: err, status: :internal_server_error }
+      end
     end
-  end
-
-  # GET /thats/new
-  # GET /thats/new.json
-  def new
-    @that = That.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @that }
-    end
-  end
-
-  # GET /thats/1/edit
-  def edit
-    @that = That.find(params[:id])
   end
 
   # POST /thats
@@ -75,13 +61,10 @@ class ThatsController < ApplicationController
   def create
     @that = That.new(params[:that])
     @that.fuck_count = 0
-    
     respond_to do |format|
       if @that.save
-        format.html { redirect_to @that, notice: 'That was successfully created.' }
         format.json { render json: @that, status: :created, location: @that }
       else
-        format.html { render action: "new" }
         format.json { render json: @that.errors, status: :unprocessable_entity }
       end
     end
@@ -90,14 +73,12 @@ class ThatsController < ApplicationController
   # PUT /thats/1
   # PUT /thats/1.json
   def update
-    @that = That.find(params[:id])
-
+#    @that = That.find(params[:id])
     # Error, can't update a that through interface, at least for now...
-    $log.warn "Attempt to update that #{@that.id} failed"
+    err = "Attempt to update that #{params[:id]} failed, can't be updated"
+    $log.warn(err)
     respond_to do |format|
-      @that.errors.add :url, notice: "can't be updated."
-      format.html { redirect_to thats_path, notice: "That can't be updated."}
-      format.json { render json: @that.errors, status: :unprocessable_entity }
+      format.json { render json: err, status: :forbidden }
     end
     
 #   Original generated code 
@@ -117,10 +98,55 @@ class ThatsController < ApplicationController
   def destroy
     @that = That.find(params[:id])
     @that.destroy
-
     respond_to do |format|
-      format.html { redirect_to thats_url }
       format.json { head :no_content }
     end
   end
+  
+  # GET /thats/data
+  def data
+    # Build a single JSON object representing all data that a client will be
+    # interested in for displaying a single screen
+    # This consists of: 
+    #  - current session id
+    #  - current fucker id
+    #  - top 25 thats of all time
+    #  - top 25 thats this month
+    #  - top 25 thats this week
+    #  - top 25 thats today
+    #  - hash of fuck_counts for each set of top thats
+    #  - the current fucker's fucks
+    #  - all thats associated with current fucker's fucks
+    #  - very last event generated
+    #  - the time all this info was collected, in milliseconds since epoch
+    info = {:thats => [], :fuckers => [], :fucks => [], :events => [],
+      :month_fuck_counts => {}, :week_fuck_counts => {}, :day_fuck_counts => {}}
+    
+    # Get current fucker, put in fucker_id, and add to fuckers array
+    info[:fucker_id] = session[:fucker] ? session[:fucker].id : nil;
+    info[:fuckers] << session[:fucker] unless !session[:fucker];
+    
+    # Get all relevant thats
+    limit = 25
+    info[:time] = Time.now.gmtime
+    info[:thats] = That.top_thats(limit, info[:thats])
+    info[:month_fuck_counts] = That.top_thats_since(info[:time]-60*60*24*30, limit, info[:thats])
+    info[:week_fuck_counts] = That.top_thats_since(info[:time]-60*60*24*7, limit, info[:thats])
+    info[:day_fuck_counts] = That.top_thats_since(info[:time]-60*60*24, limit, info[:thats])
+
+    # Get current fucker's fucks
+    info[:fucks] = Fuck.fucks_by_fucker(info[:fucker_id]) if info[:fucker_id]
+    
+    # Get associated thats
+    info[:fucks].each do |fuck|
+      info[:thats] << fuck.that unless info[:thats].find {|t| t.id == fuck.that_id}
+    end
+    
+    # Get very last event by id
+    if events = Event.order('id DESC').limit(1) then info[:events] = events end
+
+    respond_to do |format|
+      format.json { render json: info }
+    end
+  end 
 end

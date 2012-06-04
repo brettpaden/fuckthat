@@ -1,0 +1,316 @@
+// Place all the styles related to the Thats controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "color_theme";
+
+.loading {
+  color: $loading_color;
+  font-size: 18px;
+  margin: 100px;
+}
+
+.my_body {
+  background: $body_color;
+  margin: 0; 
+  border: 0;
+  padding: 0;
+  border-stye: none;
+  frameBorder: 0;
+}
+
+.thats_div {
+  overflow: auto;
+  left: 0px;
+  top: 50px;
+  width: 775px;
+  height: 500px;
+  position: absolute;
+}
+
+.normal_link {
+  font-family: verdana, helvetica, arial, sans-serif;
+  font-size: 13px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.normal_link:link {
+  &:link { color: $medium-gray; }
+}
+
+.normal_link:visited {
+  &:visited { color: $medium-gray; }
+}
+
+.normal_link:hover {
+  &:hover { 
+    color: $dark_gray;
+    background-color: transparent;
+    text-decoration: underline; 
+    cursor: hand;
+  }
+}
+
+.normal_link:active {
+  &:active { color: black; }
+}
+
+.selected_link {
+  color: $dark_gray;
+  font-weight: bold;
+}
+
+.that {
+  color: $that_color;
+  font-size: 14px;
+  background-color: transparent;
+  border: none;
+  text-decoration: none; 
+}
+
+.that:visited {
+   &:visited {
+     color: $that_color;
+     background-color: transparent;
+     text-decoration: none; 
+   }
+}
+ 
+.that:hover {
+   &:hover {
+     color: $that_color;
+     background-color: transparent;
+     text-decoration: underline; 
+   }
+}
+
+.that_fuck {
+  padding: 0px;
+  margin: 0px;
+  width: 80px;
+}
+    
+.that_url {
+  padding: 0px;
+  margin: 0px;
+  float: left;
+}
+
+.that_url a {
+  font-size: 14px;
+}
+
+.that_site {
+  color: $that_site_color;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.that_site:visited {
+   &:visited {
+     color: $that_site_color;
+     background-color: transparent;
+     text-decoration: none; 
+     font-size: 12px;
+   }
+}
+
+.that_site:hover {
+  &:hover {
+    color: $that_site_color;
+    text-decoration: underline;
+    background-color: transparent;
+  }
+}
+
+.action_button {
+  color: $lighter_blue;
+  background-color: $that_button_color;
+  text-shadow: #000 1px 1px 0px;
+  font-size: 16px;
+  cursor:pointer;
+  cursor:hand;
+  border-radius: 8px;
+}
+
+.action_button:hover {
+  &:hover {
+    color: $hover_color;
+    cursor: hand;
+  }
+}
+
+.indented {
+  padding: 0px;
+  margin-left: 10px;
+}
+
+.hint {
+  color: gray;
+}
+
+.that_div {
+  border-bottom: {
+    style: solid;
+    color: $that_border_color;
+    width: 1px;
+  }
+}
+
+.tabbedPanels {
+}
+
+.tabs {
+  margin: 0;
+  padding: 0;
+}
+
+.tabs li {
+  float: left;
+  list-style: none;
+  margin-left: 2px;
+}
+
+.tabs li.leftmost {
+  margin-left: 0px;
+}
+
+.tabs a {
+  display: block;
+  text-decoration: none;
+  padding: 3px 5px;
+  border: {
+    style: solid;
+    color: $tabs_color;
+    width: 1px;
+    top: {
+      left-radius: 4px;
+      right-radius: 4px;
+    }
+  }
+  margin-bottom: -1px;
+    
+}
+
+@mixin tab_text {
+  background-color: $tabs_color;
+  color: $light_pink;
+  font-family: verdana, helvetica, arial, sans-serif;
+  text-shadow: #000 1px 1px 0px;
+}
+
+.tabs a:link {
+  &:link {
+    @include tab_text;
+  }
+}
+
+.tabs a:visited {
+  &:visited {
+    @include tab_text;
+  }
+}
+
+.tabs a:hover {
+  &:hover {
+   color: $hover_color;
+   cursor:hand;
+   text-decoration: underline;
+  }
+}
+
+.tabs a.active {
+  color: $active_tab_color;
+  background-color: white;
+  border-bottom: {
+    color: $hover_color;
+  }
+}
+
+@mixin active_tab_text {
+  color: $active_tab_color;
+  background-color: $hover_color;
+  text-shadow: none;
+  font-weight: bold;
+}
+
+.tabs a.active:link {
+  &:link {
+    @include active_tab_text;
+  }
+}
+
+.tabs a.active:visited {
+  &:visited {
+    @include active_tab_text;
+  }
+}
+
+.panelContainer {
+  clear: left;
+  border: {
+    style:solid;
+    color: $panel_color;
+    width: 1px;
+  }
+}
+
+@mixin light_border {
+  style:solid;
+  color: $that_border_color;
+  width: 1px;
+}
+
+.hidden_item {
+  font-size: 24px;
+}
+
+.master_popup {
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+@mixin pacifying {
+  color: $pacifying_border_color;
+  background-color: $pacifying_color;
+  text-align: center;
+}
+
+.pacifier_popup {
+  @include pacifying;
+  border: {
+    style: solid;
+    width: 1px;
+    radius: 5px;
+  }
+  padding: 5px;
+}
+
+.submitting {
+  @include pacifying;
+}
+
+.no_thats {
+  color: $dark-red;
+  font-weight: bold;
+  margin: 5px;
+}
+
+.no_space {
+  margin: 0px;
+  padding: 0px;
+  border-width: 0px;
+}
+
+.one_that {
+  width: 730px;
+}
+
+.one_that td {
+  margin: 0px;
+  padding: 0px;
+}

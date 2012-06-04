@@ -1,11 +1,28 @@
 Core::Application.routes.draw do
 
-  resources :thats, :fucks
+  resources :events, :except => [:new, :edit]
+
+  resources :thats, :except => [:new, :edit] do
+    collection do
+      get 'data'
+    end
+  end
+
+  resources :fucks, :except => [:new, :edit] do
+    collection do
+      post 'fuckthat'
+      delete 'unfuckthat'
+      get 'get_fuckthat'
+    end
+  end
   
-  resources :fuckers do
+  resources :fuckers, :except => [:new, :edit] do
     collection do
       post 'authenticate'
+      post 'fb_authenticate'
+      post 'logout'
       get 'login'
+      get 'join'
     end
   end
   
@@ -58,7 +75,7 @@ Core::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'thats#index'
+  root :to => 'thats#main'
 
   # See how all your routes lay out with "rake routes"
 

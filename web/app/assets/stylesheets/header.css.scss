@@ -1,0 +1,121 @@
+
+@import "color_theme";
+
+.header_bar {
+  background-color: $header_color;
+  padding: 5px;
+}
+
+.header_div {
+  left: 0px;
+  top: 0px;
+  width: 780px;
+  position: absolute;
+}
+
+.my_name {
+  color: $white;
+  font: {
+    family: "comic sans ms", verdana, helvetica, arial, sans-serif;
+    weight: bold;
+    size: 18px;
+  }
+  line-height: 30px;
+  padding: 0;
+  padding-left: 20px;
+  text-shadow: #000 1px 1px 0px;
+  width: 130px;
+  border-style: none;
+  margin: 0;
+}
+
+.my_icon {
+  margin: 5px;
+}
+
+@mixin header_text {
+  color: $white;
+  font-family: verdana, helvetica, arial, sans-serif;
+  text-shadow: #000 1px 1px 0px;
+  margin: 0;
+  padding: 0;
+  border-style: none;
+}
+
+.header_center {
+  @include header_text;
+  font-size: 18px;
+  width: 450px;
+  text-align: center;
+}
+
+.header_right {
+  @include header_text;
+  color: $header_link_color;
+  text-align: right;
+  font-size: 14px;
+  width: 200px;
+}
+
+.header_sep_text {
+  color: #aaaaaa;
+  font-size: 12px;
+}
+
+.header_link {
+  font-family: verdana, helvetica, arial, sans-serif;
+  font-size: 14px;
+  text-shadow: #000 1px 1px 0px;
+  text-decoration: none;
+}
+
+.header_link:link {
+  &:link { color: $header_link_color; }
+}
+
+.header_link:visited {
+  &:visited { color: $header_link_color; }
+}
+
+.header_link:hover {
+  &:hover { 
+    color: $white; 
+    background-color: transparent; 
+    text-decoration: underline; 
+    cursor: hand;
+  }
+}
+
+.header_link:active {
+  &:active { color: white; }
+}
+
+.get_the_button_div { 
+  width: 780px;
+  text-align: right;
+}
+
+.get_the_button {
+  color: $get_the_button_color;
+  background-color: $get_the_button_bgcolor;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  cursor: hand;
+  font: {
+    size: 14px;
+    family: "comic sans ms", verdana, helvetica, arial, sans-serif;
+  }
+  border-radius: 5px;
+}
+
+.get_the_button:hover {
+  &:hover {
+    color: black;
+    cursor: hand;
+    text-decoration: underline;
+  }
+}
+
+
+
