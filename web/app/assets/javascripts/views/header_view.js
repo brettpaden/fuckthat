@@ -5,19 +5,9 @@ var HeaderView = Backbone.View.extend({
   initialize:function () {
   },
 
-  // Set template data
-  set_tpl:function(tpl_data) {
-    HeaderView.template_data = tpl_data;
-    return this;
-  },
-  
   // Render header view
   render:function () {
-    $(this.el).html(_.template(HeaderView.template_data,
-      { 
-        session_fucker: SessionFucker,
-      }
-    ));
+    $(this.el).html(JST['header.html']({ session_fucker: SessionFucker }));
     return this;
   },
 

@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   def initialize 
     super
-    $log = Logger.new("/tmp/ftc.log")
+    $log = Logger.new("/tmp/ftc-" + ENV['USER'] + ".log")
     $log.level = Logger::DEBUG
   end
 end

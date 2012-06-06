@@ -6,32 +6,6 @@ var LoadingTimeout = null;  // Timeout handler for loading pacifier
 var LoadingCount = 0;       // Count for loading pacifier
 var InstanceID = null;      // Current instance id
 
-// Javascript templates
-var Templates = {
-  HeaderTPL: '/header.html.jst',
-  ThatsTPL: '/thats.html.jst',
-  ThatsPanelTPL: '/thats_panel.html.jst',
-  ThatTPL: '/one_that.html.jst',
-};
-var TemplatesArray = [];
-for (var tpl in Templates) { TemplatesArray.push(tpl); }
-var TemplateData = [];
-
-// Fetch all templates in TemplatesArray, starting at n if provided, execute calllback when finished 
-function fetch_templates(callback, n) {
-  if (typeof(n) == 'undefined') {
-    n = 0;
-  }
-  if (n < TemplatesArray.length) {
-    $.get(Templates[TemplatesArray[n]], '', function(data){
-      TemplateData[TemplatesArray[n]] = data;
-      fetch_templates (callback, n+1);
-    });
-  } else {
-    callback();
-  }
-}
-
 // Router
 var AppRouter = Backbone.Router.extend({
  
@@ -43,6 +17,7 @@ var AppRouter = Backbone.Router.extend({
     "month":"month",
     "week":"week",
     "today":"today",
+    "button":"button"
   },
 
   // Current display
@@ -62,7 +37,6 @@ var AppRouter = Backbone.Router.extend({
     this.fuckers = new Fuckers();
     this.events = new Events();
   },
-
   // Display top thats
   top:function() {
     // Switch to top tab if already displayed, otherwise render whole page
@@ -241,6 +215,9 @@ var AppRouter = Backbone.Router.extend({
     $('#header_div').html(new HeaderView().render().el);
   },
   
+  button:function() {
+    new ButtonView().render();
+  },
   // Render everything
   renderAll:function() {
 
@@ -349,7 +326,7 @@ var AppRouter = Backbone.Router.extend({
   
   // Render thats portion
   renderThats:function(no_panel, count_text, fuck_count_var, mine, when) {
-    $('#thats_div').html(new ThatsView().render(App.thats, no_panel, count_text, fuck_count_var, mine, when).el);
+    $('#content_div').html(new ThatsView().render(App.thats, no_panel, count_text, fuck_count_var, mine, when).el);
   },
   
   // Render thats panel
@@ -542,20 +519,12 @@ var AppRouter = Backbone.Router.extend({
   
   // Main routing function
   main:function() {
-    // Fetch all templates
-    fetch_templates(function() {
+    new HeaderView();
+    new ThatsView().set_panel_tpl(JST['thats_panel.html']);
+    new ThatView();
     
-      // Establish templates
-      new HeaderView().set_tpl(TemplateData['HeaderTPL']);
-      new ThatsView().set_tpl(TemplateData['ThatsTPL']).set_panel_tpl(TemplateData['ThatsPanelTPL']);
-      new ThatView().set_tpl(TemplateData['ThatTPL']);
-      
-      // Render
-      App.renderAll ();
-    });
+    App.renderAll ();
 
-    // Master popup seems to need to display once or it gives incorrect size
-    // on first real display, not sure why...
     $('#master_popup').hide().text('x');
   },
 });
@@ -642,7 +611,7 @@ function main() {
   
   // Load facebook Javascript SDK asynchronously,
   // per http://developers.facebook.com/docs/authentication/client-side/
-  $('body').prepend("<div id='fb-root'></div><script src='//connect.facebook.net/en_US/all.js' async='true'></script>")
+  $('body').append("<div id='fb-root'></div><script src='//connect.facebook.net/en_US/all.js' async='true'></script>")
   
   // Init the SDK upon load
   window.fbAsyncInit = function() {
@@ -681,7 +650,13 @@ function main() {
   InitTimeout = setTimeout(onInitTimeout, 10000);
   
   // Set up window resize event
-  $(window).resize (function() {
+/*
+ * commenting this out because it causes weird flickering
+ * and if you're looking at anything other than 'top' and switch windows,
+ * when you come back, it flickers then goes to top again
+ *
+ * $(window).resize (function() {
     App && App.renderAll();
   });
+  */
 }

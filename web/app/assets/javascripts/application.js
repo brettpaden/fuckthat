@@ -1,4 +1,4 @@
-function init() {
+function init_custom_form_elements() {
   $('a').each(function() {
     var el = $(this);
     var dh = el.attr('data-hover');

@@ -1,22 +1,7 @@
-body {
-  padding: 0px;
-  margin: 0px;
-  font-family: verdana, arial, sans-serif;
-  font-size: 12px;
-  background-color: #efefef;
-}
 #tip {
   background: #efefef;
   border: 1px solid #88a;
   padding: 2px;
-}
-#main {
-  width: 800px;
-  margin: 0 auto;
-  padding: 10px;
-  background-color: #fff;
-  border-left: 1px solid #666;
-  border-right: 1px solid #666;
 }
 h1 {
   font-weight: normal;

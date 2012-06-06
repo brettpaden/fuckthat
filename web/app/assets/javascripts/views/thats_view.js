@@ -5,15 +5,9 @@ var ThatView = Backbone.View.extend({
   initialize:function () {
   },
 
-  // Set template data
-  set_tpl:function(tpl_data) {
-    ThatView.template_data = tpl_data;
-    return this;
-  },
-
   // Render a single that  
   render:function (that, count_text, fuck_count_var) {
-    $(this.el).html(_.template(ThatView.template_data, { that: that, session_fucker: SessionFucker, count_text: count_text, fuck_count_var: fuck_count_var}));
+    $(this.el).html(JST['one_that.html']({ that: that, session_fucker: SessionFucker, count_text: count_text, fuck_count_var: fuck_count_var}));
     return this;
   },
 
@@ -42,12 +36,6 @@ var ThatsView = Backbone.View.extend({
   initialize:function () {
   },
 
-  // Set template data
-  set_tpl:function(tpl_data) {
-    ThatsView.template_data = tpl_data;
-    return this;
-  },
-  
   // Set template data for panel
   set_panel_tpl:function(tpl_data) {
     ThatsView.panel_template_data = tpl_data;
@@ -56,7 +44,7 @@ var ThatsView = Backbone.View.extend({
   
   // Render thats panel
   render_panel:function (thats, count_text, fuck_count_var, mine, when) {
-    $('#thats_panel').html(_.template(ThatsView.panel_template_data, { thats: thats, session_fucker: SessionFucker, mine: mine, when: when}));
+    $('#thats_panel').html(ThatsView.panel_template_data({ thats: thats, session_fucker: SessionFucker, mine: mine, when: when}));
     _.each(thats.models, function(that) {
       var $div = $('#that_div_'+that.cid);
       $div.html(new ThatView().render(that, count_text, fuck_count_var).el);
@@ -76,7 +64,7 @@ var ThatsView = Backbone.View.extend({
   
   // Render thats div
   render:function (thats, no_panel, count_text, fuck_count_var, mine, when) {
-    $(this.el).html(_.template(ThatsView.template_data, { thats: thats, session_fucker: SessionFucker}));
+    $(this.el).html(JST['thats.html']({ thats: thats, session_fucker: SessionFucker}));
     if (!no_panel) {
       this.render_panel(thats, count_text, fuck_count_var, mine, when);
     } 
@@ -106,7 +94,7 @@ function onThatsLoad() {
   // Size thats div to available space on screen
   var headerH = $('#header_div').outerHeight(),
       screenH = $(window).outerHeight();
-  $('#thats_div').css({
+  $('#content_div').css({
     top: headerH+1,
     height: screenH - headerH
   });
@@ -118,7 +106,7 @@ function onThatsLoad() {
   pollRecentEvents(); 
   
   // Give us a hidden control to manually poll for recent events
-  $('#thats_div').prepend("<a id='poll' href='' style='display:none'>POLL</a>");
+  $('#content_div').prepend("<a id='poll' href='' style='display:none'>POLL</a>");
   $('#poll').on('click', function() {
     pollRecentEvents();
     return false;
