@@ -78,7 +78,7 @@ function set_ft_popup(code) {
       "  var js, fjs = d.getElementsByTagName(s)[0]\n" +
       "  if (d.getElementById(id)) return;\n" +
       "  js = d.createElement(s); js.id = id;\n" +
-      "  js.src = '//d1.pkt3.com:10052/assets/sdk.js';\n" +
+      "  js.src = '//" + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + "/assets/sdk.js';\n" +
       "  fjs.parentNode.insertBefore(js, fjs);\n" +
       "}(document, 'script', 'fuckthat-jssdk'));&lt/script&gt;" +
       "</textarea><br><br></li>" + 

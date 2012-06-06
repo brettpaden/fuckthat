@@ -551,7 +551,6 @@ function onFacebookLoginChange(response, onInit) {
     // Set current fucker
     InstanceID = data.instance_id;
     SessionFucker = new Fucker(data.fucker);
-    alert('here');
     if (SessionFucker) {
       $.cookie('FBInit', 1, {expires: 365*50});  
     }
