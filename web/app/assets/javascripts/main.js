@@ -6,10 +6,7 @@ var LoadingTimeout = null;  // Timeout handler for loading pacifier
 var LoadingCount = 0;       // Count for loading pacifier
 var InstanceID = null;      // Current instance id
 
-// Router
 var AppRouter = Backbone.Router.extend({
- 
-  // Routes
   routes:{
     "":"main",
     "top":"top",
@@ -21,8 +18,8 @@ var AppRouter = Backbone.Router.extend({
   },
 
   // Current display
-  what:'top', 
-  for_button:false,
+  what: 'top', 
+  for_button: false,
   
   // Collections
   thats:null,
@@ -30,14 +27,12 @@ var AppRouter = Backbone.Router.extend({
   fuckers:null,
   events:null,
   
-  // Init
   initialize:function () {
     this.thats = new Thats();
     this.fucks = new Fucks();
     this.fuckers = new Fuckers();
     this.events = new Events();
   },
-  // Display top thats
   top:function() {
     // Switch to top tab if already displayed, otherwise render whole page
     var $top_tab = $('#top_thats_tab a');
@@ -48,8 +43,6 @@ var AppRouter = Backbone.Router.extend({
       this.main();
     }
   },
-  
-  // Display my fucked thats
   mine:function() {
     // Switch to "my" tab if already displayed, otherwise render whole page
     var $my_tab = $('#my_thats_tab a');
@@ -60,8 +53,6 @@ var AppRouter = Backbone.Router.extend({
       this.main();
     }
   },
-  
-  // Display my fucked thats
   month:function() {
     // Switch to this month's top if already displayed, otherwise render whole page
     var $month_tab = $('#month_thats_tab a');
@@ -72,8 +63,6 @@ var AppRouter = Backbone.Router.extend({
       this.main();
     }
   },
-  
-  // Display my fucked thats
   week:function() {
     // Switch to this week's top if already displayed, otherwise render whole page
     var $week_tab = $('#week_thats_tab a');
@@ -84,8 +73,6 @@ var AppRouter = Backbone.Router.extend({
       this.main();
     }
   },
-  
-  // Display my fucked thats
   today:function() {
     // Switch to today's if already displayed, otherwise render whole page
     var $today_tab = $('#today_thats_tab a');
@@ -96,8 +83,6 @@ var AppRouter = Backbone.Router.extend({
       this.main();
     }
   },
-  
-  // Get fuck count text according to current "what"
   countTextFromWhat:function(what) {
     switch (what) {
       case 'top':
@@ -117,8 +102,6 @@ var AppRouter = Backbone.Router.extend({
         return "TODAY'S";
     }
   },
-  
-  // Get fuck count variable according to current "what"
   fuckCountVarFromWhat:function(what) {
     switch (what) {
       case 'top':
@@ -138,8 +121,6 @@ var AppRouter = Backbone.Router.extend({
         return 'day_fuck_count';
     }
   },
-  
-  // Get descriptive 'when' according to current "what"
   whenFromWhat:function(what) {
     switch (what) {
       case 'top':
@@ -159,15 +140,10 @@ var AppRouter = Backbone.Router.extend({
         return 'today';
     }
   },
-  
-  // Called in response to change of logged in 'fucker'
   onFuckerChange:function() {
-    // Re-render everything
     App.what = 'top';
     this.renderAll();
   },
-  
-  // Render thats view per new 'what'
   onWhatChange:function(what) {
     App.what = what;
     
@@ -209,16 +185,21 @@ var AppRouter = Backbone.Router.extend({
     this.renderThatsPanel(count_text, fuck_count_var, what == 'mine' || what == 'My Fuck Thats',
       App.whenFromWhat(what));
   },
-
-  // Render header
   renderHeader:function() {
-    $('#header_div').html(new HeaderView().render().el);
+    if (!App.headerView) {
+      App.headerView = new HeaderView();
+    }
+    $('#header_div').html(App.headerView.render().el);
   },
-  
   button:function() {
-    new ButtonView().render();
+    if (!App.headerView) {
+      App.renderHeader();
+    }
+    if (!App.buttonView) {
+      App.buttonView = new ButtonView();
+    }
+    App.buttonView.render();
   },
-  // Render everything
   renderAll:function() {
 
     // Fetch all displayed data
@@ -523,7 +504,7 @@ var AppRouter = Backbone.Router.extend({
     new ThatsView().set_panel_tpl(JST['thats_panel.html']);
     new ThatView();
     
-    App.renderAll ();
+    App.renderAll();
 
     $('#master_popup').hide().text('x');
   },
@@ -569,7 +550,8 @@ function onFacebookLoginChange(response, onInit) {
   $.post('/api/fuckers/fb_authenticate', data, function(data) {
     // Set current fucker
     InstanceID = data.instance_id;
-    SessionFucker = data.fucker;
+    SessionFucker = new Fucker(data.fucker);
+    alert('here');
     if (SessionFucker) {
       $.cookie('FBInit', 1, {expires: 365*50});  
     }

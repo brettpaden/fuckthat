@@ -92,13 +92,15 @@ var ThatsView = Backbone.View.extend({
 // Perform thats initialization
 function onThatsLoad() {
   // Size thats div to available space on screen
+  // this makes things jumpy
+  /*
   var headerH = $('#header_div').outerHeight(),
       screenH = $(window).outerHeight();
   $('#content_div').css({
     top: headerH+1,
     height: screenH - headerH
   });
-  
+  */
   // Select tab to be displayed
   selectTab(App.what);
   

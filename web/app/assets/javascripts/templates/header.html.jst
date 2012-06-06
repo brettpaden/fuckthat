@@ -2,9 +2,9 @@
   <div class="logo">
     <a href='#'><img border=0 class="my_icon" src="finger-16.png">Fuck That!</a>
   </div>
-  <% if (session_fucker) { %>
+  <% if (session_fucker && session_fucker.id) { %>
     <div class="center">
-      <%= "Hi, "+session_fucker.get('name').split(' ')[0].capitalize() %>
+      <%= "Hi, " + session_fucker.get('name').split(' ')[0].capitalize() %>
     </div>
   <% } %>
   <% if (!session_fucker && FacebookInit) { %>

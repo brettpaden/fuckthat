@@ -105,4 +105,5 @@ function set_popup(html) {
 function close_popup() {
   $('#popup').css('display','none');
   $('#popupbackground').css('display','none');
+  return false;
 }
