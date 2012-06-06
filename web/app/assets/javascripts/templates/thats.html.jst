@@ -1,0 +1,30 @@
+<div id="thats">
+  <div class="indented">
+    <div class="tabbedPanels">
+      <ul class="tabs">
+        <li class="leftmost" id="top_thats_tab">
+          <a href="/thats?what=top" class="thats_tab_link">Most Fucked (All Time)</a>
+        </li>
+        <li id="month_thats_tab">
+          <a href="/thats?what=month" class="thats_tab_link">This Month</a>
+        </li>
+        <li id="week_thats_tab">
+          <a href="/thats?what=week" class="thats_tab_link">This Week</a>
+        </li>
+        <li id="today_thats_tab">
+          <a href="/thats?what=today" class="thats_tab_link">Today</a>
+        </li>
+        <li id="my_thats_tab" style="<%= session_fucker ? '' : 'display:none;' %>">
+          <a href="/thats?what=mine" class="thats_tab_link">My Fuck Thats</a>
+        </li>
+      </ul>
+    </div>
+    <div class="panelContainer">
+      <div id="thats_panel" class="panel">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

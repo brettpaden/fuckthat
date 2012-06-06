@@ -1,0 +1,79 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: verdana, arial, sans-serif;
+  font-size: 12px;
+  background-color: #efefef;
+}
+#main {
+  width: 800px;
+  margin: 0 auto;
+  margin-top: 0;
+  padding: 0;
+  background-color: #fff;
+  border-left: 1px solid #666;
+  border-right: 1px solid #666;
+}
+ul.tabs {
+  margin: 0;
+  padding: 0;
+}
+ul.tabs li {
+  list-style: none;
+  float: left;
+  font-size: 13px;
+  font-weight: bold;
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #666;
+  border-right: 1px solid #666;
+  margin: 0;
+  padding: 3px;
+}
+div.tabbedPanels {
+  clear: both;
+}
+div.panelContainer {
+  clear: both;
+}
+#fb-root {
+  display: none;
+}
+div.logo {
+  float: left;
+  padding: 20px;
+  padding-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+div.logo a {
+  color: #666;
+}
+div.header {
+  padding-top: 10px;
+}
+div.header .center {
+  float: right;
+  padding: 22px;
+  padding-top: 12px;
+  font-size: 16px;
+  font-weight: bold;
+}
+div.get_the_button_div {
+  width: 225px;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  border: 5px solid #3b5998;
+  background-color: #efefef;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 8px;
+}
+div.panelContainer {
+  padding: 10px;
+}
+div.button_content {
+  padding: 10px;
+}

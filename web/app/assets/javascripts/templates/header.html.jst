@@ -1,0 +1,18 @@
+<div class="header">
+  <div class="logo">
+    <a href='#'><img border=0 class="my_icon" src="finger-16.png">Fuck That!</a>
+  </div>
+  <% if (session_fucker) { %>
+    <div class="center">
+      <%= "Hi, "+session_fucker.get('name').split(' ')[0].capitalize() %>
+    </div>
+  <% } %>
+  <% if (!session_fucker && FacebookInit) { %>
+    <div class="right">
+      <div id="fb-login" class="fb-login-button" size="large">Login with Facebook</div>
+    </div>
+  <% } %>
+</div>
+<div class="get_the_button_div">
+  <a href='#button'><img border=0 src="finger-16.png">&nbsp;Get the FT! button</a>
+</div>
