@@ -141,8 +141,8 @@ var AppRouter = Backbone.Router.extend({
     }
   },
   onFuckerChange:function() {
-    App.what = 'top';
-    this.renderAll();
+//    App.what = 'top';
+    this.renderHeader(false, false);
   },
   onWhatChange:function(what) {
     App.what = what;
@@ -500,12 +500,8 @@ var AppRouter = Backbone.Router.extend({
   
   // Main routing function
   main:function() {
-    new HeaderView();
     new ThatsView().set_panel_tpl(JST['thats_panel.html']);
-    new ThatView();
-    
     App.renderAll();
-
     $('#master_popup').hide().text('x');
   },
 });
@@ -521,9 +517,7 @@ function appInit() {
 
 // Handle response to facebook authentication against server
 function onFacebookAuth(onInit) {
-  if (onInit) {
-    appInit();
-  } else if(App) {
+  if(App) {
     App.onFuckerChange();
   }
 }
@@ -585,11 +579,8 @@ function onError(model, response) {
   location.reload();
 }
 
-// Main function for backbone rendering
 function main() {
-  // Begin pacifier
-  setTimeout(updateLoading, 100);
-  
+  appInit(); 
   // Load facebook Javascript SDK asynchronously,
   // per http://developers.facebook.com/docs/authentication/client-side/
   $('body').append("<div id='fb-root'></div><script src='//connect.facebook.net/en_US/all.js' async='true'></script>")
@@ -598,13 +589,15 @@ function main() {
   window.fbAsyncInit = function() {
     FB.init({
       appId      : AppID, // Our APP Id
-      channelUrl : '//'+window.location.hostname+'/fb_channel.html', // Channel file
+      channelUrl : '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + '/fb_channel.html', // Channel file
       status     : false, // check login status
       cookie     : true, // enable cookies to allow the server to access the session
       xfbml      : true,  // parse XFBML
     });
 
-    FB.getLoginStatus(function(response) {
+      FB.getLoginStatus();
+      /*
+       function(response) {
       // Handle login status change
       if ($.cookie('FBInit')) {
         onFacebookLoginChange(response, true);
@@ -612,7 +605,7 @@ function main() {
         onFacebookLoginChange(null, true);
       }
     });
-    
+    */
     // Listen for and handle auth.statusChange events
     FB.Event.subscribe('auth.statusChange', function(response) {
       if ($.cookie('FBInit')) {
@@ -629,15 +622,6 @@ function main() {
 
   // Set timeout for facebook initialization
   InitTimeout = setTimeout(onInitTimeout, 10000);
-  
-  // Set up window resize event
-/*
- * commenting this out because it causes weird flickering
- * and if you're looking at anything other than 'top' and switch windows,
- * when you come back, it flickers then goes to top again
- *
- * $(window).resize (function() {
-    App && App.renderAll();
-  });
-  */
+
 }
+

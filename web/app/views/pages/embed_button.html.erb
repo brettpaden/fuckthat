@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <%= include_stylesheets :embedded_button %>
+    <%= include_javascripts :embedded_button %>
+    <%= csrf_meta_tags %>
+    <script>
+      $(function() {
+	init_button();
+      });
+    </script>
+  </head>
+  <body>
+    <div id=button></div>
+    <script>
+      var Button = {
+	url: "<%= params[:url] %>",
+	layout: "<%= params[:layout] %>",
+	color: "<%= params[:color] %>",
+	font: "<%= params[:font] %>"
+      };
+    </script>
+  </body>
+</html>
