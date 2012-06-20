@@ -36,17 +36,21 @@ var ThatsView = Backbone.View.extend({
   initialize:function () {
   },
 
-  // Set template data for panel
-  set_panel_tpl:function(tpl_data) {
-    ThatsView.panel_template_data = tpl_data;
-    return this;
+  // Render all-time panel
+  render_all_time:function (thats, count_text, fuck_count_var, mine, when) {
+    return this.render_panel($('#all_time_panel'), thats, count_text, fuck_count_var, mine, when);
+  },
+  
+  // Render this-week panel
+  render_this_week:function (thats, count_text, fuck_count_var, mine, when) {
+    return this.render_panel($('#this_week_panel'), thats, count_text, fuck_count_var, mine, when);
   },
   
   // Render thats panel
-  render_panel:function (thats, count_text, fuck_count_var, mine, when) {
-    $('#thats_panel').html(ThatsView.panel_template_data({ thats: thats, session_fucker: SessionFucker, mine: mine, when: when}));
+  render_panel:function ($panel, thats, count_text, fuck_count_var, mine, when) {
+    $panel.html(JST['thats_panel.html']({ thats: thats, session_fucker: SessionFucker, mine: mine, when: when}));
     _.each(thats.models, function(that) {
-      var $div = $('#that_div_'+that.cid);
+      var $div = $panel.find('#that_div_'+that.cid);
       $div.html(new ThatView().render(that, count_text, fuck_count_var).el);
       if (typeof(that.hide) != 'undefined' && that.hide) {
         $div.hide();
@@ -65,9 +69,6 @@ var ThatsView = Backbone.View.extend({
   // Render thats div
   render:function (thats, no_panel, count_text, fuck_count_var, mine, when) {
     $(this.el).html(JST['thats.html']({ thats: thats, session_fucker: SessionFucker}));
-    if (!no_panel) {
-      this.render_panel(thats, count_text, fuck_count_var, mine, when);
-    } 
     return this;
   },
 
@@ -105,7 +106,7 @@ function onThatsLoad() {
   selectTab(App.what);
   
   // Begin polling server for recent events
-  pollRecentEvents(); 
+//  pollRecentEvents(); 
   
   // Give us a hidden control to manually poll for recent events
   $('#content_div').prepend("<a id='poll' href='' style='display:none'>POLL</a>");

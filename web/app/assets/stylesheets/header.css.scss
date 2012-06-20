@@ -1,6 +1,12 @@
 
 @import "color_theme";
 
+.header_text {
+  font: {
+    family: verdana, helvetica, arial, sans-serif;
+    size: 64px;
+}
+
 .header_bar {
   background-color: $header_color;
   padding: 5px;

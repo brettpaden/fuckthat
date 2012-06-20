@@ -218,7 +218,7 @@ var AppRouter = Backbone.Router.extend({
 
       // Establish current fucker and session id
       if (data.fucker_id) {
-        SessionFucker = App.fuckers.get(data.fucker_id);
+//        SessionFucker = App.fuckers.get(data.fucker_id);
       } else {
         SessionFucker = null;
         if (App.what == 'mine' || App.what == 'My Fuck Thats') {
@@ -307,7 +307,24 @@ var AppRouter = Backbone.Router.extend({
   
   // Render thats portion
   renderThats:function(no_panel, count_text, fuck_count_var, mine, when) {
-    $('#content_div').html(new ThatsView().render(App.thats, no_panel, count_text, fuck_count_var, mine, when).el);
+    $x = new ThatsView().render(App.thats, no_panel, count_text, fuck_count_var, mine, when);
+    $('#content_div').html($x.el);
+    App.thats.showAllThats();
+    App.thats.sortByFucks();
+    $x.render_all_time(App.thats,
+      App.countTextFromWhat('top'), 
+      App.fuckCountVarFromWhat('top'), 
+      false, 
+      App.whenFromWhat('top')
+    );
+    App.thats.sortByWeekFucks();
+    $x.render_this_week(App.thats,
+      App.countTextFromWhat('week'),
+      App.fuckCountVarFromWhat('week'),
+      false,
+      App.whenFromWhat('week')
+    );
+    $('#content_div').html($x.el);
   },
   
   // Render thats panel
@@ -501,12 +518,10 @@ var AppRouter = Backbone.Router.extend({
   // Main routing function
   main:function() {
     new HeaderView();
-    new ThatsView().set_panel_tpl(JST['thats_panel.html']);
+    new ThatsView();
     new ThatView();
     
     App.renderAll();
-
-    $('#master_popup').hide().text('x');
   },
 });
 var App;
@@ -550,7 +565,7 @@ function onFacebookLoginChange(response, onInit) {
   $.post('/api/fuckers/fb_authenticate', data, function(data) {
     // Set current fucker
     InstanceID = data.instance_id;
-    SessionFucker = new Fucker(data.fucker);
+//    SessionFucker = new Fucker(data.fucker);
     if (SessionFucker) {
       $.cookie('FBInit', 1, {expires: 365*50});  
     }
@@ -589,6 +604,10 @@ function onError(model, response) {
 function main() {
   // Begin pacifier
   setTimeout(updateLoading, 100);
+  
+  FacebookInit = true;
+  appInit();
+  return;
   
   // Load facebook Javascript SDK asynchronously,
   // per http://developers.facebook.com/docs/authentication/client-side/

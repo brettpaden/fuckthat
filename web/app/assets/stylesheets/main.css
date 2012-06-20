@@ -10,7 +10,7 @@ html {
   height: 100%;
 }
 #main {
-  width: 800px;
+  width: 1000px;
   margin: 0 auto;
   margin-top: 0;
   padding: 0;
@@ -44,10 +44,9 @@ div.panelContainer {
   display: none;
 }
 div.logo {
-  float: left;
   padding: 20px;
   padding-top: 10px;
-  font-size: 18px;
+  font-size: 36px;
   font-weight: bold;
 }
 div.logo a {
@@ -62,6 +61,12 @@ div.header .center {
   padding-top: 12px;
   font-size: 16px;
   font-weight: bold;
+}
+span.detail_text {
+  font-size: 16px;
+}
+button.chrome_plugin {
+  font-size: 16px;
 }
 div.get_the_button_div {
   width: 225px;
@@ -78,6 +83,17 @@ div.get_the_button_div {
 }
 div.panelContainer {
   padding: 10px;
+}
+div#thats td {
+  width: 480px;
+  vertical-align: top;
+}
+table#one_that {
+  border-bottom: 1px dotted #ccc;
+}
+span.panel_heading {
+  font-size: 18px;
+  text-decoration: underline;
 }
 div.button_content {
   padding: 10px;

@@ -1,18 +1,16 @@
 <div class="header">
   <div class="logo">
-    <a href='#'><img border=0 class="my_icon" src="finger-16.png">Fuck That!</a>
+    <img border=0 class="my_icon" src="logo.png">That's a Bummer
   </div>
-  <% if (session_fucker && session_fucker.id) { %>
-    <div class="center">
-      <%= "Hi, " + session_fucker.get('name').split(' ')[0].capitalize() %>
-    </div>
-  <% } %>
-  <% if (!session_fucker && FacebookInit) { %>
-    <div class="right">
-      <div id="fb-login" class="fb-login-button" size="large">Login with Facebook</div>
-    </div>
-  <% } %>
-</div>
-<div class="get_the_button_div">
-  <a href='#button'><img border=0 src="finger-16.png">&nbsp;Get the FT! button</a>
+  <div class="detail">
+    <table>
+      <tr>
+        <td>
+          <span class="detail_text">It's wonderful that there are so many things in this world
+to “Like”. There are some things, though, that just bum you out.</span>
+        </td>
+        <td>
+          <button class="chrome_plugin">Chrome Plugin</button>
+        </td>
+  </div>
 </div>

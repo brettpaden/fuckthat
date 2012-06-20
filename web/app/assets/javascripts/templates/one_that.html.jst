@@ -36,22 +36,24 @@
             <a class="that" id="that_url_<%= that.cid %>" href="<%= url %>" target="_blank"><%= title %></a>
           </td>
         </tr>
-        <tr>
-          <td>
-            <% var site = parseUri(that.get('url')).host %>
-            <a class="that_site" id="that_site_<%= that.cid %>" href="<%= url %>" target="_blank"><%= url %></a>
-          </td>
-        </tr>
+        <% if (url != title) { %>
+          <tr>
+            <td>
+              <% var site = parseUri(that.get('url')).host %>
+              <a class="that_site" id="that_site_<%= that.cid %>" href="<%= url %>" target="_blank"><%= url %></a>
+            </td>
+          </tr>
+        <% } %>
         <tr>
           <td>
             <% if (fuck_count_var != null && count_text != null) { %>
-              <span class="fuck_count_text"><%= count_text %></span><%= " FUCK COUNT: "%><span class="fuck_count"><%= that[fuck_count_var] %>
+              <span class="fuck_count_text"><%= count_text %></span><%= " BUMMER COUNT: "%><span class="fuck_count"><%= that[fuck_count_var] %>
             <% } %>
           </td>
         </tr>
         <tr>              
           <td>
-            <%= "TOTAL FUCK COUNT: "%><span class="fuck_count"><%= that.get('fuck_count') %>
+            <%= "TOTAL BUMMER COUNT: "%><span class="fuck_count"><%= that.get('fuck_count') %>
           </td>
         </tr>
       </table>
