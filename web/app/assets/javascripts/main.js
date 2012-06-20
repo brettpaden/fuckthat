@@ -311,6 +311,7 @@ var AppRouter = Backbone.Router.extend({
     $('#content_div').html($x.el);
     App.thats.showAllThats();
     App.thats.sortByFucks();
+    App.thats.showTopN(25);
     $x.render_all_time(App.thats,
       App.countTextFromWhat('top'), 
       App.fuckCountVarFromWhat('top'), 
@@ -318,6 +319,7 @@ var AppRouter = Backbone.Router.extend({
       App.whenFromWhat('top')
     );
     App.thats.sortByWeekFucks();
+    App.thats.showTopN(25);
     $x.render_this_week(App.thats,
       App.countTextFromWhat('week'),
       App.fuckCountVarFromWhat('week'),
