@@ -1,0 +1,29 @@
+{
+    "version": "1.0",
+    "name": "__MSG_appName__",
+    "description": "__MSG_appDesc__",
+    "default_locale": "en",
+    "content_scripts": [ 
+	{
+	    "matches": [ "*://*.facebook.com/*", "*://*.fbcdn.net/*" ],
+	    "js": [ "jquery.js", "json2.js", "cookie.js", "bummer.js" ],
+	    "css": [ "bummer.css" ],
+	    "run_at": "document_end"
+	},
+	{
+	    "matches": [ "*://*/pages/obtain_facebook_access_token*" ],
+	    "js": [ "jquery.js", "json2.js", "cookie.js", "access_token.js" ],
+	    "css": [ "bummer.css" ],
+	    "run_at": "document_end"
+	} 
+    ],
+    "background": {
+	"scripts": [ "background.js" ]
+    },
+    "icons": {
+	"16": "16.png",
+	"48": "48.png",
+	"128": "128.png",
+	"256": "256.png"
+    }
+}
