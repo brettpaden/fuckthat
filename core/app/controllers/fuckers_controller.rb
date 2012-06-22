@@ -181,7 +181,8 @@ class FuckersController < ApplicationController
 
     # Return the fucker
     respond_to do |format|
-      format.json { render json: {:instance_id => instance_id, :fucker => session[:fucker]}}
+      format.json { render json: {:instance_id => instance_id, :fucker => session[:fucker], 
+        :csrf_token => cookies['CSRF-Token']}}
     end
   end
 
