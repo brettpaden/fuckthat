@@ -95,6 +95,40 @@ class FucksController < ApplicationController
     end
   end
 
+  # Post a fuck action to user's facebook newsfeed
+  def fb_post(fuck, opts) 
+    # Must have a valid access token
+    if !session['FB-Token']
+      $log.warn('Could not post to facebook newsfeed, no access token')
+      return false
+    end
+
+    # Get the facebook me
+    begin
+      rg = RestGraph.new(:access_token => session['FB-Token'],
+        :graph_server => FuckersController::FBGraphServer,
+        :app_id       => FuckersController::FBAppID,
+        :secret       => FuckersController::FBAppSecret)
+      me = rg.get('me')
+    rescue => err
+      # Unable to get me, this is not a valid acces token
+      $log.warn('Could not post to facebook newsfeed, unable to obtain facebook me: '+err.message)
+      return false
+    end
+    
+    # Do the post
+    begin
+      rg.post('me/feed', :message => "#{me['name']} was bummed out by...",
+        :link => fuck.that.url, 
+        :name => (fuck.that.title || fuck.that.url),
+        :caption => (opts[:caption] || ''),
+        :description => (opts[:description] || ''),
+      )
+    rescue => err
+      $log.warn('Could not post to facebook newsfeed: '+err.message)
+    end
+  end
+  
   # Helper fuck-creation routine
   def create_fuck
     status = :internal_server_error 
@@ -129,6 +163,9 @@ class FucksController < ApplicationController
             :instance_id => params[:instance_id].to_s
           )
           @event.save!
+          
+          # Post to facebook newsfeed
+          fb_post(@fuck, params)
         rescue => err
           raise FuckError.new(:unprocessable_entity), err
         end
@@ -307,7 +344,7 @@ class FucksController < ApplicationController
     end
   end
   
-  # GET /fucks/fuckthat
+  # GET /fucks/get_fuckthat
   # Get a fuck based on current fucker and content
   def get_fuckthat
     # Valid fucker?
@@ -329,6 +366,31 @@ class FucksController < ApplicationController
       respond_to do |format|
         format.json { head :no_content }
       end
+    end
+  end
+  
+  # POST /fucks/get_fuckthats
+  # This is a POST because the query parameters could likely exceed the allowed size for a GET,
+  #  even though this is an idempotent call
+  # Get an array of fucks based on current fucker and array of urls
+  def get_fuckthats
+    info = {}
+    if params[:urls]
+      # Expect array of URLs, return that and my_fuck for each url found
+      params[:urls].each do |url,x|
+        # Find that
+        that = That.first(:conditions => {:url => url})
+        if that
+          # Have a fuck for this fucker?
+          info[url] = {
+            :that => that,
+            :my_fuck => (session[:fucker] ? Fuck.first(:conditions => {:fucker_id => session[:fucker].id, :that_id => that.id}) : nil)
+          }
+        end
+      end
+    end
+    respond_to do |format|
+      format.json { render json: info }
     end
   end
 end
