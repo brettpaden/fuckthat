@@ -307,7 +307,7 @@ class FucksController < ApplicationController
     end
   end
   
-  # GET /fucks/fuckthat
+  # GET /fucks/get_fuckthat
   # Get a fuck based on current fucker and content
   def get_fuckthat
     # Valid fucker?
@@ -319,7 +319,7 @@ class FucksController < ApplicationController
         fuck = Fuck.first(:conditions => {:fucker_id => session[:fucker].id, :that_id => that.id})
         if (fuck)
           respond_to do |format|
-            format.json { render json: fuck }
+            format.json { render json: fuck, :callback => params[:callback] }
           end
         end
       end
@@ -329,6 +329,31 @@ class FucksController < ApplicationController
       respond_to do |format|
         format.json { head :no_content }
       end
+    end
+  end
+  
+  # POST /fucks/get_fuckthats
+  # This is a POST because the query parameters could likely exceed the allowed size for a GET,
+  #  even though this is an idempotent call
+  # Get an array of fucks based on current fucker and array of urls
+  def get_fuckthats
+    info = {}
+    if params[:urls]
+      # Expect array of URLs, return that and my_fuck for each url found
+      params[:urls].each do |url,x|
+        # Find that
+        that = That.first(:conditions => {:url => url})
+        if that
+          # Have a fuck for this fucker?
+          info[url] = {
+            :that => that,
+            :my_fuck => (session[:fucker] ? Fuck.first(:conditions => {:fucker_id => session[:fucker].id, :that_id => that.id}) : nil)
+          }
+        end
+      end
+    end
+    respond_to do |format|
+      format.json { render json: info }
     end
   end
 end
