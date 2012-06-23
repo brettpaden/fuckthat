@@ -95,6 +95,40 @@ class FucksController < ApplicationController
     end
   end
 
+  # Post a fuck action to user's facebook newsfeed
+  def fb_post(fuck, opts) 
+    # Must have a valid access token
+    if !session['FB-Token']
+      $log.warn('Could not post to facebook newsfeed, no access token')
+      return false
+    end
+
+    # Get the facebook me
+    begin
+      rg = RestGraph.new(:access_token => session['FB-Token'],
+        :graph_server => FuckersController::FBGraphServer,
+        :app_id       => FuckersController::FBAppID,
+        :secret       => FuckersController::FBAppSecret)
+      me = rg.get('me')
+    rescue => err
+      # Unable to get me, this is not a valid acces token
+      $log.warn('Could not post to facebook newsfeed, unable to obtain facebook me: '+err.message)
+      return false
+    end
+    
+    # Do the post
+    begin
+      rg.post('me/feed', :message => "#{me['name']} was bummed out by...",
+        :link => fuck.that.url, 
+        :name => (fuck.that.title || fuck.that.url),
+        :caption => (opts[:caption] || ''),
+        :description => (opts[:description] || ''),
+      )
+    rescue => err
+      $log.warn('Could not post to facebook newsfeed: '+err.message)
+    end
+  end
+  
   # Helper fuck-creation routine
   def create_fuck
     status = :internal_server_error 
@@ -129,6 +163,9 @@ class FucksController < ApplicationController
             :instance_id => params[:instance_id].to_s
           )
           @event.save!
+          
+          # Post to facebook newsfeed
+          fb_post(@fuck, params)
         rescue => err
           raise FuckError.new(:unprocessable_entity), err
         end

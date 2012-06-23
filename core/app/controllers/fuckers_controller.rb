@@ -170,11 +170,14 @@ class FuckersController < ApplicationController
     elsif !params.has_key? :access_token && !session[:fucker]
       # No facebook user and no active active session, reset session
       reset_session
+      params[:access_token] = nil
     end
  
     # Explicitly provide CSRF token in a cookie, since a new one will be generated 
     # and we will need it to do non-idempotent actions
+    # Also store facebook access token
     cookies['CSRF-Token'] = session[:fucker] ? form_authenticity_token : nil
+    session['FB-Token'] = params[:access_token]
     
     # Create a random instance id
     instance_id = (rand * 0xffffffff).to_i;
