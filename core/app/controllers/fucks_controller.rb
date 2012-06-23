@@ -319,7 +319,7 @@ class FucksController < ApplicationController
         fuck = Fuck.first(:conditions => {:fucker_id => session[:fucker].id, :that_id => that.id})
         if (fuck)
           respond_to do |format|
-            format.json { render json: fuck, :callback => params[:callback] }
+            format.json { render json: fuck }
           end
         end
       end
