@@ -1,1 +1,23 @@
-Serious?
+GetBummer.com, code name fuckthat, is a Ruby on Rails + Backbone web
+based application to give users who install the companion Chrome
+plug-in the ability to "dislike" content posted on Facebook by saying
+it is a "bummer."
+
+When the user clicks "Bummer", the web service on getbummer.com gets
+pinged, and a record of the "bum" is kept in a database. Additionally,
+the web service uses a FB API to add a new story to the user's
+newsfeed.
+
+The web service is in two parts:
+
+1. web -- the web server which handles client browser requests,
+   creates HTML pages and serves Javascript resources.
+
+2. core -- the API server which the web server uses to update the
+   database, etc.
+
+To run getbummer.com, you need to run two different web servers on
+different ports. The sb-tools is used to configure this, and has
+convenience scripts to start and stop the servers.
+
+[more goes here....]
