@@ -3,8 +3,8 @@ class FuckersController < ApplicationController
 
   # Facebook app constants
   FBGraphServer = 'https://graph.facebook.com/'
-  FBAppID =  '293971130693272' 
-  FBAppSecret = '00f4e01d27a9474ce9feb4580eaba650'
+  FBAppID =  '379083178817736' 
+  FBAppSecret = '8576db6dcefca668df6eacaf9d1dd1b4'
 
   # GET /fuckers
   # GET /fuckers.json

@@ -11,6 +11,7 @@ Core::Application.routes.draw do
   resources :fucks, :except => [:new, :edit] do
     collection do
       post 'fuckthat'
+      post 'get_fuckthats'
       delete 'unfuckthat'
       get 'get_fuckthat'
     end
