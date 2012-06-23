@@ -1,0 +1,7 @@
+[mysqld]
+skip-networking
+log-error=__MYSQL_DIR__/error.log
+socket=__MYSQL_DIR__/socket
+pid-file=__MYSQL_DIR__/pid
+datadir=__MYSQL_DIR__/data
+log

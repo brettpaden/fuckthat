@@ -1,3 +1,9 @@
 */*.log
 *.log
 .DS_store
+mysql/data
+mysql/data/*
+mysql/socket
+mysql/pid
+mysql/my.cnf
+
