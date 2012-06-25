@@ -17,6 +17,10 @@ javascripts:
     - app/assets/javascripts/views/*.js
     - app/assets/javascripts/templates/*.jst
 
+  access_token:
+    - app/assets/javascripts/jquery.min.js
+    - app/assets/javascripts/access_token_script.js
+
 stylesheets:
   all:
     - app/assets/stylesheets/button.css

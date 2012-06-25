@@ -1,22 +1,12 @@
 var Bum;
-var Bummer_Root_Server = 'http://d1.pkt3.com:10050';
-var Authenticated_Status = false;
-var Access_Token;
-var CSRF_Token;
-
 var Port = chrome.extension.connect({ name: 'bummer_facebook' });
+var Current_FBUID;
+
 Port.onMessage.addListener(function(msg) {
     if (msg.type == 'access_token_response') {
 	if (msg.access_token) {
-	    Access_Token = msg.access_token;
-	    // WRITEME fetch from server here in a later version
-	    if (localStorage.bummer) {
-		Bum = new Bummer(JSON.parse(localStorage.bummer));
-	    }
-	    if (!Bum) {
-		Bum = new Bummer();
-		localStorage.bummer = JSON.stringify(Bum);
-	    }
+	    Bum = new Bummer();
+	    Bum.access_token = msg.access_token;
 	    facebook_init_complete();
 	}
 	else if (!window.location.href.match('www.facebook.com/dialog')) {
@@ -34,19 +24,25 @@ $('body').bind('DOMSubtreeModified', function() {
 	Bum.find_links();
     }
 });
-
+    
 function bummer_init() {
-    Port.postMessage({ type: 'access_token_request' });
+    var profile_link = $('.headerTinymanPhoto').attr('id');
+    var parts = profile_link.split('_');
+    var id = parts[3];
+    if (id) {
+	Current_FBUID = id;
+	Port.postMessage({ type: 'access_token_request', id: Current_FBUID });
+    }
 }
 
-function facebook_init_complete(response) {
-    var data = { 'access_token': Access_Token };
-    $.post(Bummer_Root_Server + '/api/fuckers/fb_authenticate', data, bummer_init_complete);
+function facebook_init_complete() {
+    var data = { 'access_token': Bum.access_token };
+    $.post(Bummer_Root_Server + '/api/fuckers/fb_authenticate', data, authentication_init_complete);
 }
 
-function bummer_init_complete(response) {
+function authentication_init_complete(response) {
     Bum.instance_id = response.instance_id;
-    CSRF_Token = response.csrf_token;
+    Bum.csrf_token = response.csrf_token;
     Bum.init = true;
     Bum.find_links();
 }
@@ -60,98 +56,157 @@ function Bummer(data) {
     }
     this.instance_id;
     this.init = false;
-    this.finding_links = false;
+    this.handling_links = false;
+    this.links = {};
+    this.link_data = {};
     this.bummed = function(id) {
 	return this.bums[id];
     };
     this.addBum = function(id) {
 	this.bums[id] = true;
     };
-    this.removeBum = function(id) {
-	if (!this.bums[id]) { return; }
-	delete this.bums[id];	
-    };
     this.find_links = function() {
 	if (!this.init) { return; }
-	if (this.finding_links) { return; }
-	this.finding_links = true;
+	if (this.handling_links) { return; }
+	this.handling_links = true;
+	var new_links = {};
+	var bum = this;
 	$('form.commentable_item').each(function(i, el) {
-	    if (!$(el).attr('has_been_bummed')) {
-		var data_as_string = $(el).find('input[name=feedback_params]').attr('value');
-		var data_as_json = $.parseJSON(data_as_string);
-		var id;
-		try {
-		    id = (data_as_json.target_fbid ? data_as_json.target_fbid : data_as_json.fbid);
-		}
-		catch(err) {
-		}
-		if (id) {
-		    data_as_json.body = 
-			$(el).parent().find('.messageBody').first().html() || 
-			$(el).parent().find('.uiStreamMessage').first().html();
-		    data_as_json.author = 
-			$(el).parent().find('.actorDescription a').first().html();
-		    data_as_json.link = 
-			$(el).parent().find('.shareMediaLink').first().attr('href') || 
-			$(el).parent().find('a.shareText').first().attr('href');
-		    data_as_json.attachments = [];
-		    $(el).parent().find('.uiStreamAttachments a').each(function(q, ael) {
-			if ($(ael).attr('ajaxify') && !$(ael).attr('ajaxify').match(/^\/ajax\//)) {
-			    data_as_json.attachments.push($(ael).attr('ajaxify'));
-			}
-		    });
-		    data_as_json.url = $(el).find('span.uiStreamSource a').first().attr('href') || $(el).find('a.uiLinkSubtle').first().attr('href');
-		    if (data_as_json.url && data_as_json.url.match(/^\//)) {
-			data_as_json.url = 'http://www.facebook.com' + data_as_json.url;
+	    var el_obj = $(el);
+	    var data_as_string = el_obj.find('input[name=feedback_params]').attr('value');
+	    var data_as_json = $.parseJSON(data_as_string);
+	    var id;
+	    try {
+		id = (data_as_json.target_fbid ? data_as_json.target_fbid : data_as_json.fbid);
+	    }
+	    catch(err) {
+	    }
+	    if (id) {
+		var parent = el_obj.find('input[name=timeline_log_data]').attr('value') ? el_obj.parent().parent() : el_obj.parent();
+		data_as_json.body = 
+		    parent.find('.messageBody').first().html() || 
+		    parent.find('.uiStreamMessage').first().html();
+		data_as_json.author = 
+		    parent.find('.actorDescription a').first().html();
+		data_as_json.link = 
+		    parent.find('.shareMediaLink').first().attr('href') || 
+		    parent.find('a.shareText').first().attr('href');
+		data_as_json.attachments = [];
+		parent.find('.uiStreamAttachments a').each(function(q, ael) {
+		    if ($(ael).attr('ajaxify') && !$(ael).attr('ajaxify').match(/^\/ajax\//)) {
+			data_as_json.attachments.push($(ael).attr('ajaxify'));
 		    }
-		    $(el).find('.UIActionLinks_bottom').each(function(j, subel) {
-			var bummed = Bum.bummed(id);
-			var bum_html = bummed ? 'Bummed' : 
-			    '<a href="#" onclick="return false;">Bummer</a>';
-			bum_html = 
-			    '<span class="bummer_' + id + '">' + 
-				bum_html + 
-			    '</span>';
-			$(subel).prepend(bum_html + ' &middot; ');
-			$(el).find('.bummer_' + id + ' a').attr('data', JSON.stringify(data_as_json));
-			$(el).find('.bummer_' + id + ' a').click(function(ev) {
-			    var tel = $(ev.target);
-			    bum_it(tel);
-			});
-		    });
-		    $(el).find('div.commentActions').each(function(j, subel) {
-			data_as_json.url = $(subel).find('a.uiLinkSubtle').first().attr('href');
-			data_as_json.comment_body = $(subel).parent().find('.commentBody').first().html();
-			data_as_json.comment_author = $(subel).parent().find('.actorName').html();
-			data_as_json.comment_link = $(subel).parent().find('a.external').first().attr('href');
-			if (data_as_json.url.match(/^\//)) {
-			    data_as_json.url = 'http://www.facebook.com' + data_as_json.url;
-			}
-			var comment_id = $(subel).find('button.cmnt_like_link').attr('value');
-			if (comment_id) {
-			    data_as_json.comment_id = comment_id;
-			    id = 'comment_' + comment_id;
-			    var bummed = Bum.bummed(id);
-			    var bum_html = bummed ? 'Bummed' : 
-				'<a href="#" onclick="return false;">Bummer</a>';
-			    bum_html = 
-				'<span class="bummer_' + id + '">' + 
-				    bum_html + 
-				'</span>';
-			    $(subel).children().last().before(bum_html + ' &middot; ');
-			    $(el).find('.bummer_' + id + ' a').attr('data', JSON.stringify(data_as_json));
-			    $(el).find('.bummer_' + id + ' a').click(function(ev) {
-				var tel = $(ev.target);
-				bum_it(tel);
-			    });
-			}
-		    });
+		});
+		data_as_json.url = 
+		    el_obj.find('span.uiStreamSource a').first().attr('href') || 
+		    el_obj.find('a.uiLinkSubtle').first().attr('href');
+		if (data_as_json.url && data_as_json.url.match(/^\//)) {
+		    data_as_json.url = 'http://www.facebook.com' + data_as_json.url;
 		}
-		$(el).attr('has_been_bummed', true);
+		if (!el_obj.attr('has_been_bummed')) {
+		    if (data_as_json.url) {
+			new_links[data_as_json.url] = true;
+			bum.links[data_as_json.url] = { 
+			    data: data_as_json,
+			    id: id,
+			};
+			var subel = el_obj.find('.UIActionLinks_bottom');
+			$(subel).prepend('<span class="bummer_' + id + '"></span> &middot; ');
+		    }
+		    el_obj.attr('has_been_bummed', true);
+		}
+		el_obj.find('div.commentActions').each(function(j, subel) {
+		    var comment_as_json = {};
+		    for(var i in data_as_json) {
+			comment_as_json[i] = data_as_json[i];
+		    }
+		    var subel_obj = $(subel);
+		    if (!subel_obj.attr('has_been_bummed')) {
+			var subel_parent = subel_obj.parent();
+			comment_as_json.comment_body = subel_parent.find('.commentBody').first().html();
+			comment_as_json.comment_author = subel_parent.find('.actorName').html();
+			comment_as_json.comment_link = subel_parent.find('a.external').first().attr('href');
+			var comment_id = subel_obj.find('button.cmnt_like_link').attr('value');
+			if (comment_id && data_as_json.url) {
+			    comment_as_json.url = data_as_json.url + '?comment_id=' + comment_id;
+			    comment_as_json.comment_id = comment_id;
+			    id = 'comment_' + comment_id;
+			    new_links[comment_as_json.url] = true;
+			    bum.links[comment_as_json.url] = {
+				data: comment_as_json,
+				id: id
+			    };
+			    $(subel).children().last().before('<span class="bummer_' + id + '"></span> &middot; ');
+			}
+			subel_obj.attr('has_been_bummed', true)
+		    }
+		});
 	    }
 	});
-	Bum.finding_links = false;
+	var urls = new Array();
+	for(var i in new_links) {
+	    urls.push(i);
+	}
+	if (urls.length > 0) {
+	    var data = { urls: urls }
+	    $.ajax(Bummer_Root_Server + '/api/fucks/get_fuckthats', {
+		type: 'POST',
+		data: data,
+		dataType: 'json',
+		beforeSend: function(xhr) {
+		    xhr.setRequestHeader('Accept', 'application/json');
+		},
+		headers: { 'X-CSRF-Token': this.csrf_token },
+		success: function(data) {
+		    bum.mark_links(data);
+		},
+		error: function(data) {
+		    log('Unable to fetch bums: ' + data.responseText);
+		},
+	    });
+	}
+	else {
+	    this.handling_links = false;
+	}
     };
+    this.mark_links = function(data) {
+	for(var i in data) {
+	    this.link_data[i] = data[i];
+	    if (data[i].my_fuck) {
+		this.addBum(i);
+	    }
+	}
+	for(var i in this.links) {
+	    var link = this.links[i];
+	    var bummed = this.bummed(i);
+	    var bum_html = bummed_text(i);
+	    $('.bummer_' + link.id).each(function(i, el) {
+		var obj = $(el);
+		obj.html(bum_html);
+		obj.find('a').attr('data', JSON.stringify(link.data));
+		obj.find('a').click(function(ev) {
+		    bum_it($(ev.target));
+		});
+	    });
+	}
+	this.handling_links = false;
+    };
+}
+
+function bummed_text(url) {
+    var link = Bum.link_data[url];
+    var count = link && link.that && link.that.fuck_count ? link.that.fuck_count : 0;
+    var bummed = Bum.bummed(url);
+    if (bummed) {
+	count--;
+	return (count == 0 ? 'Bummed' :
+	    (count == 1 ? 'Bummed by you and 1 other' : 'Bummed by you and ' + count + ' others'));
+    }
+    else {
+	return (count == 1 ? '1 person was bummed by this &middot; ' : 
+	    (count > 1 ? count + ' people were bummed by this &middot; ' : '')) + 
+	    '<a href="#" onclick="return false">Bummer</a>';
+    }
 }
 
 function bum_it(el) {
@@ -185,16 +240,18 @@ function bum_it(el) {
 		    ''
 	    ) + 
 	    (
+		data.author && data.body ? ': ' : ''
+	    ) +
+	    (
 		data.body ? 
-		    ': ' + data.body :
+		    data.body :
 		    ''
 	    );
     }
     if (title.length > 200) { 
 	title = title.substr(0, 197) + '...';
     }
-    Bum.addBum(id);
-    localStorage.bummer = JSON.stringify(Bum);
+    Bum.addBum(data.url);
     var params = {
 	url: data.url,
 	instance_id: Bum.instance_id,
@@ -213,17 +270,17 @@ function bum_it(el) {
 	type: 'POST',
 	data: params,
 	headers: {
-	    'X-CSRF-Token': CSRF_Token
+	    'X-CSRF-Token': Bum.csrf_token
 	},
 	error: function(req, stat, err) { 
-//	    alert("Unable to bum: " + err);
+	    log("Unable to bum - params: " + JSON.stringify(params) + " ERROR: " + err + " response: " + req.responseText);
 	},
 	success: function(data, stat, req) {
 	    // success!
 	}
     });
     $('.bummer_' + id).each(function(i, el) {
-	$(el).html('Bummed');
+	$(el).html(bummed_text(data.url));
 	$(el).attr('bummed', 1);
     });
 }
