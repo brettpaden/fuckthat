@@ -26,6 +26,8 @@ Core::Application.routes.draw do
       get 'join'
     end
   end
+
+  get 'errors/log'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
