@@ -163,7 +163,10 @@ class FuckersController < ApplicationController
       session[:fucker] = Fucker.first(:conditions => {:facebook_id => me['id']})
       if !session[:fucker]
         session[:fucker] = Fucker.new({:name => me['name'], :facebook_id => me['id']})
-        if !session[:fucker].save
+        begin 
+          session[:fucker].save!
+        rescue => e
+          $log.warn("Unable to save new session fucker: #{e.message}")
           session[:fucker] = nil
         end
       end

@@ -95,6 +95,22 @@ class FucksController < ApplicationController
     end
   end
 
+  # Extract true picture url from passed in attachment info
+  def extract_pic(pic) 
+    if pic 
+      # Look for facebook photo with embedded src parameter, extract the src parameter
+      query = CGI.parse(URI(pic).query)
+      if query['src']
+        pic = query['src'][0]
+      end
+    end
+
+    # Substitute our own server's proxy for facebook-hosted content, which facebook in their
+    # infinite stupidity will not allow us to post in a stream
+    pic.sub! /sphotos.xx.fbcdn.net/, request.host_with_port+'/fb_photo'
+    pic
+  end
+  
   # Post a fuck action to user's facebook newsfeed
   def fb_post(fuck, opts) 
     # Must have a valid access token
@@ -115,16 +131,56 @@ class FucksController < ApplicationController
       $log.warn('Could not post to facebook newsfeed, unable to obtain facebook me: '+err.message)
       return false
     end
+
+    # Extract picture as first attachment?
+    pic = (opts[:attachments] && opts[:attachments][0]) || ''
+    pic = extract_pic(pic) unless pic==''
+
+    # What is it?
+    if URI(fuck.that.url).host == 'www.facebook.com'
+      # Assume post or photo
+      what = opts[:link] ? 'link' : ((pic != '') ? 'photo' : 'post')
+    else
+      # Assume link?
+      what = 'link'
+    end
+    
+    # Form title      
+    title = ''
+    if opts[:comment_body]
+      title += (opts[:comment_author] ? "#{opts[:comment_author]}'s" : "a") + " comment on "
+    end
+    if params[:body]
+      title += (opts[:author] ? "#{opts[:author]}'s" : "a") + " #{what}:"
+    end
+    title = fuck.that.title unless title != '' 
+
+    # Form "caption"
+    caption = opts[:comment_body] || opts[:body] || ''
+    
+    # Form "description"
+    if opts[:comment_body]
+      desc = "(" + (opts[:author] ? "#{opts[:author]}'s" : "The") + " post: \"#{opts[:body]}\")"
+    end
     
     # Do the post
+    did_retry = false
     begin
       rg.post('me/feed', :message => "#{me['name']} was bummed out by...",
         :link => fuck.that.url, 
-        :name => (fuck.that.title || fuck.that.url),
-        :caption => (opts[:caption] || ''),
-        :description => (opts[:description] || ''),
+        :name => title,
+        :caption => caption,
+        :description => desc,
+        :picture => pic,
       )
     rescue => err
+      # If we have a picture, try again without the picture
+      if pic && !did_retry
+        pic = '' 
+        did_retry = true
+        $log.warn('Could not post with picture to facebook newsfeed, retrying without picture: '+err.message)
+        retry
+      end
       $log.warn('Could not post to facebook newsfeed: '+err.message)
     end
   end
@@ -176,7 +232,7 @@ class FucksController < ApplicationController
         format.json { render json: @fuck, status: :created, location: @fuck }
       end
     rescue FuckError => e 
-      $log.warn(e.message)
+      $log.warn("Create fuck failed: #{e.message}")
       respond_to do |format|
         format.json { render json: e.message, status: e.status }
       end

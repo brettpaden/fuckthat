@@ -4,7 +4,7 @@ class Fucker < ActiveRecord::Base
   attr_accessible :name, :facebook_id
   
   # Validations
-  validates :name, :presence => true, :uniqueness => true
+  validates :name, :presence => true 
   validates :facebook_id, :presence => true, :uniqueness => true
   
   # Associations
