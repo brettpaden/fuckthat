@@ -27,7 +27,7 @@ Core::Application.routes.draw do
     end
   end
 
-  get 'errors/log'
+  post 'errors/log'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
