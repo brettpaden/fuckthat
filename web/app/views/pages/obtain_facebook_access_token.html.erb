@@ -1,4 +1,8 @@
 <html>
-  <head></head>
-  <body><%= @res.body() %></body>
+  <head>
+    <%= include_javascripts :access_token %>
+  </head>
+  <body>
+    <div id=auth_holder data='<%= @res.body() %>'>Authorizing...</div>
+  </body>
 </html>

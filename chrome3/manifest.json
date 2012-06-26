@@ -6,13 +6,13 @@
     "content_scripts": [ 
 	{
 	    "matches": [ "*://*.facebook.com/*", "*://*.fbcdn.net/*" ],
-	    "js": [ "jquery.js", "json2.js", "cookie.js", "bummer.js" ],
+	    "js": [ "constants.js", "jquery.js", "json2.js", "cookie.js", "bummer.js", "log.js" ],
 	    "css": [ "bummer.css" ],
 	    "run_at": "document_end"
 	},
 	{
 	    "matches": [ "*://*/pages/obtain_facebook_access_token*" ],
-	    "js": [ "jquery.js", "json2.js", "cookie.js", "access_token.js" ],
+	    "js": [ "constants.js", "jquery.js", "json2.js", "cookie.js", "access_token.js", "log.js" ],
 	    "css": [ "bummer.css" ],
 	    "run_at": "document_end"
 	} 

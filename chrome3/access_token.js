@@ -1,5 +1,5 @@
 $(function() {
-    var pairs = $('body').html().split('&');
+    var pairs = $('#auth_holder').attr('data').split('&');
     var key_values = {};
     for(var x=0; x<pairs.length; x++) {
 	var key_val = pairs[x].split('=');
@@ -14,15 +14,16 @@ $(function() {
 	    }, 
 	    function(response) {
 		if (response.status == 'ok') {
-		    window.close();
+		    $('#auth_holder').attr('status', 'ok');
 		}
 		else {
-		    alert('There was a problem: ' + response.status);
+		    log('Unable to fetch access token: ' + response.status);
+		    $('#auth_holder').attr('status', 'fail');
 		}
 	    }
 	);
     }
     else {
-	alert("Since access was not granted, you will be unable to use the bummer application...bummer.");
+	$('#auth_holder').attr('status', 'fail');
     }
 });
