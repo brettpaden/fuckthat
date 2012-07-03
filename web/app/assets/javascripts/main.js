@@ -190,6 +190,7 @@ var AppRouter = Backbone.Router.extend({
       App.headerView = new HeaderView();
     }
     $('#header_div').html(App.headerView.render().el);
+    handlePlugin();
   },
   button:function() {
     if (!App.headerView) {

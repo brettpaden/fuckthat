@@ -7,7 +7,7 @@ class PagesController < ActionController::Base
     appid = '379083178817736'
     uri = URI(
       'https://graph.facebook.com/oauth/access_token?' +
-      'client_id=379083178817736' +
+      'client_id=' + appid +
       '&redirect_uri=' + CGI.escape('http://d1.pkt3.com:10050/pages/obtain_facebook_access_token') +  
       '&client_secret=' + secret + 
       '&code=' + params[:code]

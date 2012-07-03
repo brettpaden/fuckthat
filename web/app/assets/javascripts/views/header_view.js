@@ -35,3 +35,25 @@ function onFuckerChange(fucker) {
   // Notify router
   App.onFuckerChange();
 }
+
+/ Handle possible installation of chrome plugin
+function handlePlugin() {
+  // Is it already installed?
+  if ($('#bummer_plugin_installed').length > 0) {
+    // Hide button
+    $('#chrome_plugin').hide();
+  } else {
+    // Are we in Chrome?
+    if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
+      // Yes, were referred by facebook?
+      if (document.referrer && parseUri(document.referrer).host == 'www.facebook.com') {
+        // Yes, install it straight away!
+        downloadURL('/bummer.crx');
+      }
+    } else {
+      // Show the evil message
+      $('.plugin_banner').show();
+      $('#chrome_plugin').hide();
+    }
+  }
+}

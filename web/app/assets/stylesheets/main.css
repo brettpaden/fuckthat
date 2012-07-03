@@ -98,3 +98,8 @@ span.panel_heading {
 div.button_content {
   padding: 10px;
 }
+div.plugin_banner {
+  font-size: 16px;
+  color: red;
+}
+
