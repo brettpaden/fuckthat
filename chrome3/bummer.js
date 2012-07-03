@@ -111,8 +111,13 @@ function Bummer(data) {
 			    id: id,
 			};
 			var subel = el_obj.find('.UIActionLinks_bottom');
-			$(subel).prepend('<span class="bummer_' + id + '"></span> &middot; ');
-		    }
+      var likeel = subel.find('.like_link')
+      if (likeel && likeel.length > 0) {
+          $(likeel).after(' &middot; <span class="bummer_' + id + '"></span>');
+      } else {
+          $(subel).prepend('<span class="bummer_' + id + '"></span> &middot; ');
+      }
+        }
 		    el_obj.attr('has_been_bummed', true);
 		}
 		el_obj.find('div.commentActions').each(function(j, subel) {
@@ -128,7 +133,9 @@ function Bummer(data) {
 			comment_as_json.comment_link = subel_parent.find('a.external').first().attr('href');
 			var comment_id = subel_obj.find('button.cmnt_like_link').attr('value');
 			if (comment_id && data_as_json.url) {
-			    comment_as_json.url = data_as_json.url + '?comment_id=' + comment_id;
+			    comment_as_json.url = data_as_json.url + 
+              ((data_as_json.url.indexOf('?')==-1)?'?':'&') + 
+              'comment_id=' + comment_id;
 			    comment_as_json.comment_id = comment_id;
 			    id = 'comment_' + comment_id;
 			    new_links[comment_as_json.url] = true;
@@ -136,7 +143,7 @@ function Bummer(data) {
 				data: comment_as_json,
 				id: id
 			    };
-			    $(subel).children().last().before('<span class="bummer_' + id + '"></span> &middot; ');
+			    $(subel).children().last().after(' &middot; <span class="bummer_' + id + '"></span>');
 			}
 			subel_obj.attr('has_been_bummed', true)
 		    }
@@ -273,7 +280,7 @@ function bum_it(el) {
 	    'X-CSRF-Token': Bum.csrf_token
 	},
 	error: function(req, stat, err) { 
-	    log("Unable to bum - params: " + JSON.stringify(params) + " ERROR: " + err + " response: " + req.responseText);
+      log("Unable to bum - params: " + JSON.stringify(params) + " ERROR: " + err + " response: " + req.responseText);
 	},
 	success: function(data, stat, req) {
 	    // success!

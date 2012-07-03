@@ -4,8 +4,8 @@
     <script>
       window.location.href =
       "https://www.facebook.com/dialog/oauth?client_id=379083178817736" + 
-      "&redirect_uri=http://" + window.location.host + 
-	"pages/obtain_facebook_access_token" +
+      "&redirect_uri=" + encodeURIComponent("http://" + window.location.host + 
+	    "/pages/obtain_facebook_access_token") +
       "&scope=offline_access,publish_stream&display=popup";
     </script>
     </head>
