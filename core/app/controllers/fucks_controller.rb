@@ -96,87 +96,117 @@ class FucksController < ApplicationController
   end
 
   # Extract true picture url from passed in attachment info
-  def extract_pic(pic) 
-    if pic 
-      # Look for facebook photo with embedded src parameter, extract the src parameter
-      query = CGI.parse(URI(pic).query)
-      if query['src']
-        pic = query['src'][0]
-      end
-    end
+  def extract_pic(pic)
+    # Extract from within URL as needed
+    pic =
+      ((uri = URI(pic)) &&
+       (query = CGI.parse(uri.query)) &&
+       ((query['src'] && query['src'][0]) ||
+        (query['url'] && query['url'][0]))) ||
+      pic
 
     # Substitute our own server's proxy for facebook-hosted content, which facebook in their
     # infinite stupidity will not allow us to post in a stream
-    pic.sub! /sphotos.xx.fbcdn.net/, request.host_with_port+'/fb_photo'
+    pic.sub!(/sphotos.xx.fbcdn.net/, request.host_with_port+'/fb_photo')
     pic
   end
-  
-  # Post a fuck action to user's facebook newsfeed
-  def fb_post(fuck, opts) 
+
+  # Extract facebook id
+  def extract_fbid(url)
+    if (uri = URI(url)) && (query = CGI.parse(uri.query))
+      fbid = (query['fbid'] && query['fbid'][0]) || (query['story_fbid'] && query['story_fbid'][0])
+      id = query['id'] && query['id'][0]
+      return fbid, id
+    else
+      return nil, nil
+    end
+  end
+
+  # Extract link info from URL
+  def extract_link_info(url)
+    link = url.scan /<[a|A]\b[^>]*>(.*?)<\/[a|A]>/
+    (link[0] && link[0][0]) || url
+  end
+
+  # Extract link info from facebook object and parameters
+  def extract_link(fb_obj, params)
+    (params['comment_body'] || (params['body'] && params['body'].index('was bummed out by') != nil)) ?
+      params[:url] :
+      (fb_obj && fb_obj['link']) || params['link'] || extract_link_info(params[:url])
+  end
+
+  # Connect to facebook through RestGraph, returning RestGraph object and me object
+  def connect_facebook
     # Must have a valid access token
     if !session['FB-Token']
-      $log.warn('Could not post to facebook newsfeed, no access token')
-      return false
+      $log.warn('Could not connect to facebook, no access token')
+      return nil, nil
     end
-
-    # Get the facebook me
     begin
       rg = RestGraph.new(:access_token => session['FB-Token'],
         :graph_server => FuckersController::FBGraphServer,
         :app_id       => FuckersController::FBAppID,
         :secret       => FuckersController::FBAppSecret)
       me = rg.get('me')
+      return rg, me
     rescue => err
       # Unable to get me, this is not a valid acces token
-      $log.warn('Could not post to facebook newsfeed, unable to obtain facebook me: '+err.message)
-      return false
+      $log.warn('Could not connect to facebook, unable to obtain facebook me: '+err.message)
+      return nil, nil
     end
+  end
 
-    # Extract picture as first attachment?
-    pic = (opts[:attachments] && opts[:attachments][0]) || ''
-    pic = extract_pic(pic) unless pic==''
+  # Extract facebook object from URL
+  def extract_fb_info(rg, me, url)
+    # Get facebook object, if any
+    fbid, id = extract_fbid(url)
+    (fbid && id) ? rg.get("#{id}_#{fbid}") :  nil
+  end
 
-    # What is it?
-    if URI(fuck.that.url).host == 'www.facebook.com'
-      # Assume post or photo
-      what = opts[:link] ? 'link' : ((pic != '') ? 'photo' : 'post')
+  # Describe a facebook object
+  def describe_fb_obj(fb_obj, params)
+    author = (fb_obj && fb_obj['from']['name']) || params['author']
+    type = (params['body'].index('was bummed out by') == nil && fb_obj && fb_obj['type']) ||
+      (params['link'] && 'link') || 'post'
+    msg = (fb_obj && fb_obj['message']) || params['body']
+    desc = (fb_obj && fb_obj['name']) || ''
+    if params['comment_body']
+      return "#{params['comment_author']}'s comment on #{author}'s #{type}:",
+      "#{params['comment_body']}",
+      "(#{author}'s post: \"#{msg}\")"
     else
-      # Assume link?
-      what = 'link'
+      return "#{author}'s #{type}:",
+      "#{msg}",
+      desc
     end
-    
-    # Form title      
-    title = ''
-    if opts[:comment_body]
-      title += (opts[:comment_author] ? "#{opts[:comment_author]}'s" : "a") + " comment on "
-    end
-    if params[:body]
-      title += (opts[:author] ? "#{opts[:author]}'s" : "a") + " #{what}:"
-    end
-    title = fuck.that.title unless title != '' 
+  end
 
-    # Form "caption"
-    caption = opts[:comment_body] || opts[:body] || ''
-    
-    # Form "description"
-    if opts[:comment_body]
-      desc = "(" + (opts[:author] ? "#{opts[:author]}'s" : "The") + " post: \"#{opts[:body]}\")"
-    end
-    
-    # Do the post
+  # Extract info for a that from facebook object and passed parameters
+  def extract_that_info(fb_obj, params)
+    # Return link, title, caption, descriptionm, picture based on facebook object or passed parameters
+    link = extract_link(fb_obj, params)
+    title, caption, description = describe_fb_obj(fb_obj, params)
+    picture = (fb_obj && fb_obj['picture']) ||
+      (params[:attachments] && params[:attachments][0])
+    picture = extract_pic(picture) unless !picture # Extract actual URL from facebook URL if available
+    return link, title, caption, description, picture
+  end
+
+  # Post a fuck action to user's facebook newsfeed
+  def fb_post(rg, me, fb_obj, link, title, caption, desc, picture)
     did_retry = false
     begin
-      rg.post('me/feed', :message => "#{me['name']} was bummed out by...",
-        :link => fuck.that.url, 
+      rg.post('me/feed', :message => "#{me['first_name']} was bummed out by...",
+        :link => link,
         :name => title,
         :caption => caption,
         :description => desc,
-        :picture => pic,
+        :picture => picture,
       )
     rescue => err
       # If we have a picture, try again without the picture
-      if pic && !did_retry
-        pic = '' 
+      if picture && !did_retry
+        picture = ''
         did_retry = true
         $log.warn('Could not post with picture to facebook newsfeed, retrying without picture: '+err.message)
         retry
@@ -184,26 +214,26 @@ class FucksController < ApplicationController
       $log.warn('Could not post to facebook newsfeed: '+err.message)
     end
   end
-  
+
   # Helper fuck-creation routine
   def create_fuck
-    status = :internal_server_error 
+    status = :internal_server_error
     begin
       # Must have an instance id
-      params[:instance_id] || 
+      params[:instance_id] ||
         (raise FuckError.new(:forbidden), "Attempt to create fuck with no instance ID")
 
       # Session fucker must match the fuck's fucker
       session[:fucker] || (raise FuckError.new(:forbidden), "No current fucker")
       (session[:fucker].id == @fuck.fucker_id) || (raise FuckError.new(:forbidden), "Fucker not authorized")
-      
+
       # Ensure a fuck for this url and fucker does not already exist
       Fuck.first(:conditions => {:fucker_id => @fuck.fucker_id, :that_id => @fuck.that_id}) &&
         (raise FuckError.new(:forbidden), "Fucker has already fucked that.")
 
       # Increment the 'that's fuck count
-      @fuck.that.fuck_count += 1 
-  
+      @fuck.that.fuck_count += 1
+
       @fuck.transaction do
         begin
           # Note, associated 'that' is automatically saved through the :autosave property of Fuck.that
@@ -211,7 +241,7 @@ class FucksController < ApplicationController
 
           # Create new event for this new fuck
           @event = Event.new(
-            :fuck_id => @fuck.id, 
+            :fuck_id => @fuck.id,
             :fucker_id => @fuck.fucker_id,
             :that_id => @fuck.that_id,
             :withdraw => false,
@@ -219,26 +249,23 @@ class FucksController < ApplicationController
             :instance_id => params[:instance_id].to_s
           )
           @event.save!
-          
-          # Post to facebook newsfeed
-          fb_post(@fuck, params)
         rescue => err
           raise FuckError.new(:unprocessable_entity), err
         end
       end
- 
+
       # Render as JSON
       respond_to do |format|
         format.json { render json: @fuck, status: :created, location: @fuck }
       end
-    rescue FuckError => e 
+    rescue FuckError => e
       $log.warn("Create fuck failed: #{e.message}")
       respond_to do |format|
         format.json { render json: e.message, status: e.status }
       end
     end
   end
-  
+
   # POST /fucks
   # POST /fucks.json
   def create
@@ -341,19 +368,33 @@ class FucksController < ApplicationController
       # Make sure we have a current fucker and a url
       session[:fucker] || (raise FuckError.new(:forbidden), "No current fucker")
       (params[:url] && params[:url].length > 0) || (raise FuckError.new(:forbidden), "No URL")
+
+      # Attempt to make connection with facebook graph API
+      rg, me = connect_facebook
+
+      # Extract facebook info
+      fb_obj = rg && extract_fb_info(rg, me, params[:url])
+
+      # Extract info as necessary
+      link, title, caption, desc, picture = extract_that_info(fb_obj, params)
+
       That.transaction do
         begin
           # Does the that already exist?
-          that = That.first(:conditions => {:url => params[:url]})
+          that = That.first(:conditions => {:url => link})
           if !that
             # No, create it
-            that = That.new({:url => params[:url], :title => params[:title]})
+            that = That.new({:url => link, :title => desc, :picture => picture})
+            that.dont_aggregate = (URI(link).host == 'www.facebook.com') # Don't aggregate native fb content 
             that.save!
           end
 
           # Create the fuck
           @fuck = Fuck.new({:fucker_id => session[:fucker].id, :that_id => that.id})
           create_fuck
+
+          # Post to facebook newsfeed
+          fb_post rg, me, fb_obj, link, title, caption, desc, picture unless (!rg || !me)
           return # create_fuck renders on its own
         rescue => err
           raise FuckError.new(:unprocessable_entity), err

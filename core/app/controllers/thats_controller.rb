@@ -135,7 +135,7 @@ class ThatsController < ApplicationController
     info[:day_fuck_counts] = That.top_thats_since(info[:time]-60*60*24, limit, info[:thats])
 
     # Get current fucker's fucks
-    info[:fucks] = Fuck.fucks_by_fucker(info[:fucker_id]) if info[:fucker_id]
+    info[:fucks] = Fuck.fucks_by_fucker(info[:fucker_id], true) if info[:fucker_id]
     
     # Get associated thats
     info[:fucks].each do |fuck|
