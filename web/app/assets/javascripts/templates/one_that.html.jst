@@ -2,13 +2,16 @@
   <% var my_fuck = that.my_fuck %>
   <% var button = my_fuck ? 'un<b>fuck</b>' : '<b>fuck</b>that' %>
   <% var my_class = my_fuck ? 'fbutton_fucked' : 'fuckthat_link' %>
+  <% var url = that.get('url'); %>
+  <% if (url.substring(0,7) != "http://") { url = "http://" + url; } %>
+  <% var title = that.get('title') || url %>
   <tr>
     <td class="that_fuck">
       <% if (session_fucker) { %>
         <table>
           <tr>
             <td>
-              <% var fuck = my_fuck ? my_fuck : new Fuck() %> 
+              <% var fuck = my_fuck ? my_fuck : new Fuck() %>
               <% var fuck_id = fuck.id %>
               <form accept-charset="UTF-8" action="/api/fucks/<%= fuck_id %>" class="edit_fuck" id="edit_fuck_<%= fuck_id %>" method="post">
                 <input id="fuck_that_id" name="fuck[that_id]" type="hidden" value="<%= that.cid %>">
@@ -26,13 +29,15 @@
         </table>
       <% } %>
     </td>
+    <% if (that.get('picture')) { %>
+      <td class="pic">
+        <a href="<%= url %>" target="_blank"><img src="<%= that.get('picture') %>"></a>
+      </td>
+    <% } %>
     <td class="that_url">
       <table>
         <tr>
           <td>
-            <% var url = that.get('url'); %>
-            <% if (url.substring(0,7) != "http://") { url = "http://" + url; } %> 
-            <% var title = that.get('title') || url %>
             <a class="that" id="that_url_<%= that.cid %>" href="<%= url %>" target="_blank"><%= title %></a>
           </td>
         </tr>
@@ -51,13 +56,12 @@
             <% } %>
           </td>
         </tr>
-        <tr>              
+        <tr>
           <td>
             <%= "TOTAL BUMMER COUNT: "%><span class="fuck_count"><%= that.get('fuck_count') %>
           </td>
         </tr>
       </table>
-    </td> 
+    </td>
   </tr>
 </table>
-
