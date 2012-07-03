@@ -447,7 +447,8 @@ class FucksController < ApplicationController
     # Valid fucker?
     if session[:fucker]
       # Valid url?
-      that = That.first(:conditions => {:url => params[:url]})
+      link = extract_link(nil, params)
+      that = That.first(:conditions => {:url => link})
       if that
         # Have a fuck?
         fuck = Fuck.first(:conditions => {:fucker_id => session[:fucker].id, :that_id => that.id})
