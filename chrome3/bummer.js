@@ -280,6 +280,13 @@ function bum_it(el) {
 	}
     });
     $('.bummer_' + id).each(function(i, el) {
+  if (!Bum.link_data[data.url]) {
+    Bum.link_data[data.url] = { that: null };
+  }
+  if (!Bum.link_data[data.url].that) {
+    Bum.link_data[data.url].that = { url: data.url, fuck_count: 0 }
+  }
+  Bum.link_data[data.url].that.fuck_count++;
 	$(el).html(bummed_text(data.url));
 	$(el).attr('bummed', 1);
     });
