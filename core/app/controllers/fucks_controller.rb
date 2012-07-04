@@ -107,7 +107,7 @@ class FucksController < ApplicationController
 
     # Substitute our own server's proxy for facebook-hosted content, which facebook in their
     # infinite stupidity will not allow us to post in a stream
-    pic.sub!(/sphotos.xx.fbcdn.net/, request.host_with_port+'/fb_photo')
+    pic.sub!(/http:\/\/(.+).fbcdn.net/, request.protocol+request.host_with_port+'/fb_photo/\1.fbcdn.net')
     pic
   end
 
