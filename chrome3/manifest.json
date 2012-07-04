@@ -15,7 +15,12 @@
 	    "js": [ "constants.js", "jquery.js", "json2.js", "cookie.js", "access_token.js", "log.js" ],
 	    "css": [ "bummer.css" ],
 	    "run_at": "document_end"
-	} 
+	},
+  {
+      "matches": [ "*://d1.pkt3.com/*" ],
+      "js": [ "jquery.js", "announce.js" ],
+      "run_at": "document_start"
+  }
     ],
     "background": {
 	"scripts": [ "background.js" ]

@@ -36,7 +36,7 @@ function onFuckerChange(fucker) {
   App.onFuckerChange();
 }
 
-/ Handle possible installation of chrome plugin
+// Handle possible installation of chrome plugin
 function handlePlugin() {
   // Is it already installed?
   if ($('#bummer_plugin_installed').length > 0) {
