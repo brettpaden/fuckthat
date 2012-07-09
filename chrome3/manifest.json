@@ -1,29 +1,30 @@
 {
-    "version": "1.0",
-    "name": "__MSG_appName__",
-    "description": "__MSG_appDesc__",
+    "version": "__VERSION__",
+    "name": "Bummer",
+    "description": "Need description from Steve to go here",
     "default_locale": "en",
     "content_scripts": [ 
-	{
-	    "matches": [ "*://*.facebook.com/*", "*://*.fbcdn.net/*" ],
-	    "js": [ "constants.js", "jquery.js", "json2.js", "cookie.js", "bummer.js", "log.js" ],
-	    "css": [ "bummer.css" ],
-	    "run_at": "document_end"
-	},
-	{
-	    "matches": [ "*://*/pages/obtain_facebook_access_token*" ],
-	    "js": [ "constants.js", "jquery.js", "json2.js", "cookie.js", "access_token.js", "log.js" ],
-	    "css": [ "bummer.css" ],
-	    "run_at": "document_end"
-	} 
+		{
+	  		"matches": [ "*://*.facebook.com/*", "*://*.fbcdn.net/*" ],
+	    	"js": [ "constants.js", "jquery.js", "json2.js", "cookie.js", "bummer.js", "log.js" ],
+	    	"css": [ "bummer.css" ],
+	    	"run_at": "document_end"
+		},
+		{
+	    	"matches": [ "*://__BUMMER_WEB_SERVER__))/pages/obtain_facebook_access_token*" ],
+	    	"js": [ "constants.js", "jquery.js", "json2.js", "cookie.js", "access_token.js", "log.js" ],
+	    	"css": [ "bummer.css" ],
+	    	"run_at": "document_end"
+		} 
     ],
+	"content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
     "background": {
-	"scripts": [ "background.js" ]
+		"scripts": [ "background.js" ]
     },
     "icons": {
-	"16": "16.png",
-	"48": "48.png",
-	"128": "128.png",
-	"256": "256.png"
+		"16": "16.png",
+		"48": "48.png",
+		"128": "128.png",
+		"256": "256.png"
     }
 }

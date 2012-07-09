@@ -24,6 +24,17 @@ $('body').bind('DOMSubtreeModified', function() {
 	Bum.find_links();
     }
 });
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-32948210-1']);
+_gaq.push(['_setDomainName', 'getbummer.com']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = 'https://ssl.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
     
 function bummer_init() {
     var profile_link = $('.headerTinymanPhoto').attr('id');
@@ -277,6 +288,7 @@ function bum_it(el) {
 	},
 	success: function(data, stat, req) {
 	    // success!
+       _gaq.push(['_trackPageview', '/chrome-ext-bum?ii=' + Bum.instance_id]);
 	}
     });
     $('.bummer_' + id).each(function(i, el) {

@@ -1,0 +1,102 @@
+#!/usr/bin/perl
+#-------------------------------------------------------------------------------
+# In perl ... I'm about getting this shit done.  This script will build the fuck
+# that extension, manifest files and manifest update files, put them in the right
+# places
+
+use strict;
+use Getopt::Declare;
+use JSON;
+
+our $InitVersionData = {
+	major => 0, 
+	minor => 0,
+	release => {
+		prod => 1,
+	},
+	build => {
+		1 => 1,
+	},
+	next_developer_id => 100
+};
+
+our $Version;
+our $Environment = $ENV{USER};
+our $BummerDomain = guess_bummer_domain();
+our $BummerApiServer = $BummerDomain . ':' . guess_bummer_api_port();
+our $BummerWebServer = $BummerDomain . ':' . guess_bummer_web_port();
+our $ManifestTemplate = "$ENV{SRCTOP}/$ENV{PROJECT}/chrome3/manifest.json";
+our $VersionData =  "$ENV{SRCTOP}/$ENV{PROJECT}/chrome-versions.json";
+our $CRXOutputDir = "$ENV{SRCTOP}/$ENV{PROJECT}/web/public";
+our $CRXSrcDir = "$ENV{SRCTOP}/$ENV{PROJECT}/chrome3";
+our $CRXBuildDir = "$ENV{SRCTOP}/$ENV{PROJECT}/chrome3-builds/" . time;
+our $PEMFile = "$ENV{SRCTOP}/$ENV{PROJECT}/etc/chrome3.pem";
+our $ManifestFile = "$CRXBuildDir/manifest.json";
+
+`mkdir -p $CRXBuildDir`;
+`cp -pr $CRXSrcDir/* $CRXBuildDir/`;
+
+$Version ||= increment_version();
+
+my $manifest = get_json_from_file($ManifestTemplate);
+$manifest->{content_scripts}->[1]->{matches}->[0] =~ s{__BUMMER_WEB_SERVER__}{$BummerDomain};
+$manifest->{update_url} = "http://$BummerWebServer/bummer_src_update_manifest-$ENV{USER}.xml";
+$manifest->{version} = $Version;
+save_as_json($manifest, $ManifestFile);
+
+# Fix the constants file
+`perl -pi -e 's/__BUMMER_API_SERVER__/$BummerApiServer/' $CRXBuildDir/constants.js`;
+
+my $name = $Environment eq 'prod' ? 'bummer' : "bummer-$ENV{USER}";
+my $command = "sb-build-chrome-extension $CRXBuildDir $PEMFile $ENV{SRCTOP}/$ENV{PROJECT}/web/public/$name.crx";
+warn $command;
+
+sub increment_version {
+	my $version_data = -e $VersionData ? get_json_from_file($VersionData) : $InitVersionData;
+	my $release = $version_data->{release}->{$Environment};
+	if (not $release) {
+		$release = $version_data->{release}->{$Environment} = $version_data->{next_developer_id}++;
+	}
+	$version_data->{build}->{$release}++;
+	save_as_json($version_data, $VersionData);
+	return "$version_data->{major}.$version_data->{minor}.$release.$version_data->{build}->{$release}";
+}
+
+sub get_json_from_file {
+	my $file = shift;
+	my $json;
+	open(JSON, $file) or die "could not open $file for reading";
+	while(<JSON>){ $json .= $_ }
+	close JSON;
+	return from_json($json);
+}
+
+sub save_as_json {
+	my ($data, $file) = @_;
+	open(JSON, ">$file") or die "could not open $file for writing";
+	print JSON to_json($data, {pretty=>1});
+	close JSON;
+	return 1;
+}
+
+sub guess_bummer_domain {
+    my $hostname = `hostname`;
+	chomp $hostname;
+	$hostname .= '.pkt3.net';
+	return $hostname;
+	my $port = `grep Listen $ENV{HOME}/apache/fuckthat_web.conf`;
+	$port =~ s/\D//g;
+    return "$hostname:$port";
+}
+
+sub guess_bummer_web_port {
+	my $port = `grep Listen $ENV{HOME}/apache/fuckthat_web.conf`;
+	$port =~ s/\D//g;
+	return $port;
+}
+
+sub guess_bummer_api_port {
+	my $port = `grep Listen $ENV{HOME}/apache/fuckthat_core.conf`;
+	$port =~ s/\D//g;
+	return $port;
+}
