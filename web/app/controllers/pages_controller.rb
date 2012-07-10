@@ -8,7 +8,7 @@ class PagesController < ActionController::Base
     uri = URI(
       'https://graph.facebook.com/oauth/access_token?' +
       'client_id=' + appid +
-      '&redirect_uri=' + CGI.escape("http://ENV['BUMMER_DOMAIN']:ENV['BUMMER_WEB_PORT']/pages/obtain_facebook_access_token") +  
+      '&redirect_uri=' + CGI.escape("http://#{ENV['BUMMER_DOMAIN']}:#{ENV['BUMMER_WEB_PORT']}/pages/obtain_facebook_access_token") +  
       '&client_secret=' + secret + 
       '&code=' + params[:code]
     )
