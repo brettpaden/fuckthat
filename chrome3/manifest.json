@@ -1,7 +1,7 @@
 {
-    "version": "1.0",
-    "name": "__MSG_appName__",
-    "description": "__MSG_appDesc__",
+    "version": "0.0.0.0",
+    "name": "Bummer",
+    "description": "Need description from Steve to go here",
     "default_locale": "en",
     "content_scripts": [ 
 	{
@@ -16,19 +16,20 @@
 	    "css": [ "bummer.css" ],
 	    "run_at": "document_end"
 	},
-  {
-      "matches": [ "*://d1.pkt3.com/*" ],
-      "js": [ "jquery.js", "announce.js" ],
-      "run_at": "document_start"
-  }
+    {
+        "matches": [ "*://d1.pkt3.com/*" ],
+        "js": [ "jquery.js", "announce.js" ],
+        "run_at": "document_start"
+    }
     ],
+	"content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
     "background": {
-	"scripts": [ "background.js" ]
+		"scripts": [ "background.js" ]
     },
     "icons": {
-	"16": "b16.png",
-	"48": "b48.png",
-	"128": "b128.png",
-	"256": "b256.png"
+		"16": "b16.png",
+		"48": "b48.png",
+		"128": "b128.png",
+		"256": "b256.png"
     }
 }

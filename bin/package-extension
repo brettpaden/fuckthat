@@ -1,0 +1,259 @@
+#!/usr/bin/perl
+#-------------------------------------------------------------------------------
+# In perl ... I'm about getting this shit done.  This script will build the fuck
+# out of that extension, manifest files and manifest update files, put them in the right
+# places and be bad ass whilst doing do.
+
+use strict;
+use Getopt::Declare;
+use JSON;
+
+#-------------------------------------------------------------------------------
+# If we need to initialize the version file, use this structure below.  This is more
+# for reference to understand how versioning works than anything else.  Major and 
+# minor are incremented manually.  The release number is determined by the environment
+# the extensions is tied to (1 for prod).  The build number is the incremental build
+# associated with the environment.
+#
+our $InitVersionData = {
+	major => 0, 
+	minor => 0,
+	release => {
+		prod => 1,
+	},
+	build => {
+		1 => 1,
+	},
+	next_developer_id => 100
+};
+
+#-------------------------------------------------------------------------------
+# Reasonable defaults.  If you environment variables are set up properly, you
+# should be able to run this script without specifying any arguments
+#
+our $Version;
+our $PEMFile;              # a word abotu key files; with chrome extensions this
+						   # file is what *uniquely* identifies your extension
+						   # This script will try to manage that for you, so only
+						   # override the logic below with caution
+our $Environment            = $ENV{USER};
+our $BummerDomain           = guess_bummer_domain();
+our $BummerApiPort          = guess_bummer_api_port();
+our $BummerWebPort          = guess_bummer_web_port();
+our $RootDir                = "$ENV{SRCTOP}/$ENV{PROJECT}";
+our $ManifestTemplate       = "$RootDir/chrome3/manifest.json";
+our $VersionData            = "$RootDir/chrome-versions.json";
+our $CRXOutputDir           = "$RootDir/web/public";
+our $CRXSrcDir              = "$RootDir/chrome3";
+our $CRXBuildDir            = "$RootDir/.chrome-builds/" . time;
+our $ManifestFile           = "$CRXBuildDir/manifest.json";
+our $ManifestUpdateTemplate = "$RootDir/web/config/bummer-crx-update-manifest-template.xml";
+our $ManifestUpdateFile     = "bummer-crx-update-manifest-$Environment.xml";
+our $PublicWebDir           = "$RootDir/web/public";
+
+#-------------------------------------------------------------------------------
+# Allow overrude of the defaults on the command line.  Most common will be the
+# use case is for building a version of the extension for use in a shared 
+# environment, like QA or PROD
+#
+my $specification = q(
+	[strict]
+	-r <dir>		sepcify root directory of source and project
+					{ $::RootDir = $dir }
+	-v <version>	version number of the extension; default is to increment build number for release owner
+					{ $::Version = $version }
+	-p <file>		private key file to sign extension with
+					{ $::PEMFile = $file }
+	-e <env>		environment; defaults to current user
+					{ $::Environment = $env }
+	-d <host>		domain server is running under; will try to guess based on hostname
+					{ $::BummerDomain = $host }
+	-ap <port>		port the bummer api server is running under; will try to guess from env, then parsing apache config
+					{ $::BummerApiServer = $port }
+	-wp <port>		port the bummer web server is running under; will try to guess from env, then parsing apache config
+					{ $::BummerWebServer = $port }
+);
+
+our $BummerWebServer = "$BummerDomain:$BummerWebPort";
+our $BummerApiServer = "$BummerDomain:$BummerApiPort";
+
+# make sure this is a build directory for us
+`mkdir -p $CRXBuildDir`;
+die "Could not make temporary build directory $CRXBuildDir" if $?;
+# copy the contents of the source to our build directory
+`cp -pr $CRXSrcDir/* $CRXBuildDir/`;
+die "Could not copy src $CRXSrcDir to $CRXBuildDir" if $?;
+
+#-------------------------------------------------------------------------------
+# Most common use case is to build an extension for test purposes.  Do not attempt
+# to override the PEMFile unless you know what you are doing
+$PEMFile ||= "$RootDir/etc/chrome-extension-keys/$Environment.pem";
+
+# If there is no private key file yet for this environment, go ahead and generate
+# one.  Its a pretty good assumption this is a dev doing this.
+if ($Environment ne 'prod' && not -e $PEMFile) {
+	print "I am generating a private key for signing *your* version of the bummer extension.\n";
+	print "Please add the file to our git repo and commit for future use:\n\n";
+	print "$PEMFile\n\n";
+	my $output = `openssl genpkey  -algorithm RSA -outform PEM -out $PEMFile`;
+	die "Could not generate private key: $output" if $?
+}
+
+# update the versioning database if a version number was supplied on the command line
+update_version_database($Version) if $Version;
+# otherwise increment the version for the environment
+$Version ||= increment_version();
+
+# now we are ready to update the manifest template with the name of the app, versioning
+# information the update url and host information
+my $manifest = get_json_from_file($ManifestTemplate);
+$manifest->{name} .= " (dev - $ENV{USER})" if $Environment ne 'prod';
+$manifest->{content_scripts}->[1]->{matches}->[0] = "http://$BummerWebServer/pages/obtain_facebook_access_token*";
+$manifest->{content_scripts}->[2]->{matches}->[0] = "http://$BummerWebServer/*";
+$manifest->{update_url} = "http://$BummerWebServer/$ManifestUpdateFile";
+$manifest->{version} = $Version;
+save_as_json($manifest, $ManifestFile);
+
+# Fix the constants file; ideally this would be a json file but there are cross
+# domain issues trrying to load with extensions.  We should fix this for cleaner
+# builds
+`perl -pi -e 's/__BUMMER_API_SERVER__/$BummerWebServer/' $CRXBuildDir/constants.js`;
+`perl -pi -e 's/__BUMMER_WEB_SERVER__/$BummerWebServer/' $CRXBuildDir/constants.js`;
+die "Could not update the extension constants file" if $?;
+
+# build the actually extension; this involves generating a public key doing some hashing
+# magic and zipping, the slamming them all together.  See sb-build-chrome-extension for
+# details
+my $extension_name = "bummer-$Environment.crx";
+my $command = "sb-build-chrome-extension $CRXBuildDir $PEMFile $PublicWebDir/$extension_name";
+my $output = `$command`;
+die "Could not generate extension with $command: $output" if $?;
+
+# finally write out the update manifest file for automagic updates!
+my $template_variables = {
+	APPID   => get_extension_id(),
+	CRX     => "http://$BummerWebServer/$extension_name",
+	VERSION => $Version,
+};
+my $update_manifest;
+open(TEMP, $ManifestUpdateTemplate);
+while(<TEMP>) { $update_manifest .= $_ }
+close TEMP;
+$update_manifest =~ s{__(.*?)__}{$template_variables->{$1}}gse;
+open(OUT,">$PublicWebDir/$ManifestUpdateFile");
+print OUT $update_manifest;
+close OUT;
+
+#-------------------------------------------------------------------------------
+sub get_extension_id {
+#-------------------------------------------------------------------------------
+# derives the extension id from your private key file.  See sb-chrome-extension-id
+# for complete details.  Its basically a hash of the first 256 bytes of your public
+# key
+	my $app_id = `sb-chrome-extension-appid $PEMFile`;
+	chomp $app_id;
+	return $app_id;
+}
+
+#-------------------------------------------------------------------------------
+sub increment_version {
+#-------------------------------------------------------------------------------
+# uses the environment setting and version database file to lookup then incrmenet
+# the build number.   Anything more complex should use the command line
+	my $version_data = -e $VersionData ? get_json_from_file($VersionData) : $InitVersionData;
+	my $release = $version_data->{release}->{$Environment};
+	if (not $release) {
+		$release = $version_data->{release}->{$Environment} = $version_data->{next_developer_id}++;
+	}
+	$version_data->{build}->{$release}++;
+	save_as_json($version_data, $VersionData);
+	return "$version_data->{major}.$version_data->{minor}.$release.$version_data->{build}->{$release}";
+}
+
+#-------------------------------------------------------------------------------
+sub get_json_from_file {
+#-------------------------------------------------------------------------------
+# Takes a file as an argument, returns perl data structure from json in file
+	my $file = shift;
+	my $json;
+	open(JSON, $file) or die "could not open $file for reading";
+	while(<JSON>){ $json .= $_ }
+	close JSON;
+	return from_json($json);
+}
+
+#-------------------------------------------------------------------------------
+sub save_as_json {
+#-------------------------------------------------------------------------------
+# serialize data to json on disk
+	my ($data, $file) = @_;
+	open(JSON, ">$file") or die "could not open $file for writing";
+	print JSON to_json($data, {pretty=>1});
+	close JSON;
+	return 1;
+}
+
+#-------------------------------------------------------------------------------
+sub guess_bummer_domain {
+#-------------------------------------------------------------------------------
+# tries to guess the bummer domain name based on environment variables then hostname
+# commands
+    return $ENV{BUMMER_DOMAIN} if $ENV{BUMMER_DOMAIN};
+    my $hostname = `hostname`;
+	chomp $hostname;
+	$hostname .= '.pkt3.net';
+	return $hostname;
+}
+
+#-------------------------------------------------------------------------------
+sub guess_bummer_web_port {
+#-------------------------------------------------------------------------------
+# tries to guess the bummer web port from the environment then your apache confs
+	return $ENV{BUMMER_WEB_PORT} if $ENV{BUMMER_WEB_PORT};
+	my $port = `grep Listen $ENV{HOME}/apache/fuckthat_web.conf`;
+	$port =~ s/\D//g;
+	return $port;
+}
+
+#-------------------------------------------------------------------------------
+sub guess_bummer_api_port {
+#-------------------------------------------------------------------------------
+# tries to guess the bummer api port from the environment then your apache confs
+	return $ENV{BUMMER_API_PORT} if $ENV{BUMMER_API_PORT};
+	my $port = `grep Listen $ENV{HOME}/apache/fuckthat_core.conf`;
+	$port =~ s/\D//g;
+	return $port;
+}
+
+#-------------------------------------------------------------------------------
+sub update_version_database {
+#-------------------------------------------------------------------------------
+# as the name implies, this sub updates the versioning database, which is a 
+# json file.  See notes above for description of structure.
+    my $version = shift;
+
+    # make sure we exactly follow google's number schema of x.x.x.x
+	my ($major, $minor, $release, $build) = split(/\./, $version);
+	if ($major =~ m{\D} || $minor =~ m{\D} || $release =~ m{\D} || $build =~ m{\D}) {
+		die "Version number must follow google's extension versioning system, of x.x.x.x where x is a smallint";
+	}
+
+    # load the versioning database
+	my $version_data = -e $VersionData ? get_json_from_file($VersionData) : $InitVersionData;
+
+    # ensure that the proporsed release id maps to a legit environment
+	my $release_found;
+	foreach my $environment (keys %{$version_data->{release}}) {
+		if ($version_data->{release}->{$environment} == $release) {
+            $release_found++;
+			last;
+		}
+	}
+	die "No environment matches release id $release" unless $release_found;
+
+    # finally update the versioning database
+	$version_data->{major} = $major;
+	$version_data->{minor} = $minor;
+	$version_data->{build}->{$release} = $build;
+	save_as_json($version_data, $VersionData);
+}

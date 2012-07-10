@@ -25,6 +25,17 @@ $('body').bind('DOMSubtreeModified', function() {
 	Bum.find_links();
     }
 });
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-32948210-1']);
+_gaq.push(['_setDomainName', 'getbummer.com']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = 'https://ssl.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
     
 function bummer_init() {
     var profile_link = $('.headerTinymanPhoto').attr('id');
@@ -37,12 +48,12 @@ function bummer_init() {
 }
 
 function do_fb_auth() {
-    window.open(Bummer_Root_Server + '/pages/init_facebook_access_token', 'fb-auth-popup', config='height=460, width=580, toolbar=no, menubar=0, scrollbars=0, resizable=no, location=no, directories=no, status=no');
+    window.open(Bummer_Web_Server + '/pages/init_facebook_access_token', 'fb-auth-popup', config='height=460, width=580, toolbar=no, menubar=0, scrollbars=0, resizable=no, location=no, directories=no, status=no');
 }
 
 function facebook_init_complete() {
     var data = { 'access_token': Bum.access_token };
-    $.post(Bummer_Root_Server + '/api/fuckers/fb_authenticate', data, authentication_init_complete);
+    $.post(Bummer_Api_Server + '/api/fuckers/fb_authenticate', data, authentication_init_complete);
 }
 
 function authentication_init_complete(response) {
@@ -167,7 +178,7 @@ function Bummer(data) {
 	}
 	if (urls.length > 0) {
 	    var data = { urls: urls }
-	    $.ajax(Bummer_Root_Server + '/api/fucks/get_fuckthats', {
+	    $.ajax(Bummer_Api_Server + '/api/fucks/get_fuckthats', {
 		type: 'POST',
 		data: data,
 		dataType: 'json',
@@ -284,7 +295,7 @@ function bum_it(el) {
     params['comment_author'] = data.comment_author;
     params['comment_link'] = data.comment_link;
     $.ajax({
-	url: Bummer_Root_Server + '/api/fucks/fuckthat',
+	url: Bummer_Api_Server + '/api/fucks/fuckthat',
 	type: 'POST',
 	data: params,
 	headers: {
@@ -302,6 +313,7 @@ function bum_it(el) {
   },  
 	success: function(data, stat, req) {
 	    // success!
+       _gaq.push(['_trackPageview', '/chrome-ext-bum?ii=' + Bum.instance_id]);
 	}
     });
     $('.bummer_' + id).each(function(i, el) {

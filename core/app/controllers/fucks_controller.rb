@@ -113,13 +113,22 @@ class FucksController < ApplicationController
 
   # Extract facebook id
   def extract_fbid(url)
-    if (uri = URI(url)) && (query = CGI.parse(uri.query))
-      fbid = (query['fbid'] && query['fbid'][0]) || (query['story_fbid'] && query['story_fbid'][0])
-      id = query['id'] && query['id'][0]
-      return fbid, id
-    else
-      return nil, nil
+    if (uri = URI(url))
+      query = uri.query
+      if query
+        query = CGI.parse(query)
+        if query
+          fbid = (query['fbid'] && query['fbid'][0]) || (query['story_fbid'] && query['story_fbid'][0])
+          id = query['id'] && query['id'][0]
+          return fbid, id
+        end
+      end
+      id = url.match /http:\/\/www.facebook.com\/(.*)\/posts\/([0-9]*)/
+      if id && id[2]
+        return nil, id[2] 
+      end 
     end
+    return nil, nil
   end
 
   # Extract link info from URL
@@ -160,7 +169,13 @@ class FucksController < ApplicationController
   def extract_fb_info(rg, me, url)
     # Get facebook object, if any
     fbid, id = extract_fbid(url)
-    (fbid && id) ? rg.get("#{id}_#{fbid}") :  nil
+    if fbid && id
+      rg.get("#{id}_#{fbid}")
+    elsif id
+      rg.get(id)
+    else
+      nil 
+    end
   end
 
   # Describe a facebook object
@@ -170,7 +185,7 @@ class FucksController < ApplicationController
       (params['link'] && 'link') || 'post'
     msg = (fb_obj && fb_obj['message']) || params['body']
     desc = (fb_obj && fb_obj['name']) || ''
-    if params['comment_body']
+    if params['comment_body'] && params['comment_author']
       return "#{params['comment_author']}'s comment on #{author}'s #{type}:",
       "#{params['comment_body']}",
       "(#{author}'s post: \"#{msg}\")"
@@ -192,9 +207,19 @@ class FucksController < ApplicationController
     return link, title, caption, description, picture
   end
 
+  # Clean-up facebook post text
+  def fb_sanitize(str)
+    str.gsub! /<\/?[^>]*>/, "" # Purge HTML tags
+    str = str[0,997]+'...' if str.length>1000
+    str
+  end
+
   # Post a fuck action to user's facebook newsfeed
   def fb_post(rg, me, fb_obj, link, title, caption, desc, picture)
     did_retry = false
+    caption = fb_sanitize(caption)
+    title = fb_sanitize(title)
+    desc = fb_sanitize(desc)
     begin
       rg.post('me/feed', :message => "#{me['first_name']} was bummed out by...",
         :link => link,
