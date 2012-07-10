@@ -1,1 +1,2 @@
-var Bummer_Root_Server = 'http://d1.pkt3.com:10050';
+var Bummer_Web_Server = 'http://__BUMMER_WEB_SERVER__';
+var Bummer_Api_Server = 'http://__BUMMER_API_SERVER__';

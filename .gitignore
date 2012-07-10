@@ -6,4 +6,7 @@ mysql/data/*
 mysql/socket
 mysql/pid
 mysql/my.cnf
+.chrome-builds
+web/public/bummer-*.crx
+core/db/schema.rb
 
