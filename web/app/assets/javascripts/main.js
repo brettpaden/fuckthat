@@ -16,7 +16,8 @@ var AppRouter = Backbone.Router.extend({
     "today":"today",
     "button":"button",
     "tos":"tos",
-    "privacy":"privacy"
+    "privacy":"privacy",
+    "about":"about"
   },
 
   // Current display
@@ -40,6 +41,12 @@ var AppRouter = Backbone.Router.extend({
       App.renderHeader (false, false);
     }
     load_template_into('privacy', '#content_div');
+  },
+  about:function () {
+    if (!App.headerView) {
+      App.renderHeader (false, false);
+    }
+    load_template_into('about', '#content_div');
   },
   initialize:function () {
     this.thats = new Thats();
