@@ -38,8 +38,8 @@ our $PEMFile;              # a word abotu key files; with chrome extensions this
 						   # override the logic below with caution
 our $Environment            = $ENV{USER};
 our $BummerDomain           = guess_bummer_domain();
-our $BummerApiServer        = $BummerDomain . ':' . guess_bummer_api_port();
-our $BummerWebServer        = $BummerDomain . ':' . guess_bummer_web_port();
+our $BummerApiPort          = guess_bummer_api_port();
+our $BummerWebPort          = guess_bummer_web_port();
 our $RootDir                = "$ENV{SRCTOP}/$ENV{PROJECT}";
 our $ManifestTemplate       = "$RootDir/chrome3/manifest.json";
 our $VersionData            = "$RootDir/chrome-versions.json";
@@ -73,6 +73,9 @@ my $specification = q(
 	-wp <port>		port the bummer web server is running under; will try to guess from env, then parsing apache config
 					{ $::BummerWebServer = $port }
 );
+
+our $BummerWebServer = "$BummerDomain:$BummerWebPort";
+our $BummerApiServer = "$BummerDomain:$BummerApiPort";
 
 # make sure this is a build directory for us
 `mkdir -p $CRXBuildDir`;
@@ -114,7 +117,7 @@ save_as_json($manifest, $ManifestFile);
 # Fix the constants file; ideally this would be a json file but there are cross
 # domain issues trrying to load with extensions.  We should fix this for cleaner
 # builds
-`perl -pi -e 's/__BUMMER_API_SERVER__/$BummerApiServer/' $CRXBuildDir/constants.js`;
+`perl -pi -e 's/__BUMMER_API_SERVER__/$BummerWebServer/' $CRXBuildDir/constants.js`;
 `perl -pi -e 's/__BUMMER_WEB_SERVER__/$BummerWebServer/' $CRXBuildDir/constants.js`;
 die "Could not update the extension constants file" if $?;
 
