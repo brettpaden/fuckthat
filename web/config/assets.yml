@@ -23,5 +23,4 @@ javascripts:
 
 stylesheets:
   all:
-    - app/assets/stylesheets/button.css
     - app/assets/stylesheets/main.css

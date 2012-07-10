@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Web</title>
+  <title>Bummer!</title>
   <%= include_stylesheets :all %>
   <%= include_javascripts :app %>
   <%= csrf_meta_tags %>
@@ -12,8 +12,24 @@
   </script>
 </head>
 <body>
+  <div id=header-stripe>
+  </div>
   <div id=main>
     <%= yield %>
+  </div>
+  <div id=footer>
+    <div class=fright>
+      <a href=#privacy>Privacy Policy</a> | 
+      <a href=#tos>Terms and Conditions</a> | 
+      <a href=mailto:feedback@getbummer.com>Contact Us</a>
+      &nbsp;
+      <!-- <a href=#><img src="/assets/nav/footer-rss.png"></a> -->
+      <a href=http://www.facebook.com/GetBummer><img src="/assets/nav/footer-fb.png"></a>
+      <a href=https://twitter.com/GetBummer><img src="/assets/nav/footer-twitter.png"></a>
+    </div>
+    <div class=fleft>
+      &copy; 2012 GetBummer. All Rights Reserved.
+    </div>
   </div>
 </body>
 </html>
