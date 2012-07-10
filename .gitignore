@@ -6,5 +6,5 @@ mysql/data/*
 mysql/socket
 mysql/pid
 mysql/my.cnf
-chrome3-builds
+.chrome-builds
 web/public/bummer-*.crx
