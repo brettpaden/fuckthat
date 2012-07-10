@@ -1,6 +1,7 @@
 var Bum;
 var Port = chrome.extension.connect({ name: 'bummer_facebook' });
 var Current_FBUID;
+var Reauth_El = null;
 
 Port.onMessage.addListener(function(msg) {
     if (msg.type == 'access_token_response') {
@@ -10,7 +11,7 @@ Port.onMessage.addListener(function(msg) {
 	    facebook_init_complete();
 	}
 	else if (!window.location.href.match('www.facebook.com/dialog')) {
-	    window.open(Bummer_Root_Server + '/pages/init_facebook_access_token', 'fb-auth-popup', config='height=460, width=580, toolbar=no, menubar=0, scrollbars=0, resizable=no, location=no, directories=no, status=no');
+      do_fb_auth();
 	}
     }
 });
@@ -35,6 +36,10 @@ function bummer_init() {
     }
 }
 
+function do_fb_auth() {
+    window.open(Bummer_Root_Server + '/pages/init_facebook_access_token', 'fb-auth-popup', config='height=460, width=580, toolbar=no, menubar=0, scrollbars=0, resizable=no, location=no, directories=no, status=no');
+}
+
 function facebook_init_complete() {
     var data = { 'access_token': Bum.access_token };
     $.post(Bummer_Root_Server + '/api/fuckers/fb_authenticate', data, authentication_init_complete);
@@ -44,7 +49,13 @@ function authentication_init_complete(response) {
     Bum.instance_id = response.instance_id;
     Bum.csrf_token = response.csrf_token;
     Bum.init = true;
-    Bum.find_links();
+    if (Reauth_El) {
+        el = Reauth_El;
+        Reauth_El = null;
+        bum_it(el);
+    } else {
+        Bum.find_links();
+    }
 }
 
 function Bummer(data) {
@@ -279,9 +290,16 @@ function bum_it(el) {
 	headers: {
 	    'X-CSRF-Token': Bum.csrf_token
 	},
-	error: function(req, stat, err) { 
-      log("Unable to bum - params: " + JSON.stringify(params) + " ERROR: " + err + " response: " + req.responseText);
-	},
+  error: function(req, stat, err) {
+      if (req.responseText == "No current fucker" && !Reauth_El) {
+          // Re-attempt authentication
+          Reauth_El = el;
+          do_fb_auth();
+      } else {
+          Reauth_El = null;
+          log("Unable to bum - params: " + JSON.stringify(params) + " ERROR: " + err + " response: " + req.responseText);
+      }
+  },  
 	success: function(data, stat, req) {
 	    // success!
 	}
