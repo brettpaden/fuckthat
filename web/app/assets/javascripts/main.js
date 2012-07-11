@@ -14,7 +14,10 @@ var AppRouter = Backbone.Router.extend({
     "month":"month",
     "week":"week",
     "today":"today",
-    "button":"button"
+    "button":"button",
+    "tos":"tos",
+    "privacy":"privacy",
+    "about":"about"
   },
 
   // Current display
@@ -26,7 +29,25 @@ var AppRouter = Backbone.Router.extend({
   fucks:null,
   fuckers:null,
   events:null,
-  
+
+  tos:function () {
+    if (!App.headerView) {
+      App.renderHeader (false, false);
+    }
+    load_template_into('tos', '#content_div');
+  },
+  privacy:function () {
+    if (!App.headerView) {
+      App.renderHeader (false, false);
+    }
+    load_template_into('privacy', '#content_div');
+  },
+  about:function () {
+    if (!App.headerView) {
+      App.renderHeader (false, false);
+    }
+    load_template_into('about', '#content_div');
+  },
   initialize:function () {
     this.thats = new Thats();
     this.fucks = new Fucks();
@@ -662,4 +683,11 @@ function main() {
     App && App.renderAll();
   });
   */
+}
+function load_template_into(template_id, el_id) {
+  if (!JST[template_id + '.html']) {
+    var url = '/assets/templates/' + template_id + '.html';
+    $.getScript(url);
+  }
+  $(el_id).html(JST[template_id + '.html']);
 }

@@ -1,13 +1,15 @@
 {
-   "next_developer_id" : 101,
+   "next_developer_id" : 103,
    "minor" : 0,
    "release" : {
       "paden" : 100,
+      "jeff" : 101,
+      "colin" : 102,
       "prod" : 1
    },
    "build" : {
       "1" : 1,
-      "100" : 27
-   },
-   "major" : 0
+      "101" : 57,
+      "100" : 26
+   }
 }

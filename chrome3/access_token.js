@@ -8,9 +8,9 @@ $(function() {
     if (key_values['access_token']) {
 	chrome.extension.sendRequest(
 	    { 
-		type: 'access_token_response', 
-		access_token: key_values['access_token'],
-		csrf_token: $.cookie('CSRF-Token') 
+		type: 'access_token_response',
+		status: 'ok',	
+		access_token: key_values['access_token']
 	    }, 
 	    function(response) {
 		if (response.status == 'ok') {

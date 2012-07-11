@@ -11,25 +11,33 @@
 	    "run_at": "document_end"
 	},
 	{
-	    "matches": [ "*://*/pages/obtain_facebook_access_token*" ],
+	    "matches": [ 
+		"*://*.pkt3.*/pages/obtain_facebook_access_token*", 
+		"*://*.getbummer.com/pages/obtain_facebook_access_token*" 
+	    ],
 	    "js": [ "constants.js", "jquery.js", "json2.js", "cookie.js", "access_token.js", "log.js" ],
 	    "css": [ "bummer.css" ],
 	    "run_at": "document_end"
 	},
-    {
-        "matches": [ "*://d1.pkt3.com/*" ],
-        "js": [ "jquery.js", "announce.js" ],
-        "run_at": "document_start"
-    }
+	{
+	    "matches": [ "*://*.pkt3.*/*", "*://*.getbummer.com/*" ],
+	    "js": [ "jquery.js", "announce.js" ],
+	    "run_at": "document_start"
+	}
     ],
-	"content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+    "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
     "background": {
-		"scripts": [ "background.js" ]
+	"scripts": [ "constants.js", "background.js" ]
     },
+    "permissions": [
+	"cookies",
+	"*://*.facebook.com/*"
+    ],
     "icons": {
-		"16": "b16.png",
-		"48": "b48.png",
-		"128": "b128.png",
-		"256": "b256.png"
-    }
+	"16": "b16.png",
+	"48": "b48.png",
+	"128": "b128.png",
+	"256": "b256.png"
+    },
+    "manifest_version": 2
 }
