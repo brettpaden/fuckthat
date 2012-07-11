@@ -31,9 +31,9 @@ ActiveRecord::Schema.define(:version => 20120416200332) do
   create_table "fuckers", :force => true do |t|
     t.string   "name"
     t.string   "password_digest"
-    t.integer  "facebook_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.integer  "facebook_id",     :limit => 8
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   create_table "fucks", :force => true do |t|
@@ -49,9 +49,11 @@ ActiveRecord::Schema.define(:version => 20120416200332) do
   create_table "thats", :force => true do |t|
     t.string   "url"
     t.string   "title"
-    t.integer  "fuck_count", :default => 0
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.string   "picture"
+    t.integer  "fuck_count",     :default => 0
+    t.boolean  "dont_aggregate", :default => false, :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
 end
