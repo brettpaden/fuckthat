@@ -214,6 +214,21 @@ class FucksController < ApplicationController
     str
   end
 
+  # Clean up facebook links to remove spurious query fields
+  def fb_clean_facebook(link)
+    retain_params = ['story_fbid', 'id', 'comment_id'] # Only retain these parameters
+    if (uri = URI(link)) && (query = uri.query) && (query = CGI.parse(query))
+      new_query = {}
+      retain_params.each do |p|
+        new_query[p] = query[p] if query.has_key?(p) 
+      end
+      uri.query = new_query.map{|k,v| "#{CGI.escape(k)}=#{CGI.escape(v[0])}"}.join("&")
+      uri.to_s
+    else
+      link
+    end    
+  end
+  
   # Post a fuck action to user's facebook newsfeed
   def fb_post(rg, me, fb_obj, link, title, caption, desc, picture)
     did_retry = false
@@ -403,6 +418,9 @@ class FucksController < ApplicationController
       # Extract info as necessary
       link, title, caption, desc, picture = extract_that_info(fb_obj, params)
 
+      # Clean up facebook links
+      link = fb_clean_facebook(link)
+      
       That.transaction do
         begin
           # Does the that already exist?
@@ -473,6 +491,7 @@ class FucksController < ApplicationController
     if session[:fucker]
       # Valid url?
       link = extract_link(nil, params)
+      link = fb_clean_facebook(link)
       that = That.first(:conditions => {:url => link})
       if that
         # Have a fuck?
@@ -502,7 +521,8 @@ class FucksController < ApplicationController
       # Expect array of URLs, return that and my_fuck for each url found
       params[:urls].each do |url,x|
         # Find that
-        that = That.first(:conditions => {:url => url})
+        url_clean = fb_clean_facebook(url)
+        that = That.first(:conditions => {:url => url_clean})
         if that
           # Have a fuck for this fucker?
           info[url] = {
