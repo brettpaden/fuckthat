@@ -1,6 +1,7 @@
 var Bummer_Facebook_Ports = new Array();
 var Current_FBUID;
 var Background_Init = false;
+var Next_Port = 0;
 
 chrome.extension.onConnect.addListener(function(port) {
   console.log("Got an incoming connection: " + port.name);
@@ -28,7 +29,7 @@ chrome.extension.onConnect.addListener(function(port) {
 	});
       }
     });
-    port.id = Bummer_Facebook_Ports.length;
+    port.id = Next_Port++;
     Bummer_Facebook_Ports[port.id] = port;
     port.onDisconnect.addListener(function(p) {
       console.log("port disconnect detected");
