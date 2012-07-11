@@ -151,7 +151,7 @@ function Bummer(data) {
 			comment_as_json.comment_author = subel_parent.find('.actorName').html();
 			comment_as_json.comment_link = subel_parent.find('a.external').first().attr('href');
 			var comment_id = subel_obj.find('button.cmnt_like_link').attr('value');
-			if (comment_id && data_as_json.url) {
+      if (comment_id && data_as_json.url && data_as_json.url.indexOf('comment_id=')==-1) {
 			    comment_as_json.url = data_as_json.url + 
               ((data_as_json.url.indexOf('?')==-1)?'?':'&') + 
               'comment_id=' + comment_id;
