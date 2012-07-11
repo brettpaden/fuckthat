@@ -10,7 +10,7 @@ Port.onMessage.addListener(function(msg) {
 	Bum.access_token = msg.access_token;
 	facebook_init_complete();
       }
-      else if (!window.location.href.match('www.facebook.com/dialog')) {
+      else if (!window.location.href.match('www.facebook.com/dialog') && !window.location.href.match('www.facebook.com/login')) {
 	do_fb_auth();
       }
     }
