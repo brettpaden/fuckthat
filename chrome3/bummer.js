@@ -1,19 +1,26 @@
 var Bum;
 var Port = chrome.extension.connect({ name: 'bummer_facebook' });
-var Current_FBUID;
 var Reauth_El = null;
 
 Port.onMessage.addListener(function(msg) {
+  if (msg.status == 'ok') {
     if (msg.type == 'access_token_response') {
-	if (msg.access_token) {
-	    Bum = new Bummer();
-	    Bum.access_token = msg.access_token;
-	    facebook_init_complete();
-	}
-	else if (!window.location.href.match('www.facebook.com/dialog')) {
-      do_fb_auth();
-	}
+      if (msg.access_token) {
+	Bum = new Bummer();
+	Bum.access_token = msg.access_token;
+	facebook_init_complete();
+      }
+      else if (!window.location.href.match('www.facebook.com/dialog')) {
+	do_fb_auth();
+      }
     }
+    if (msg.type == 'uid_response') {
+      // maybe assign a global var here.
+    }
+    if (msg.type == 'failure') {
+      alert('failure: ' + msg.reason);
+    } 
+  }
 });
 
 $(function() {
@@ -38,17 +45,7 @@ _gaq.push(['_trackPageview']);
 })();
     
 function bummer_init() {
-    var profile_link = $('.headerTinymanPhoto').attr('id');
-    var parts = profile_link.split('_');
-    var id = parts[3];
-    if (id) {
-	Current_FBUID = id;
-	Port.postMessage({ type: 'access_token_request', id: Current_FBUID });
-    }
-}
-
-function do_fb_auth() {
-    window.open(Bummer_Web_Server + '/pages/init_facebook_access_token', 'fb-auth-popup', config='height=460, width=580, toolbar=no, menubar=0, scrollbars=0, resizable=no, location=no, directories=no, status=no');
+  Port.postMessage({ type: 'access_token_request' });
 }
 
 function facebook_init_complete() {
