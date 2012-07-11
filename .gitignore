@@ -9,4 +9,5 @@ mysql/my.cnf
 .chrome-builds
 web/public/bummer-*.crx
 core/db/schema.rb
-
+# Ignore all emacs backup file
+*~
