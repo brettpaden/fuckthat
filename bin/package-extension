@@ -201,7 +201,8 @@ sub guess_bummer_domain {
     return $ENV{BUMMER_DOMAIN} if $ENV{BUMMER_DOMAIN};
     my $hostname = `hostname`;
 	chomp $hostname;
-	$hostname .= '.pkt3.net';
+	my $tld = $hostname eq 'd1' ? 'com' : 'net';
+	$hostname .= '.pkt3.' . $tld;
 	return $hostname;
 }
 

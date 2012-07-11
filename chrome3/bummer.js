@@ -1,19 +1,26 @@
 var Bum;
 var Port = chrome.extension.connect({ name: 'bummer_facebook' });
-var Current_FBUID;
 var Reauth_El = null;
 
 Port.onMessage.addListener(function(msg) {
+  if (msg.status == 'ok') {
     if (msg.type == 'access_token_response') {
-	if (msg.access_token) {
-	    Bum = new Bummer();
-	    Bum.access_token = msg.access_token;
-	    facebook_init_complete();
-	}
-	else if (!window.location.href.match('www.facebook.com/dialog')) {
-      do_fb_auth();
-	}
+      if (msg.access_token) {
+	Bum = new Bummer();
+	Bum.access_token = msg.access_token;
+	facebook_init_complete();
+      }
+      else if (!window.location.href.match('www.facebook.com/dialog') && !window.location.href.match('www.facebook.com/login')) {
+	do_fb_auth();
+      }
     }
+    if (msg.type == 'uid_response') {
+      // maybe assign a global var here.
+    }
+    if (msg.type == 'failure') {
+      alert('failure: ' + msg.reason);
+    } 
+  }
 });
 
 $(function() {
@@ -38,17 +45,7 @@ _gaq.push(['_trackPageview']);
 })();
     
 function bummer_init() {
-    var profile_link = $('.headerTinymanPhoto').attr('id');
-    var parts = profile_link.split('_');
-    var id = parts[3];
-    if (id) {
-	Current_FBUID = id;
-	Port.postMessage({ type: 'access_token_request', id: Current_FBUID });
-    }
-}
-
-function do_fb_auth() {
-    window.open(Bummer_Web_Server + '/pages/init_facebook_access_token', 'fb-auth-popup', config='height=460, width=580, toolbar=no, menubar=0, scrollbars=0, resizable=no, location=no, directories=no, status=no');
+  Port.postMessage({ type: 'access_token_request' });
 }
 
 function facebook_init_complete() {
@@ -82,7 +79,12 @@ function Bummer(data) {
     this.links = {};
     this.link_data = {};
     this.bummed = function(id) {
-	return this.bums[id];
+	if (this.links[id] && this.links[id]['reference']) {
+	    return this.bums[this.links[id]['true_url']];
+	}
+	else {
+	    return this.bums[id];
+	}
     };
     this.addBum = function(id) {
 	this.bums[id] = true;
@@ -104,15 +106,22 @@ function Bummer(data) {
 	    catch(err) {
 	    }
 	    if (id) {
-		var parent = el_obj.find('input[name=timeline_log_data]').attr('value') ? el_obj.parent().parent() : el_obj.parent();
+		var parent = 
+		    el_obj.find('input[name=timeline_log_data]').attr('value') ? 
+		    el_obj.parent().parent() : 
+		    window.location.href.match('facebook.com/permalink') ? 
+			el_obj.parent().parent().parent().parent() : 
+			el_obj.parent();
 		data_as_json.body = 
 		    parent.find('.messageBody').first().html() || 
 		    parent.find('.uiStreamMessage').first().html();
 		data_as_json.author = 
 		    parent.find('.actorDescription a').first().html();
 		data_as_json.link = 
-		    parent.find('.shareMediaLink').first().attr('href') || 
-		    parent.find('a.shareText').first().attr('href');
+		    sanitize_link(
+			parent.find('.shareMediaLink').first().attr('href') || 
+			parent.find('a.shareText').first().attr('href')
+		    );
 		data_as_json.attachments = [];
 		parent.find('.uiStreamAttachments a').each(function(q, ael) {
 		    if ($(ael).attr('ajaxify') && !$(ael).attr('ajaxify').match(/^\/ajax\//)) {
@@ -120,26 +129,35 @@ function Bummer(data) {
 		    }
 		});
 		data_as_json.url = 
-		    el_obj.find('span.uiStreamSource a').first().attr('href') || 
-		    el_obj.find('a.uiLinkSubtle').first().attr('href');
+		    sanitize_link(
+			el_obj.find('span.uiStreamSource a').first().attr('href') || 
+			el_obj.find('a.uiLinkSubtle').first().attr('href')
+		    );
 		if (data_as_json.url && data_as_json.url.match(/^\//)) {
 		    data_as_json.url = 'http://www.facebook.com' + data_as_json.url;
 		}
 		if (!el_obj.attr('has_been_bummed')) {
 		    if (data_as_json.url) {
+			if (data_as_json.link) {
+			    new_links[data_as_json.link] = true;
+			    bum.links[data_as_json.link] = {
+				reference: true,
+				true_url: data_as_json.url
+			    }
+			}
 			new_links[data_as_json.url] = true;
 			bum.links[data_as_json.url] = { 
 			    data: data_as_json,
 			    id: id,
 			};
 			var subel = el_obj.find('.UIActionLinks_bottom');
-      var likeel = subel.find('.like_link')
-      if (likeel && likeel.length > 0) {
-          $(likeel).after(' &middot; <span class="bummer_' + id + '"></span>');
-      } else {
-          $(subel).prepend('<span class="bummer_' + id + '"></span> &middot; ');
-      }
-        }
+			var likeel = subel.find('.like_link')
+			if (likeel && likeel.length > 0) {
+			    $(likeel).after(' &middot; <span class="bummer_' + id + '"></span>');
+			} else {
+			    $(subel).prepend('<span class="bummer_' + id + '"></span> &middot; ');
+			}
+		    }
 		    el_obj.attr('has_been_bummed', true);
 		}
 		el_obj.find('div.commentActions').each(function(j, subel) {
@@ -154,10 +172,10 @@ function Bummer(data) {
 			comment_as_json.comment_author = subel_parent.find('.actorName').html();
 			comment_as_json.comment_link = subel_parent.find('a.external').first().attr('href');
 			var comment_id = subel_obj.find('button.cmnt_like_link').attr('value');
-			if (comment_id && data_as_json.url) {
+			if (comment_id && data_as_json.url && data_as_json.url.indexOf('comment_id=')==-1) {
 			    comment_as_json.url = data_as_json.url + 
-              ((data_as_json.url.indexOf('?')==-1)?'?':'&') + 
-              'comment_id=' + comment_id;
+				((data_as_json.url.indexOf('?')==-1)?'?':'&') + 
+				'comment_id=' + comment_id;
 			    comment_as_json.comment_id = comment_id;
 			    id = 'comment_' + comment_id;
 			    new_links[comment_as_json.url] = true;
@@ -202,7 +220,12 @@ function Bummer(data) {
 	for(var i in data) {
 	    this.link_data[i] = data[i];
 	    if (data[i].my_fuck) {
-		this.addBum(i);
+		if (this.links[i] && this.links[i]['reference']) {
+		    this.addBum(this.links[i]['true_url']);
+		}
+		else {
+		    this.addBum(i);
+		}
 	    }
 	}
 	for(var i in this.links) {
@@ -223,7 +246,14 @@ function Bummer(data) {
 }
 
 function bummed_text(url) {
-    var link = Bum.link_data[url];
+    console.log("Getting text for " + url);
+    console.log((Bum.links[url]['data'] && Bum.links[url]['data']['link'] && !Bum.links[url]['data']['comment_id']) ?
+	Bum.links[url]['data']['link'] :
+	url
+    );
+    var link = (Bum.links[url]['data'] && Bum.links[url]['data']['link'] && !Bum.links[url]['data']['comment_id']) ? 
+	Bum.link_data[Bum.links[url]['data']['link']] : 
+	Bum.link_data[url];
     var count = link && link.that && link.that.fuck_count ? link.that.fuck_count : 0;
     var bummed = Bum.bummed(url);
     if (bummed) {
@@ -301,29 +331,29 @@ function bum_it(el) {
 	headers: {
 	    'X-CSRF-Token': Bum.csrf_token
 	},
-  error: function(req, stat, err) {
-      if (req.responseText == "No current fucker" && !Reauth_El) {
-          // Re-attempt authentication
-          Reauth_El = el;
-          do_fb_auth();
-      } else {
-          Reauth_El = null;
-          log("Unable to bum - params: " + JSON.stringify(params) + " ERROR: " + err + " response: " + req.responseText);
-      }
-  },  
+	error: function(req, stat, err) {
+	    if (req.responseText == "No current fucker" && !Reauth_El) {
+		// Re-attempt authentication
+		Reauth_El = el;
+		do_fb_auth();
+	    } else {
+		Reauth_El = null;
+		log("Unable to bum - params: " + JSON.stringify(params) + " ERROR: " + err + " response: " + req.responseText);
+	    }
+	},  
 	success: function(data, stat, req) {
 	    // success!
        _gaq.push(['_trackPageview', '/chrome-ext-bum?ii=' + Bum.instance_id]);
 	}
     });
     $('.bummer_' + id).each(function(i, el) {
-  if (!Bum.link_data[data.url]) {
-    Bum.link_data[data.url] = { that: null };
-  }
-  if (!Bum.link_data[data.url].that) {
-    Bum.link_data[data.url].that = { url: data.url, fuck_count: 0 }
-  }
-  Bum.link_data[data.url].that.fuck_count++;
+	if (!Bum.link_data[data.url]) {
+	    Bum.link_data[data.url] = { that: null };
+	}
+	if (!Bum.link_data[data.url].that) {
+	    Bum.link_data[data.url].that = { url: data.url, fuck_count: 0 }
+	}
+	Bum.link_data[data.url].that.fuck_count++;
 	$(el).html(bummed_text(data.url));
 	$(el).attr('bummed', 1);
     });
@@ -332,4 +362,21 @@ function bum_it(el) {
 function rinse(html) {
     if (!html) { return ''; }
     return html.replace(/<.*?>/g, '');
+}
+
+function sanitize_link(link) {
+    if (!link) { return; }
+    var parts = link.split('?');
+    var keyvals = parts[1].split('&');
+    var pairs = new Array();
+    for(var x=0; x<keyvals.length; x++) {
+	var pair = keyvals[x].split('=');
+	if (
+	    pair[0] == 'comment_id' || 
+	    pair[0] == 'offset' ||
+	    pair[0] == 'total_comments'
+	) { continue; }
+	pairs.push(pair[0] + '=' + pair[1]);
+    }
+    return parts[0] + '?' + pairs.sort().join('&');
 }
