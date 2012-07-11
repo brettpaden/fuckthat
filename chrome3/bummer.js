@@ -106,15 +106,22 @@ function Bummer(data) {
 	    catch(err) {
 	    }
 	    if (id) {
-		var parent = el_obj.find('input[name=timeline_log_data]').attr('value') ? el_obj.parent().parent() : el_obj.parent();
+		var parent = 
+		    el_obj.find('input[name=timeline_log_data]').attr('value') ? 
+		    el_obj.parent().parent() : 
+		    window.location.href.match('facebook.com/permalink') ? 
+			el_obj.parent().parent().parent().parent() : 
+			el_obj.parent();
 		data_as_json.body = 
 		    parent.find('.messageBody').first().html() || 
 		    parent.find('.uiStreamMessage').first().html();
 		data_as_json.author = 
 		    parent.find('.actorDescription a').first().html();
 		data_as_json.link = 
-		    parent.find('.shareMediaLink').first().attr('href') || 
-		    parent.find('a.shareText').first().attr('href');
+		    sanitize_link(
+			parent.find('.shareMediaLink').first().attr('href') || 
+			parent.find('a.shareText').first().attr('href')
+		    );
 		data_as_json.attachments = [];
 		parent.find('.uiStreamAttachments a').each(function(q, ael) {
 		    if ($(ael).attr('ajaxify') && !$(ael).attr('ajaxify').match(/^\/ajax\//)) {
@@ -122,8 +129,10 @@ function Bummer(data) {
 		    }
 		});
 		data_as_json.url = 
-		    el_obj.find('span.uiStreamSource a').first().attr('href') || 
-		    el_obj.find('a.uiLinkSubtle').first().attr('href');
+		    sanitize_link(
+			el_obj.find('span.uiStreamSource a').first().attr('href') || 
+			el_obj.find('a.uiLinkSubtle').first().attr('href')
+		    );
 		if (data_as_json.url && data_as_json.url.match(/^\//)) {
 		    data_as_json.url = 'http://www.facebook.com' + data_as_json.url;
 		}
@@ -238,11 +247,11 @@ function Bummer(data) {
 
 function bummed_text(url) {
     console.log("Getting text for " + url);
-    console.log(Bum.links[url]['data'] && Bum.links[url]['data']['link'] ?
-	Bum.links[url]['link'] :
+    console.log((Bum.links[url]['data'] && Bum.links[url]['data']['link'] && !Bum.links[url]['data']['comment_id']) ?
+	Bum.links[url]['data']['link'] :
 	url
     );
-    var link = (Bum.links[url]['data'] && Bum.links[url]['data']['link']) ? 
+    var link = (Bum.links[url]['data'] && Bum.links[url]['data']['link'] && !Bum.links[url]['data']['comment_id']) ? 
 	Bum.link_data[Bum.links[url]['data']['link']] : 
 	Bum.link_data[url];
     var count = link && link.that && link.that.fuck_count ? link.that.fuck_count : 0;
@@ -339,10 +348,10 @@ function bum_it(el) {
     });
     $('.bummer_' + id).each(function(i, el) {
 	if (!Bum.link_data[data.url]) {
-	  Bum.link_data[data.url] = { that: null };
+	    Bum.link_data[data.url] = { that: null };
 	}
 	if (!Bum.link_data[data.url].that) {
-	  Bum.link_data[data.url].that = { url: data.url, fuck_count: 0 }
+	    Bum.link_data[data.url].that = { url: data.url, fuck_count: 0 }
 	}
 	Bum.link_data[data.url].that.fuck_count++;
 	$(el).html(bummed_text(data.url));
@@ -353,4 +362,21 @@ function bum_it(el) {
 function rinse(html) {
     if (!html) { return ''; }
     return html.replace(/<.*?>/g, '');
+}
+
+function sanitize_link(link) {
+    if (!link) { return; }
+    var parts = link.split('?');
+    var keyvals = parts[1].split('&');
+    var pairs = new Array();
+    for(var x=0; x<keyvals.length; x++) {
+	var pair = keyvals[x].split('=');
+	if (
+	    pair[0] == 'comment_id' || 
+	    pair[0] == 'offset' ||
+	    pair[0] == 'total_comments'
+	) { continue; }
+	pairs.push(pair[0] + '=' + pair[1]);
+    }
+    return parts[0] + '?' + pairs.sort().join('&');
 }
