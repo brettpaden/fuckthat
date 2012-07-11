@@ -79,7 +79,12 @@ function Bummer(data) {
     this.links = {};
     this.link_data = {};
     this.bummed = function(id) {
-	return this.bums[id];
+	if (this.links[id] && this.links[id]['reference']) {
+	    return this.bums[this.links[id]['true_url']];
+	}
+	else {
+	    return this.bums[id];
+	}
     };
     this.addBum = function(id) {
 	this.bums[id] = true;
@@ -124,19 +129,26 @@ function Bummer(data) {
 		}
 		if (!el_obj.attr('has_been_bummed')) {
 		    if (data_as_json.url) {
+			if (data_as_json.link) {
+			    new_links[data_as_json.link] = true;
+			    bum.links[data_as_json.link] = {
+				reference: true,
+				true_url: data_as_json.url
+			    }
+			}
 			new_links[data_as_json.url] = true;
 			bum.links[data_as_json.url] = { 
 			    data: data_as_json,
 			    id: id,
 			};
 			var subel = el_obj.find('.UIActionLinks_bottom');
-      var likeel = subel.find('.like_link')
-      if (likeel && likeel.length > 0) {
-          $(likeel).after(' &middot; <span class="bummer_' + id + '"></span>');
-      } else {
-          $(subel).prepend('<span class="bummer_' + id + '"></span> &middot; ');
-      }
-        }
+			var likeel = subel.find('.like_link')
+			if (likeel && likeel.length > 0) {
+			    $(likeel).after(' &middot; <span class="bummer_' + id + '"></span>');
+			} else {
+			    $(subel).prepend('<span class="bummer_' + id + '"></span> &middot; ');
+			}
+		    }
 		    el_obj.attr('has_been_bummed', true);
 		}
 		el_obj.find('div.commentActions').each(function(j, subel) {
@@ -151,10 +163,10 @@ function Bummer(data) {
 			comment_as_json.comment_author = subel_parent.find('.actorName').html();
 			comment_as_json.comment_link = subel_parent.find('a.external').first().attr('href');
 			var comment_id = subel_obj.find('button.cmnt_like_link').attr('value');
-      if (comment_id && data_as_json.url && data_as_json.url.indexOf('comment_id=')==-1) {
+			if (comment_id && data_as_json.url && data_as_json.url.indexOf('comment_id=')==-1) {
 			    comment_as_json.url = data_as_json.url + 
-              ((data_as_json.url.indexOf('?')==-1)?'?':'&') + 
-              'comment_id=' + comment_id;
+				((data_as_json.url.indexOf('?')==-1)?'?':'&') + 
+				'comment_id=' + comment_id;
 			    comment_as_json.comment_id = comment_id;
 			    id = 'comment_' + comment_id;
 			    new_links[comment_as_json.url] = true;
@@ -199,7 +211,12 @@ function Bummer(data) {
 	for(var i in data) {
 	    this.link_data[i] = data[i];
 	    if (data[i].my_fuck) {
-		this.addBum(i);
+		if (this.links[i] && this.links[i]['reference']) {
+		    this.addBum(this.links[i]['true_url']);
+		}
+		else {
+		    this.addBum(i);
+		}
 	    }
 	}
 	for(var i in this.links) {
@@ -220,7 +237,14 @@ function Bummer(data) {
 }
 
 function bummed_text(url) {
-    var link = Bum.link_data[url];
+    console.log("Getting text for " + url);
+    console.log(Bum.links[url]['data'] && Bum.links[url]['data']['link'] ?
+	Bum.links[url]['link'] :
+	url
+    );
+    var link = (Bum.links[url]['data'] && Bum.links[url]['data']['link']) ? 
+	Bum.link_data[Bum.links[url]['data']['link']] : 
+	Bum.link_data[url];
     var count = link && link.that && link.that.fuck_count ? link.that.fuck_count : 0;
     var bummed = Bum.bummed(url);
     if (bummed) {
@@ -298,29 +322,29 @@ function bum_it(el) {
 	headers: {
 	    'X-CSRF-Token': Bum.csrf_token
 	},
-  error: function(req, stat, err) {
-      if (req.responseText == "No current fucker" && !Reauth_El) {
-          // Re-attempt authentication
-          Reauth_El = el;
-          do_fb_auth();
-      } else {
-          Reauth_El = null;
-          log("Unable to bum - params: " + JSON.stringify(params) + " ERROR: " + err + " response: " + req.responseText);
-      }
-  },  
+	error: function(req, stat, err) {
+	    if (req.responseText == "No current fucker" && !Reauth_El) {
+		// Re-attempt authentication
+		Reauth_El = el;
+		do_fb_auth();
+	    } else {
+		Reauth_El = null;
+		log("Unable to bum - params: " + JSON.stringify(params) + " ERROR: " + err + " response: " + req.responseText);
+	    }
+	},  
 	success: function(data, stat, req) {
 	    // success!
        _gaq.push(['_trackPageview', '/chrome-ext-bum?ii=' + Bum.instance_id]);
 	}
     });
     $('.bummer_' + id).each(function(i, el) {
-  if (!Bum.link_data[data.url]) {
-    Bum.link_data[data.url] = { that: null };
-  }
-  if (!Bum.link_data[data.url].that) {
-    Bum.link_data[data.url].that = { url: data.url, fuck_count: 0 }
-  }
-  Bum.link_data[data.url].that.fuck_count++;
+	if (!Bum.link_data[data.url]) {
+	  Bum.link_data[data.url] = { that: null };
+	}
+	if (!Bum.link_data[data.url].that) {
+	  Bum.link_data[data.url].that = { url: data.url, fuck_count: 0 }
+	}
+	Bum.link_data[data.url].that.fuck_count++;
 	$(el).html(bummed_text(data.url));
 	$(el).attr('bummed', 1);
     });
