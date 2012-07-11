@@ -19,7 +19,7 @@ a {
   min-width: 500px;
   margin: 0 auto;
   margin-top: 0;
-  padding: 0 0 100px 30px;
+  padding: 0 30px 100px 30px;
 }
 img { 
   border: 0;
@@ -80,7 +80,7 @@ div.detail {
 #chrome_plugin {
   font-size: 36px;
   float: right;
-  margin: 40px 30px 0 0;
+  margin: 40px 0 0 0;
 }
 div.get_the_button_div {
   width: 225px;
@@ -140,22 +140,27 @@ div.plugin_banner {
 .fleft { 
   float: left;
 }
+#thats {
+  margin-right: -30px;
+}
 .thats-panel {
   float: left;
   max-width: 50%;
   min-width: 350px;
 }
-.thats-panel h1 {
+h1 {
   font-size: 18px;
   font-weight: normal;
   background-color: #243365;
   padding: 5px 10px;
   color: #fff;
-  margin: 0 30px 0 0;
   border-top: 1px solid #bbf;
   border-left: 1px solid #bbf;
   border-bottom: 1px solid #000;
   border-right: 1px solid #000;
+}
+.thats-panel h1 {
+  margin: 0 30px 0 0;
 }
 .thats-panel h2 {
   text-decoration: none;
@@ -209,4 +214,7 @@ div.plugin_banner {
 #content_div {
   clear: both;
   min-height: 20px;
+}
+.justify {
+  text-align: justify;
 }
