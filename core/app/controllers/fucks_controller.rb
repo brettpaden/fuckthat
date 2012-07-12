@@ -412,6 +412,7 @@ class FucksController < ApplicationController
       fb_obj = rg && extract_fb_info(rg, me, params[:url])
       # Extract info as necessary
       link, title, caption, desc, picture = extract_that_info(fb_obj, params)
+      picture ||= request.protocol + request.host_with_port + '/b48.png' # If nothing else, use our own logo
 
       # Clean up facebook links
       link = sanitize_link(link)
