@@ -8,17 +8,20 @@ Port.onMessage.addListener(function(msg) {
       if (msg.access_token) {
 	Bum = new Bummer();
 	Bum.access_token = msg.access_token;
+	console.log("Setting access token to " + msg.access_token);
 	facebook_init_complete();
       }
       else if (!window.location.href.match('www.facebook.com/dialog') && !window.location.href.match('www.facebook.com/login')) {
+	console.log("No access token, showing auth window");
 	do_fb_auth();
       }
     }
     if (msg.type == 'uid_response') {
       // maybe assign a global var here.
+      console.log("FBUID is " + msg.id);
     }
     if (msg.type == 'failure') {
-      alert('failure: ' + msg.reason);
+      console.log('failure: ' + msg.reason);
     } 
   }
 });
@@ -45,11 +48,13 @@ _gaq.push(['_trackPageview']);
 })();
     
 function bummer_init() {
+  console.log("Asking background for access token");
   Port.postMessage({ type: 'access_token_request' });
 }
 
 function facebook_init_complete() {
     var data = { 'access_token': Bum.access_token };
+    console.log("Facebook init is complete; authenticating");
     $.post(Bummer_Api_Server + '/api/fuckers/fb_authenticate', data, authentication_init_complete);
 }
 
@@ -57,9 +62,11 @@ function authentication_init_complete(response) {
     Bum.instance_id = response.instance_id;
     Bum.csrf_token = response.csrf_token;
     Bum.init = true;
+    console.log("Authenticated; instance_id: " + Bum.instance_id + " csrf_token: " + Bum.csrf_token);
     if (Reauth_El) {
         el = Reauth_El;
         Reauth_El = null;
+	console.log("Since this is a re-auth, we need to bum something");
         bum_it(el);
     } else {
         Bum.find_links();
@@ -79,14 +86,18 @@ function Bummer(data) {
     this.links = {};
     this.link_data = {};
     this.bummed = function(id) {
+	console.log("Checking to see if has been bummed: " + id);
 	if (this.links[id] && this.links[id]['reference']) {
+	    console.log("Since this is a reference link, we are going to return the value for this url instead: " + this.links[id]['true_url'] + " which is " +  this.bums[this.links[id]['true_url']]);
 	    return this.bums[this.links[id]['true_url']];
 	}
 	else {
+	    console.log("Returning " + this.bums[id]);
 	    return this.bums[id];
 	}
     };
     this.addBum = function(id) {
+	console.log("Setting as bummed: " + id);
 	this.bums[id] = true;
     };
     this.find_links = function() {
@@ -112,6 +123,7 @@ function Bummer(data) {
 		    window.location.href.match('facebook.com/permalink') ? 
 			el_obj.parent().parent().parent().parent() : 
 			el_obj.parent();
+
 		data_as_json.body = 
 		    parent.find('.messageBody').first().html() || 
 		    parent.find('.uiStreamMessage').first().html();
@@ -128,21 +140,29 @@ function Bummer(data) {
 			data_as_json.attachments.push($(ael).attr('ajaxify'));
 		    }
 		});
+		var cleanse_items = new Array('comment_id','offset','total_comments');
 		data_as_json.url = 
 		    sanitize_link(
-			el_obj.find('span.uiStreamSource a').first().attr('href') || 
-			el_obj.find('a.uiLinkSubtle').first().attr('href')
+			(
+			    el_obj.find('span.uiStreamSource a').first().attr('href') || 
+			    el_obj.find('a.uiLinkSubtle').first().attr('href')
+			),
+			cleanse_items
 		    );
 		if (data_as_json.url && data_as_json.url.match(/^\//)) {
 		    data_as_json.url = 'http://www.facebook.com' + data_as_json.url;
+		}
+		if (window.location.href.match('facebook.com/permalink')) {
+		    data_as_json.url = sanitize_link(window.location.href, cleanse_items);
 		}
 		if (!el_obj.attr('has_been_bummed')) {
 		    if (data_as_json.url) {
 			if (data_as_json.link) {
 			    new_links[data_as_json.link] = true;
+			    console.log('adding a new link - ' + data_as_json.link + ' true url is ' + sanitize_link(data_as_json.url, cleanse_items));
 			    bum.links[data_as_json.link] = {
 				reference: true,
-				true_url: data_as_json.url
+				true_url: sanitize_link(data_as_json.url, cleanse_items)
 			    }
 			}
 			new_links[data_as_json.url] = true;
@@ -208,7 +228,7 @@ function Bummer(data) {
 		    bum.mark_links(data);
 		},
 		error: function(data) {
-		    log('Unable to fetch bums: ' + data.responseText);
+		    console.log('Unable to fetch bums: ' + data.responseText);
 		},
 	    });
 	}
@@ -246,15 +266,18 @@ function Bummer(data) {
 }
 
 function bummed_text(url) {
-    console.log("Getting text for " + url);
-    console.log((Bum.links[url]['data'] && Bum.links[url]['data']['link'] && !Bum.links[url]['data']['comment_id']) ?
-	Bum.links[url]['data']['link'] :
-	url
-    );
-    var link = (Bum.links[url]['data'] && Bum.links[url]['data']['link'] && !Bum.links[url]['data']['comment_id']) ? 
-	Bum.link_data[Bum.links[url]['data']['link']] : 
-	Bum.link_data[url];
+    var url_link = Bum.link_data[url];
+    var link;
+    if (
+	Bum.links[url] && 
+	Bum.links[url]['data'] && 
+	Bum.links[url]['data']['link'] && 
+	!Bum.links[url]['data']['comment_id']
+    ) { 
+	link = Bum.link_data[Bum.links[url]['data']['link']];
+    }
     var count = link && link.that && link.that.fuck_count ? link.that.fuck_count : 0;
+    count += url_link && url_link.that && url_link.that.fuck_count ? url_link.that.fuck_count : 0;
     var bummed = Bum.bummed(url);
     if (bummed) {
 	count--;
@@ -334,6 +357,7 @@ function bum_it(el) {
 	error: function(req, stat, err) {
 	    if (req.responseText == "No current fucker" && !Reauth_El) {
 		// Re-attempt authentication
+		// it is fragile to rely on the responseText..we should rely on the response code.
 		Reauth_El = el;
 		do_fb_auth();
 	    } else {
@@ -342,8 +366,8 @@ function bum_it(el) {
 	    }
 	},  
 	success: function(data, stat, req) {
-	    // success!
-       _gaq.push(['_trackPageview', '/chrome-ext-bum?ii=' + Bum.instance_id]);
+	      // success!
+	      _gaq.push(['_trackPageview', '/chrome-ext-bum?ii=' + Bum.instance_id]);
 	}
     });
     $('.bummer_' + id).each(function(i, el) {
@@ -357,6 +381,7 @@ function bum_it(el) {
 	$(el).html(bummed_text(data.url));
 	$(el).attr('bummed', 1);
     });
+    console.log("Bummed " + params['url'] + " (" + params['link'] + ")");
 }
 
 function rinse(html) {
@@ -364,7 +389,7 @@ function rinse(html) {
     return html.replace(/<.*?>/g, '');
 }
 
-function sanitize_link(link) {
+function sanitize_link(link, skip_params) {
     if (!link) { return; }
     var parts = link.split('?');
     if (!parts[1]) { return link; }
@@ -372,11 +397,15 @@ function sanitize_link(link) {
     var pairs = new Array();
     for(var x=0; x<keyvals.length; x++) {
 	var pair = keyvals[x].split('=');
-	if (
-	    pair[0] == 'comment_id' || 
-	    pair[0] == 'offset' ||
-	    pair[0] == 'total_comments'
-	) { continue; }
+	if (skip_params) {
+	    var skip_it = false;
+	    for(var y=0; y<skip_params.length; y++) {
+		if (pair[0] == skip_params[y]) {
+		    skip_it = true;
+		}
+	    }
+	    if (skip_it) { continue; }
+	}
 	pairs.push(pair[0] + '=' + pair[1]);
     }
     return parts[0] + '?' + pairs.sort().join('&');
