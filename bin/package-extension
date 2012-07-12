@@ -114,11 +114,17 @@ $manifest->{update_url} = "http://$BummerWebServer/$ManifestUpdateFile";
 $manifest->{version} = $Version;
 save_as_json($manifest, $ManifestFile);
 
+# determine the google analytics code to use
+my $google_analytics_codes = get_json_from_file("$RootDir/etc/google-analtics-accounts.json");
+my $google_analytics_code = $google_analytics_codes->{$Environment};
+$google_analytics_code ||= $google_analytics_codes->{dev};
+
 # Fix the constants file; ideally this would be a json file but there are cross
 # domain issues trrying to load with extensions.  We should fix this for cleaner
 # builds
 `perl -pi -e 's/__BUMMER_API_SERVER__/$BummerWebServer/' $CRXBuildDir/constants.js`;
 `perl -pi -e 's/__BUMMER_WEB_SERVER__/$BummerWebServer/' $CRXBuildDir/constants.js`;
+`perl -pi -e 's/__GA_CODE__/$google_analytics_code/' $CRXBuildDir/constants.js`;
 die "Could not update the extension constants file" if $?;
 
 # build the actually extension; this involves generating a public key doing some hashing
