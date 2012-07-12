@@ -118,7 +118,7 @@ function Bummer(data) {
 	    }
 	    if (id) {
 		var parent = 
-		    el_obj.find('input[name=timeline_log_data]').attr('value') ? 
+		    el_obj.find('input[name=timeline_log_data]').first().attr('value') ? 
 		    el_obj.parent().parent() : 
 		    window.location.href.match('facebook.com/permalink') ? 
 			el_obj.parent().parent().parent().parent() : 
@@ -128,7 +128,8 @@ function Bummer(data) {
 		    parent.find('.messageBody').first().html() || 
 		    parent.find('.uiStreamMessage').first().html();
 		data_as_json.author = 
-		    parent.find('.actorDescription a').first().html();
+		    parent.find('.actorDescription a').first().html() ||
+		    parent.find('a.passiveName').first().html();
 		data_as_json.link = 
 		    sanitize_link(
 			parent.find('.shareMediaLink').first().attr('href') || 
@@ -145,7 +146,8 @@ function Bummer(data) {
 		    sanitize_link(
 			(
 			    el_obj.find('span.uiStreamSource a').first().attr('href') || 
-			    el_obj.find('a.uiLinkSubtle').first().attr('href')
+			    el_obj.find('a.uiLinkSubtle').first().attr('href') ||
+			    parent.find('.timelineTimestamp a.uiLinkSubtle').first().attr('href') 
 			),
 			cleanse_items
 		    );
