@@ -141,9 +141,15 @@ class ThatsController < ApplicationController
     info[:fucks].each do |fuck|
       info[:thats] << fuck.that unless info[:thats].find {|t| t.id == fuck.that_id}
     end
-    
+
     # Get very last event by id
     if events = Event.order('id DESC').limit(1) then info[:events] = events end
+
+	# Fix some fucking bass-ackward encoding somewhere.  The strings are properly encoded but the
+	# encoding byte are wrong
+	info[:thats].each do |that|
+	    that.title.force_encoding("utf-8")
+	end
 
     respond_to do |format|
       format.json { render json: info }

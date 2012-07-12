@@ -1,7 +1,7 @@
 {
     "version": "0.0.0.0",
     "name": "Bummer",
-    "description": "Need description from Steve to go here",
+    "description": "Everywhere you can 'Like' something on Facebook, you can also one-click to let everyone know you are 'Bummed'.",
     "default_locale": "en",
     "content_scripts": [ 
 	{

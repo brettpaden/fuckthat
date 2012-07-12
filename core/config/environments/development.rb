@@ -34,4 +34,8 @@ Core::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Log everything
+  config.log_level = :debug
+
 end
