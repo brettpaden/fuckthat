@@ -77,9 +77,10 @@ div.detail {
   font-style: italic;
   text-align: center;
 }
-#chrome_plugin {
+#chrome_plugin, #plugin_banner {
   font-size: 36px;
   float: right;
+  max-width: 300px;
   margin: 40px 0 0 0;
 }
 div.get_the_button_div {
@@ -101,7 +102,7 @@ div.panelContainer {
 div.button_content {
   padding: 10px;
 }
-div.plugin_banner {
+#plugin_banner {
   font-size: 16px;
   color: red;
 }
@@ -217,4 +218,26 @@ h1 {
 }
 .justify {
   text-align: justify;
+}
+#download-arrow { 
+  position: absolute;
+  bottom: 2000px;
+  left: 315px;
+  z-index: 1000;
+  padding: 20px;
+  background-color: #ff9;
+  border-radius: 20px;
+  border: 5px solid #243365;
+  box-shadow: rgba(0, 0, 0, 0.75) 0px 10px 50px;
+  font-size: 20px;
+}
+#download-arrow p {
+  vertical-align: middle;
+}
+
+#download-arrow img { 
+  margin-right: 20px;
+  float: left;
+  width: 121px;
+  height: 122px;
 }

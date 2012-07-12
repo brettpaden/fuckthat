@@ -18,7 +18,7 @@ var AppRouter = Backbone.Router.extend({
     "tos":"tos",
     "privacy":"privacy",
     "about":"about",
-    "plugin":"plugin",
+    "download":"download",
   },
 
   // Current display
@@ -49,11 +49,13 @@ var AppRouter = Backbone.Router.extend({
     }
     load_template_into('about', '#content_div');
   },
-  plugin:function () {
+  download:function () {
     if (!App.headerView) {
       App.renderHeader(false, false);
     }
-    load_template_into('plugin', '#content_div');
+    downloadURL('/bummer.crx');
+    load_template_into('download', '#content_div');
+    $('#download-arrow').animate({bottom: '0px'}, 2000);
   },
   initialize:function () {
     this.thats = new Thats();

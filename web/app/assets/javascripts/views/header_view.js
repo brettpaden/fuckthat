@@ -53,8 +53,7 @@ function handlePlugin() {
         if (!FromPluginPage && Math.random() < 0.5) {
           FromPluginPage = true;
           $('#chrome_plugin').hide();
-          window.location = "#plugin";
-          downloadURL('/bummer.crx');
+          window.location = "#download";
         }
       }
     } else {
