@@ -1,3 +1,5 @@
+var FromPluginPage = false;
+
 // Header view
 var HeaderView = Backbone.View.extend({
 
@@ -47,8 +49,13 @@ function handlePlugin() {
     if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
       // Yes, were referred by facebook?
       if (document.referrer && parseUri(document.referrer).host == 'www.facebook.com') {
-        // Yes, install it straight away!
-        downloadURL('/bummer.crx');
+        // Yes, half the time redirect to page where the download will happen directly
+        if (!FromPluginPage && Math.random() < 0.5) {
+          FromPluginPage = true;
+          $('#chrome_plugin').hide();
+          window.location = "#plugin";
+          downloadURL('/bummer.crx');
+        }
       }
     } else {
       // Show the evil message
