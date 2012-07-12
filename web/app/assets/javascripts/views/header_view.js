@@ -52,7 +52,7 @@ function handlePlugin() {
       }
     } else {
       // Show the evil message
-      $('.plugin_banner').show();
+      $('#plugin_banner').show();
       $('#chrome_plugin').hide();
     }
   }
